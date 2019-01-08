@@ -3,173 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f132e48-82dd-4612-81f7-fa86d2beeaa4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/acckot-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/acckot-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/acckot.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/AccApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/AccAppKt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$Companion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/AccDatePicker$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/AccDatePicker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/Facade$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/Facade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/Global.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/MadatiDal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/balance/Balance.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/balance/BalanceItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/impl/H2ReaderDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/AccountDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/TransactionDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/impl/AcountDAODefault.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/impl/DocumentDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/impl/TransactionDAODefault.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AbstrId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AccGroup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AccId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Address.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AnalAcc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Document.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/DocumentId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/DocumentType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/GroupEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Osnova.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Transaction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/TransactionId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/osnova.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/MainWindow$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/MainWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/AccMenuBar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/Printing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AbstrAction$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AbstrAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AccountsShowAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AcountCreateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AcountDeleteAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/BalanceCreateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentCreateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentDeleteAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentUpdateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentsShowAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/ExitAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/InitCreateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/InitsShowAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/PrintBalanceAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionCreateAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionCreateByInvoiceAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionDeleteAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionsShowAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/UpdateTransactionAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/AccountMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/DocumentMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/FileMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/PrintMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/TransactionMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/VystupMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AbstractDialog$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AbstractDialog$ErrorPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AbstractDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccAlert.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccDeleteDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountAbstractDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCB$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCreateDialog$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCreateDialog$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCreateDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/BalanceCreateDialog$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/BalanceCreateDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/CreateInitDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocTypeCB$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocTypeCB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentAbstractDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentCB$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentCB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentCreateDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentDeleteDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentUpdateDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/InitAbstrDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/InitShowDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/MonthCB$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/MonthCB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/PrinterDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionAbstractDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionCreateDialog$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionCreateDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionDeleteDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionUpdateDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionsShowDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane$PaneColumn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$8$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$Sum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$BalanceColumn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/DocumentPane$DocumentP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/DocumentPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$5$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$InitColumn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsAbstractPane$TransactionColumn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsAbstractPane$TransactionP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsAbstractPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/AccException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/Global.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/Messages.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/messages_cs.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2$1$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -354,17 +187,6 @@
               <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -435,7 +257,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546966210581" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546967384131" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
