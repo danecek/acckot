@@ -2,118 +2,174 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f132e48-82dd-4612-81f7-fa86d2beeaa4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/acckot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_json_javax_json_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__no_tornado_tornadofx_1_7_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_reflect_1_2_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_2_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_2_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_2_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_2_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/acckot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/acc/util/AccException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/acc/util/Global.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/acc/util/Messages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/AccApp.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/AccDatePicker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/Global.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/MadatiDal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/impl/H2ReaderDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/AcountDAODefault.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/DocumentDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/TransactionDAODefault.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AccGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AccId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AnalAcc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Document.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocumentId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocumentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/GroupEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/AccMenuBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/Printing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AbstrAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AccountsShowAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AcountCreateAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AcountDeleteAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/BalanceCreateAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/DocumentCreateAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/DocumentDeleteAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/DocumentUpdateAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/DocumentsShowAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/ExitAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/InitCreateAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/InitsShowAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/PrintBalanceAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/TransactionCreateAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/TransactionCreateByInvoiceAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/TransactionDeleteAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/TransactionsShowAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/UpdateTransactionAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/AccountMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/DocumentMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/FileMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/PrintMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/TransactionMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/VystupMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AbstractDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccAlert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccDeleteDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountAbstractDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/BalanceCreateDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/CreateInitDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocTypeCB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentAbstractDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentCB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentCreateDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDeleteDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentUpdateDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/InitAbstrDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/InitShowDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/MonthCB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/PrinterDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionAbstractDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionCreateDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDeleteDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionUpdateDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/AbstrPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/AccountTurnoverPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/AccountsPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/BalancePane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/DocumentPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/InitsPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/TransactionsAbstractPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/view/TransactionsPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/views/MainView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/acc/model/osnova.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/acc/richclient/css.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/acc/util/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/acc/util/messages_cs.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/acckot-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/acckot-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/acckot.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/AccApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/AccAppKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles$Companion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/Styles.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/AccDatePicker$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/AccDatePicker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/Facade$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/Facade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/Global.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/MadatiDal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/balance/Balance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/business/balance/BalanceItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/impl/H2ReaderDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/AccountDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/TransactionDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/impl/AcountDAODefault.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/impl/DocumentDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/integration/impl/TransactionDAODefault.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AbstrId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AccGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AccId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Address.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/AnalAcc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Document.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/DocumentId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/DocumentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/GroupEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Osnova.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/TransactionId.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/model/osnova.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/MainWindow$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/MainWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/AccMenuBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/Printing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AbstrAction$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AbstrAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AccountsShowAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AcountCreateAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/AcountDeleteAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/BalanceCreateAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentCreateAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentDeleteAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentUpdateAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/DocumentsShowAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/ExitAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/InitCreateAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/InitsShowAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/PrintBalanceAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionCreateAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionCreateByInvoiceAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionDeleteAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/TransactionsShowAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/actions/UpdateTransactionAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/AccountMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/DocumentMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/FileMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/PrintMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/TransactionMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/controller/menus/VystupMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AbstractDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AbstractDialog$ErrorPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AbstractDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccAlert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccDeleteDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountAbstractDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCB$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCreateDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCreateDialog$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/AccountCreateDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/BalanceCreateDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/BalanceCreateDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/CreateInitDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocTypeCB$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocTypeCB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentAbstractDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentCB$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentCB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentCreateDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentDeleteDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/DocumentUpdateDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/InitAbstrDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/InitShowDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/MonthCB$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/MonthCB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/PrinterDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionAbstractDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionCreateDialog$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionCreateDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionDeleteDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionUpdateDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/dialogs/TransactionsShowDialog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane$PaneColumn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AbstrPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$8$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane$Sum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountTurnoverPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/AccountsPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane$BalanceColumn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/BalancePane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/DocumentPane$DocumentP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/DocumentPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$5$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane$InitColumn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/InitsPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsAbstractPane$TransactionColumn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsAbstractPane$TransactionP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsAbstractPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/richclient/view/TransactionsPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/AccException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/Global.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/Messages.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/util/messages_cs.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2$1$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView$root$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/acc/views/MainView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -172,8 +228,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+            <state relative-caret-position="337">
+              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -379,7 +435,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546965088933" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546966210581" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -731,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+        <state relative-caret-position="337">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
         </state>
       </provider>
     </entry>
