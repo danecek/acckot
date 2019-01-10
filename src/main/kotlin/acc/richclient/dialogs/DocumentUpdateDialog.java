@@ -19,7 +19,7 @@ public class DocumentUpdateDialog extends DocumentAbstractDialog {
 
     @Override
     public void ok() throws AccException {
-        Facade.instance.updateDocument(
+        Facade.INSTANCE.updateDocument(
                 d.getId(),
                 docTypeCB.getValue(),
                 nameTF.getText(),

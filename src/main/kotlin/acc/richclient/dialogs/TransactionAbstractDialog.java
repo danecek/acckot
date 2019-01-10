@@ -43,7 +43,7 @@ public abstract class TransactionAbstractDialog extends AbstractDialog {
    ///     datePicker.setValue(LocalDate.now());
         ObservableList<AnalAcc> accounts;
         try {
-            accounts = FXCollections.observableArrayList(Facade.instance.getAllAccounts());
+            accounts = FXCollections.observableArrayList(Facade.INSTANCE.getAllAccounts());
             madatiCB.getItems().addAll(accounts);
             dalCB.getItems().addAll(accounts);
         } catch (AccException ex) {
@@ -51,7 +51,7 @@ public abstract class TransactionAbstractDialog extends AbstractDialog {
         }
         List<Document> documents;
         try {
-            documents = Facade.instance.getAllDocuments();
+            documents = Facade.INSTANCE.getAllDocuments();
             bindingDocumentCB.setItems(FXCollections.observableArrayList(documents));
             documentCB.setItems(FXCollections.observableArrayList(documents));
         } catch (AccException ex) {

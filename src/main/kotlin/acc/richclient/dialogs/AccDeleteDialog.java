@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+import static acc.model.Osnova.*;
+
 public class AccDeleteDialog extends AccountAbstractDialog {
 
     private AnalAcc acc;
@@ -43,15 +45,15 @@ public class AccDeleteDialog extends AccountAbstractDialog {
 
     @Override
     public void ok() throws AccException {
-        Optional<AccGroup> ag = Osnova.instance.getGroup(agTF.getText());
-        Facade.instance.deleteAccount(acc.getId());
+    //    Optional<AccGroup> ag = Osnova.getGroup(agTF.getText());
+        Facade.INSTANCE.deleteAccount(acc.getId());
         MainWindow.getInstance().getAccountPane().ifPresent((ap) -> ap.refresh());
     }
 
     @Override
     public void validate() {
         try {
-            boolean accUsed = Facade.instance.getAllTransactions().stream()
+            boolean accUsed = Facade.INSTANCE.getAllTransactions().stream()
                     .anyMatch((t) -> t.getMaDati().equals(acc) || t.getDal().equals(acc));
             errorPane.setError(Optional.ofNullable(accUsed ? Messages.Ucet_je_pouzit.cm() : null));
         } catch (AccException ex) {

@@ -27,7 +27,7 @@ public class DocumentDeleteDialog extends DocumentAbstractDialog {
 
     @Override
     public void ok() throws AccException {
-        Facade.instance.deleteDocument(d.getId());
+        Facade.INSTANCE.deleteDocument(d.getId());
         MainWindow.instance.refreshDocumentPanes();
     }
 

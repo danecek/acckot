@@ -33,7 +33,7 @@ public class TransactionDeleteDialog extends TransactionAbstractDialog {
     @Override
     public void ok() throws AccException {
         try {
-            Facade.instance.deleteTransaction(id);
+            Facade.INSTANCE.deleteTransaction(id);
             MainWindow.getInstance().refreshTransactionPanes();
         } catch (AccException ex) {
             MainWindow.getInstance().showException(ex);

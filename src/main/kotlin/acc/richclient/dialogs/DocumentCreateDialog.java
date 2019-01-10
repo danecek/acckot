@@ -14,7 +14,7 @@ public class DocumentCreateDialog extends DocumentAbstractDialog {
 
     @Override
     public void ok() throws AccException {
-        Facade.instance.createDocument(
+        Facade.INSTANCE.createDocument(
                 docTypeCB.getValue(),
                 nameTF.getText(),
                 date.getValue(),

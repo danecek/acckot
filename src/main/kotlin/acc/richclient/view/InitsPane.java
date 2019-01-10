@@ -46,7 +46,7 @@ public final class InitsPane extends AbstrPane {
         super(Messages.Pocatecni_stavy.cm());
         this.acc = acc;
         setContent((tableView = createContent()));
-        transactions.setAll(Facade.instance.getInits(acc));
+        transactions.setAll(Facade.INSTANCE.getInits(acc));
     }
     
     public Optional<Transaction> getSelected() {
@@ -124,7 +124,7 @@ public final class InitsPane extends AbstrPane {
     @Override
     public void refresh() {
         try {
-            transactions.setAll(Facade.instance.getInits(acc));
+            transactions.setAll(Facade.INSTANCE.getInits(acc));
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }

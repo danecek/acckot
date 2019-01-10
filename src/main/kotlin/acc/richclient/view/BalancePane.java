@@ -2,6 +2,7 @@ package acc.richclient.view;
 
 import acc.business.Facade;
 import acc.business.balance.BalanceItem;
+import acc.model.AbstrGroup;
 import acc.model.AccGroup;
 import acc.model.AnalAcc;
 import acc.richclient.MainWindow;
@@ -45,7 +46,7 @@ public final class BalancePane extends AbstrPane<BalanceItem> {
     @Override
     public void refresh() {
         try {
-            balanceItems.setAll(Facade.instance.createBalance(month));
+            balanceItems.setAll(Facade.INSTANCE.createBalance(month));
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }
@@ -105,7 +106,7 @@ public final class BalancePane extends AbstrPane<BalanceItem> {
                         }
                         setText(item);
                         BalanceItem value = getTableView().getItems().get(getIndex());
-                        value.getGroup().ifPresent((AccGroup gr) -> {
+                        value.getGroup().ifPresent((AbstrGroup gr) -> {
                             TableRow tr = getTableRow();
                             switch (gr.getGroupType()) {
                                 case ANAL:
@@ -122,12 +123,9 @@ public final class BalancePane extends AbstrPane<BalanceItem> {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<BalanceItem, String> param) {
                 String a = "";
-                Optional<AccGroup> g = param.getValue().getGroup();
+                Optional<AbstrGroup> g = param.getValue().getGroup();
                 if (g.isPresent()) {
-                    AccGroup group = g.get();
-                    if (group instanceof AnalAcc) {
-                        a = ((AnalAcc) group).getAnal();
-                    }
+                    AbstrGroup group = g.get();
                 }
                 return new SimpleStringProperty(a);
             }

@@ -61,7 +61,7 @@ public class DocumentPane extends AbstrPane<DocumentP> {
     public void refresh() {
         try {
             documents.setAll(
-                    Facade.instance.getAllDocuments().stream()
+                    Facade.INSTANCE.getAllDocuments().stream()
                             .map(d -> new DocumentP(d))
                             .collect(Collectors.toList()));
         } catch (AccException ex) {

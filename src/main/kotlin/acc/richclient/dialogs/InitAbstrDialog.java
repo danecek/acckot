@@ -50,7 +50,7 @@ public abstract class InitAbstrDialog extends AbstractDialog {
         dal.setUserData(MadatiDal.DAL);
         group.getToggles().addAll(madati, dal);
         try {
-            accountCB.getItems().setAll(Facade.instance.getBalanceAccounts());
+            accountCB.getItems().setAll(Facade.INSTANCE.getBalanceAccounts());
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }
@@ -80,7 +80,7 @@ public abstract class InitAbstrDialog extends AbstractDialog {
     @Override
     public void ok() {
         try {
-            Facade.instance.createInit(Long.parseLong(amountTF.getText()),
+            Facade.INSTANCE.createInit(Long.parseLong(amountTF.getText()),
                     accountCB.getValue(), (MadatiDal) group.getSelectedToggle().getUserData());
             //     MainWindow.getInstance().refreshTransactionPanes();
         } catch (AccException ex) {

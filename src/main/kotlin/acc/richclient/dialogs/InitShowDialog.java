@@ -25,7 +25,7 @@ public class InitShowDialog extends AbstractDialog {
         gp.add(new Label(Messages.pro_ucet.cm() + DEL), 0, row);
         gp.add(accCB = new AccountCB(), 1, row);
         try {
-            accCB.getItems().addAll(Facade.instance.getBalanceAccounts());
+            accCB.getItems().addAll(Facade.INSTANCE.getBalanceAccounts());
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }

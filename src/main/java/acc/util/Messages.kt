@@ -1,12 +1,12 @@
-package acc.util;
+package acc.util
 
-import java.text.MessageFormat;
-import java.util.Locale;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-import java.util.logging.Logger;
+import java.text.MessageFormat
+import java.util.Locale
+import java.util.MissingResourceException
+import java.util.ResourceBundle
+import java.util.logging.Logger
 
-public enum Messages {
+enum class Messages {
     File,
     Vytvor_ucet, Ucty, Zrus_ucet, Cislo, Nazev,
     Jmeno, Chyba, Skupina, Id, Transakce, Datum, Castka, Dal, Poznamka,
@@ -23,21 +23,24 @@ public enum Messages {
     Pocatecni, Konecna, Tiskarny, Margins, Rozvaha_pro_mesic,
     Ucet_je_pouzit, Souvztaznost, Doklad, Popis_dokladu, Ma_dati_celkem,
     Konecny_stav, Dal_celkem, Parovy_doklad, Doklady,
-    Popis, 
+    Popis,
     Zobraz_doklady, Vytvor_doklad, Zrus_doklad, Zmen_doklady, Zmen_doklad,
     Vytvor_fakturu, Zmen_fakturu, Zrus_fakturu, Datum_splatnosti,
     Typ_dokladu, Vypis_z_uctu, Ostatni, Faktura, Souvisejici_doklad, pro_souvisejici_doklad;
 
-    private static final ResourceBundle rb = ResourceBundle.getBundle("acc.util.messages", new Locale("cs"));
-
-    public String cm(Object... args) {
+    fun cm(vararg args: Any): String {
         try {
-            return MessageFormat.format(rb.getString(this.name()), args);
-        } catch (MissingResourceException mre) {
+            return MessageFormat.format(rb.getString(this.name), *args)
+        } catch (mre: MissingResourceException) {
             // LOG.warning(mre.toString());
-            return name().replace("_", " ");
+            return name.replace("_", " ")
         }
+
     }
-    private static final Logger LOG = Logger.getLogger(Messages.class.getName());
+
+    companion object {
+        private val rb = ResourceBundle.getBundle("acc.util.messages", Locale("cs"))
+        private val LOG = Logger.getLogger(Messages::class.java.name)
+    }
 
 }

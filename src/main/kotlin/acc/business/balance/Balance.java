@@ -1,11 +1,12 @@
 package acc.business.balance;
 
 import acc.business.Facade;
-import acc.business.Global;
+import acc.model.AbstrGroup;
 import acc.model.AnalAcc;
-import acc.model.AccGroup;
 import acc.model.Transaction;
 import acc.util.AccException;
+import acc.util.Global;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -18,25 +19,25 @@ public class Balance {
 
     public static final Balance instance = new Balance();
 
-    private Map<AccGroup, BalanceItem> bitems;
+    private Map<AbstrGroup, BalanceItem> bitems;
     private BalanceItem root;
 
     public List<BalanceItem> createBalance(Month month) throws AccException {
         bitems = new TreeMap<>();
         root = new BalanceItem();
-        Facade.instance.getBalanceAccounts()
-                .forEach(((ba) -> insertToTree(Optional.of(ba))));
+        Facade.INSTANCE.getBalanceAccounts()
+                .forEach(ba -> insertToTree(Optional.of(ba)));
         sumTransactions(month);
         root.sum();
         return root.appendItemsTo(new ArrayList<>());
     }
 
-    private BalanceItem insertToTree(Optional<AccGroup> insertedItemGroup) {
+    private BalanceItem insertToTree(Optional<AbstrGroup> insertedItemGroup) {
         if (!insertedItemGroup.isPresent()) {
             return root;
         }
-        AccGroup iGroup = insertedItemGroup.get();
-        BalanceItem parentItem = insertToTree(iGroup.getOptParent());
+        AbstrGroup iGroup = insertedItemGroup.get();
+        BalanceItem parentItem = insertToTree(Optional.ofNullable(iGroup.getParent()));
         Map<String, BalanceItem> siblings = parentItem.getChildren();
         BalanceItem newItem = siblings.get(iGroup.getNumber());
         if (newItem == null) {
@@ -48,7 +49,7 @@ public class Balance {
     }
 
     void add(AnalAcc acc, boolean inMonth, boolean isInit, long amount) {
-        if (!acc.isBalanced()) {
+        if (!acc.getBalanced()) {
             return;
         }
         BalanceItem item = bitems.get(acc);
@@ -78,8 +79,8 @@ public class Balance {
     }
 
     private void sumTransactions(Month month) throws AccException {
-        for (Transaction trans : Facade.instance.getAllTransactions()) {
-            LocalDate begin = LocalDate.of(Global.instance.getYear(), month, 1).minusDays(1);
+        for (Transaction trans : Facade.INSTANCE.getAllTransactions()) {
+            LocalDate begin = LocalDate.of(Global.INSTANCE.getYear(), month, 1).minusDays(1);
             LocalDate end = begin.plusMonths(1);
             boolean isInit = !trans.getDate().isPresent();
             boolean inMonth = !isInit && trans.getDate().get().isAfter(begin)

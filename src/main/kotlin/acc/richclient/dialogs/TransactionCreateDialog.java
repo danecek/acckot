@@ -20,12 +20,12 @@ public class TransactionCreateDialog extends TransactionAbstractDialog {
             case INVOICE: {
                 try {
                     List<AnalAcc> dodavatele
-                            = Facade.instance.getAccountsByClass(Osnova.instance.getTridaZuctovaciVztahy());
+                            = Facade.INSTANCE.getAccountsByClass(Osnova.INSTANCE.getTridaZuctovaciVztahy());
                     madatiCB.getItems().setAll(dodavatele);
                     if (dodavatele.size() == 1) {
                         madatiCB.setValue(dodavatele.get(0));
                     }
-                    List<AnalAcc> acs = Facade.instance.getAccountsByClass(Osnova.instance.getTridaNaklady());
+                    List<AnalAcc> acs = Facade.INSTANCE.getAccountsByClass(Osnova.INSTANCE.getTridaNaklady());
                     dalCB.getItems().setAll(acs);
                     if (acs.size() == 1) {
                         dalCB.setValue(acs.get(0));
@@ -50,7 +50,7 @@ public class TransactionCreateDialog extends TransactionAbstractDialog {
     @Override
     public void ok() {
         try {
-            Facade.instance.createTransaction(
+            Facade.INSTANCE.createTransaction(
 //datePicker.getValue(),
                     Long.parseLong(amountTF.getText()),
                     madatiCB.getValue(), dalCB.getValue(), documentCB.getOptDocument(),

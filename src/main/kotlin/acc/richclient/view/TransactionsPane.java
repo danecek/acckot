@@ -1,7 +1,6 @@
 package acc.richclient.view;
 
 import acc.business.Facade;
-import acc.business.Global;
 import acc.model.Document;
 import acc.model.Transaction;
 import acc.richclient.MainWindow;
@@ -24,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
+import acc.util.Global;
 
 public final class TransactionsPane extends TransactionsAbstractPane {
 
@@ -59,7 +59,7 @@ public final class TransactionsPane extends TransactionsAbstractPane {
             public ObservableValue<LocalDate> call(TableColumn.CellDataFeatures<Transaction, LocalDate> param) {
                 Optional<LocalDate> date = param.getValue().getDate();
                 return new SimpleObjectProperty(date.isPresent() ? date.get()
-                        .format(Global.instance.df()) : "");
+                        .format(Global.INSTANCE.getDf()) : "");
             }
         });
         TransactionColumn madati = new TransactionColumn(Messages.Ma_dati.cm(), madatiNumberCol, madatiNameCol);
@@ -93,7 +93,7 @@ public final class TransactionsPane extends TransactionsAbstractPane {
     @Override
     public void refresh() {
         try {
-            Stream<TransactionP> tp = Facade.instance.getTransactions(optOd,
+            Stream<TransactionP> tp = Facade.INSTANCE.getTransactions(optOd,
                     optDo, Optional.empty(), optDocument, optRelatedDocument).stream()
                     .map(t -> new TransactionP(t));
             transactions.setAll(tp.collect(Collectors.toList()));

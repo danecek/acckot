@@ -5,7 +5,6 @@
  */
 package acc.richclient.view;
 
-import acc.business.Global;
 import acc.model.Document;
 import acc.model.Transaction;
 import acc.richclient.dialogs.AbstractDialog;
@@ -18,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import acc.util.Global;
 
 public abstract class TransactionsAbstractPane extends AbstrPane {
 
@@ -30,27 +30,27 @@ public abstract class TransactionsAbstractPane extends AbstrPane {
         }
 
         public String getMaDatiNumber() {
-            return maDati.getNumber();
+            return getMaDati().getNumber();
         }
 
         public String getMaDatiName() {
-            return maDati.getName();
+            return getMaDati().getName();
         }
 
         public String getDalNumber() {
-            return dal.getNumber();
+            return getDal().getNumber();
         }
 
         public String getDalName() {
-            return dal.getName();
+            return getDal().getName();
         }
 
         public String getDocumentName() {
-            return document.isPresent() ? document.get().getName():"";
+            return getDocument().isPresent() ? getDocument().get().getName():"";
         }
 
         public String getRelatedDocumentName() {
-            return relatedDocument.isPresent() ? relatedDocument.get().getName():"";
+            return getRelatedDocument().isPresent() ? getRelatedDocument().get().getName():"";
         }
     }
 
@@ -59,10 +59,10 @@ public abstract class TransactionsAbstractPane extends AbstrPane {
         String SP = "  ";
         StringBuilder sb = new StringBuilder(Messages.Transakce.cm() + AbstractDialog.DEL);
         if (oD.isPresent()) {
-            sb.append(Messages.Od.cm()).append(AbstractDialog.DEL).append(oD.get().format(Global.instance.df()));
+            sb.append(Messages.Od.cm()).append(AbstractDialog.DEL).append(oD.get().format(Global.INSTANCE.getDf()));
         }
         if (dO.isPresent()) {
-            sb.append(SP).append(Messages.Do.cm()).append(AbstractDialog.DEL).append(dO.get().format(Global.instance.df()));
+            sb.append(SP).append(Messages.Do.cm()).append(AbstractDialog.DEL).append(dO.get().format(Global.INSTANCE.getDf()));
         }
         if (document.isPresent()) {
             sb.append(SP).append(Messages.pro_doklad.cm())

@@ -1,6 +1,5 @@
 package acc.richclient.dialogs;
 
-import acc.business.Global;
 import acc.richclient.MainWindow;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -21,10 +20,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
+import acc.util.Global;
 
 public abstract class AbstractDialog extends Dialog<ButtonType> implements InvalidationListener {
 
-    public static final DateTimeFormatter monthFormater = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).ofPattern("MMMM").withLocale(Global.instance.getLocale());
+    public static final DateTimeFormatter monthFormater =
+            DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).ofPattern("MMMM").withLocale(Global.INSTANCE.getLocale());
 
     protected ComboBox<Month> monthCB() {
         ComboBox<Month> monthCB = new ComboBox<Month>(FXCollections.observableArrayList(Month.values()));

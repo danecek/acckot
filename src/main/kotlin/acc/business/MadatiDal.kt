@@ -3,14 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acc.business;
+package acc.business
 
-/**
- *
- * @author danecek
- */
-public enum MadatiDal {
+enum class MadatiDal {
     MA_DATI,
-    DAL;
-
+    DAL
 }

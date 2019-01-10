@@ -36,7 +36,7 @@ public class TransactionUpdateDialog extends TransactionAbstractDialog {
     @Override
     public void ok() throws AccException {
         try {
-            Facade.instance.updateTransaction(t.getId(),
+            Facade.INSTANCE.updateTransaction(t.getId(),
                     //datePicker.getValue(),
                     Long.parseLong(amountTF.getText()),
                     madatiCB.getValue(), dalCB.getValue(),

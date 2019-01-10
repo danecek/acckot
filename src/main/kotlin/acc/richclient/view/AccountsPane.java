@@ -75,7 +75,7 @@ public final class AccountsPane extends TitledPane {
 
     public void refresh() {
         try {
-            accounts.setAll(Facade.instance.getAllAccounts());
+            accounts.setAll(Facade.INSTANCE.getAllAccounts());
         } catch (AccException ex) {
             MainWindow.getInstance().showException(ex);
         }

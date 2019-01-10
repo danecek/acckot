@@ -41,14 +41,14 @@ public class TransactionsShowDialog extends AbstractDialog {
         row++;
         gp.add(new Label(Messages.Pridruzeny_doklad.cm() + DEL), 0, row);
         try {
-            gp.add(documentCB = new DocumentCB(Facade.instance.getAllDocuments()), 1, row);
+            gp.add(documentCB = new DocumentCB(Facade.INSTANCE.getAllDocuments()), 1, row);
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }
         row++;
         gp.add(new Label(Messages.Souvisejici_doklad.cm() + DEL), 0, row);
         try {
-            gp.add(relatedDocumentCB = new DocumentCB(Facade.instance.getAllDocuments()), 1, row);
+            gp.add(relatedDocumentCB = new DocumentCB(Facade.INSTANCE.getAllDocuments()), 1, row);
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }

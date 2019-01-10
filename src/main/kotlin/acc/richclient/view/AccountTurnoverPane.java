@@ -1,7 +1,6 @@
 package acc.richclient.view;
 
 import acc.business.Facade;
-import acc.business.Global;
 import acc.model.AnalAcc;
 import acc.model.Transaction;
 import acc.richclient.MainWindow;
@@ -27,6 +26,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
+import acc.util.Global;
 
 public final class AccountTurnoverPane extends TransactionsAbstractPane {
 
@@ -100,7 +100,7 @@ public final class AccountTurnoverPane extends TransactionsAbstractPane {
             public ObservableValue<LocalDate> call(TableColumn.CellDataFeatures<Transaction, LocalDate> param) {
                 Optional<LocalDate> date = param.getValue().getDate();
                 return new SimpleObjectProperty(date.isPresent() ? date.get()
-                        .format(Global.instance.df()) : "");
+                        .format(Global.INSTANCE.getDf()) : "");
             }
         });
         madatiCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Transaction, String>, ObservableValue<String>>() {
@@ -167,7 +167,7 @@ public final class AccountTurnoverPane extends TransactionsAbstractPane {
     public void refresh() {
         try {
             sum = new Sum();
-            transactions.setAll(Facade.instance
+            transactions.setAll(Facade.INSTANCE
                     .getTransactions(Optional.empty(), optDo, optAcc, Optional.empty(), Optional.empty()));
             System.out.println(optDo);
             transactions.forEach((t) -> {

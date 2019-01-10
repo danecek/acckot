@@ -30,7 +30,7 @@ public class AccountCreateDialog extends AccountAbstractDialog {
 
     public AccountCreateDialog() throws AccException {
         super(Messages.Vytvor_ucet.cm());
-        accounts = Facade.instance.getAllAccounts();
+        accounts = Facade.INSTANCE.getAllAccounts();
         getDialogPane().setPadding(new Insets(5));
     }
 
@@ -39,7 +39,7 @@ public class AccountCreateDialog extends AccountAbstractDialog {
         GridPane gp = genGP();
         gp.setHgap(5);
         gp.setVgap(5);
-        groups = FXCollections.observableArrayList(Osnova.instance.syntAccounts());
+        groups = FXCollections.observableArrayList(Osnova.INSTANCE.syntAccounts());
         gp.add(new Label(Messages.Skupina.cm() + DEL), 0, 0);
         gp.add(agTF = new TextField(), 1, 0);
         gp.add(skupinaCB = new ComboBox<>(groups), 2, 0);
@@ -55,7 +55,7 @@ public class AccountCreateDialog extends AccountAbstractDialog {
         agTF.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                skupinaCB.getItems().setAll(Osnova.instance.getSubGroups(agTF.getText()));
+                skupinaCB.getItems().setAll(Osnova.INSTANCE.getSubGroups(agTF.getText()));
             }
         });
         gp.add(new Label(Messages.Analytika.cm() + DEL), 0, 1);
@@ -75,8 +75,8 @@ public class AccountCreateDialog extends AccountAbstractDialog {
     @Override
     public void ok() {
         try {
-            Optional<AccGroup> ag = Osnova.instance.getGroup(agTF.getText());
-            Facade.instance.createAccount(ag.get(),
+            Optional<AccGroup> ag = Osnova.INSTANCE.getGroup(agTF.getText());
+            Facade.INSTANCE.createAccount(ag.get(),
                     analTF.getText(),
                     nameTF.getText());
             MainWindow.getInstance().getAccountPane().ifPresent((ap) -> ap.refresh());
@@ -87,7 +87,7 @@ public class AccountCreateDialog extends AccountAbstractDialog {
     }
 
     private Optional<String> error() {
-        Optional<AccGroup> ag = Osnova.instance.getGroup(agTF.getText());
+        Optional<AccGroup> ag = Osnova.INSTANCE.getGroup(agTF.getText());
         if (!ag.isPresent()) {
             return Optional.of(Messages.neplatna_skupina.cm());
         }
