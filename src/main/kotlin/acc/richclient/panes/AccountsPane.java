@@ -1,4 +1,4 @@
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.business.Facade;
 import acc.model.AnalAcc;
@@ -61,9 +61,9 @@ public final class AccountsPane extends TitledPane {
                     @Override
                     public void handle(MouseEvent event) {
                         if (event.getButton() == MouseButton.SECONDARY) {
-                            ContextMenu cm = new ContextMenu(
-                                    AcountDeleteAction.instance.createMenuItem());
-                            cm.show(MainWindow.getInstance().getPrimaryStage());
+//                            ContextMenu cm = new ContextMenu(
+//                                    AcountDeleteAction.instance.createMenuItem());
+//                            cm.show(MainWindow.getInstance().getPrimaryStage());
                         }
                     }
                 });

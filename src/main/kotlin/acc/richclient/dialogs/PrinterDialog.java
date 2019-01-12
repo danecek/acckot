@@ -6,7 +6,7 @@
 package acc.richclient.dialogs;
 
 import acc.richclient.MainWindow;
-import acc.richclient.view.BalancePane;
+import acc.richclient.panes.BalancePane;
 import acc.util.AccException;
 import acc.util.Messages;
 import java.time.Month;

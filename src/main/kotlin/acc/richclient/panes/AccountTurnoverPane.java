@@ -1,11 +1,10 @@
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.business.Facade;
 import acc.model.AnalAcc;
 import acc.model.Transaction;
 import acc.richclient.MainWindow;
-import acc.richclient.controller.actions.TransactionDeleteAction;
-import acc.richclient.controller.actions.UpdateTransactionAction;
+
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -147,12 +146,13 @@ public final class AccountTurnoverPane extends TransactionsAbstractPane {
                     @Override
                     public void handle(MouseEvent event) {
                         if (event.getButton() == MouseButton.SECONDARY) {
-                            ContextMenu cm = new ContextMenu(
-                                    TransactionDeleteAction.instance.createMenuItem());
-                            if (!getSelected().get().isInit()) {
-                                cm.getItems().add(UpdateTransactionAction.instance.createMenuItem());
-                            }
-                            cm.show(MainWindow.getInstance().getPrimaryStage());
+//                            ContextMenu cm = new ContextMenu()
+//                                    cm.getItems().addAll()
+//                                    TransactionDeleteAction.instance.createMenuItem());
+//                            if (!getSelected().get().isInit()) {
+//                                cm.getItems().add(UpdateTransactionAction.instance.createMenuItem());
+//                            }
+//                            cm.show(MainWindow.getInstance().getPrimaryStage());
                         }
                     }
                 });

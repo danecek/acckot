@@ -8,7 +8,7 @@ package acc.richclient.dialogs;
 import acc.business.AccDatePicker;
 import acc.business.Facade;
 import acc.richclient.MainWindow;
-import acc.richclient.view.TransactionsPane;
+import acc.richclient.panes.TransactionsPane;
 import acc.util.AccException;
 import acc.util.Messages;
 import javafx.scene.Node;

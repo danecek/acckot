@@ -1,12 +1,10 @@
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.business.Facade;
 import acc.model.Document;
 import acc.richclient.MainWindow;
 import acc.richclient.controller.actions.DocumentDeleteAction;
-import acc.richclient.controller.actions.DocumentUpdateAction;
-import acc.richclient.controller.actions.TransactionCreateByInvoiceAction;
-import acc.richclient.view.DocumentPane.DocumentP;
+import acc.richclient.panes.DocumentPane.DocumentP;
 import acc.util.AccException;
 import acc.util.Messages;
 import java.util.Optional;
@@ -50,10 +48,10 @@ public class DocumentPane extends AbstrPane<DocumentP> {
         tw.getColumns().addAll(idCol, typeCol, nameCol,
                 accountNumberCol, dateCol, descriptionCol);
         tw.setItems(documents);
-        tw.setRowFactory(gencb(
-                DocumentUpdateAction.instance,
-                DocumentDeleteAction.instance,
-                TransactionCreateByInvoiceAction.instance));
+//        tw.setRowFactory(gencb(
+//                DocumentUpdateAction.instance,
+//                DocumentDeleteAction.instance,
+//                TransactionCreateByInvoiceAction.instance));
         return tw;
     }
 

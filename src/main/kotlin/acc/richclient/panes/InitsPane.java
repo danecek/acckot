@@ -1,10 +1,9 @@
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.business.Facade;
 import acc.model.AnalAcc;
 import acc.model.Transaction;
 import acc.richclient.MainWindow;
-import acc.richclient.controller.actions.TransactionDeleteAction;
 import acc.util.AccException;
 import acc.util.Messages;
 
@@ -102,9 +101,9 @@ public final class InitsPane extends AbstrPane {
                     @Override
                     public void handle(MouseEvent event) {
                         if (event.getButton() == MouseButton.SECONDARY) {
-                            new ContextMenu(
-                                    TransactionDeleteAction.instance.createMenuItem())
-                                    .show(MainWindow.getInstance().getPrimaryStage());
+   //                         new ContextMenu()
+//                                    TransactionDeleteAction.instance.createMenuItem())
+//                                    .show(MainWindow.getInstance().getPrimaryStage());
                         }
                     }
                 });

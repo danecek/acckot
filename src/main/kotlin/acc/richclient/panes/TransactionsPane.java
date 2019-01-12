@@ -1,11 +1,9 @@
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.business.Facade;
 import acc.model.Document;
 import acc.model.Transaction;
 import acc.richclient.MainWindow;
-import acc.richclient.controller.actions.TransactionDeleteAction;
-import acc.richclient.controller.actions.UpdateTransactionAction;
 import acc.util.AccException;
 import acc.util.Messages;
 import java.time.LocalDate;
@@ -74,10 +72,12 @@ public final class TransactionsPane extends TransactionsAbstractPane {
                     public void handle(MouseEvent event) {
                         if (event.getButton() == MouseButton.SECONDARY) {
                             ContextMenu cm = new ContextMenu(
-                                    TransactionDeleteAction.instance.createMenuItem());
+                                  //  TransactionDeleteAction.instance.createMenuItem()
+                            );
                             if (getSelected().get().isInit()) {
                             } else {
-                                cm.getItems().add(UpdateTransactionAction.instance.createMenuItem());
+//                                cm.getItems().add(UpdateTransactionAction.instance.createMenuItem()
+//                                );
                             }
                             cm.show(MainWindow.getInstance().getPrimaryStage());
                         }

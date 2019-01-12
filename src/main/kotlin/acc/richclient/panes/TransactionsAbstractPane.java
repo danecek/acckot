@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.model.Document;
 import acc.model.Transaction;

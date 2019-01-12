@@ -1,10 +1,8 @@
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.business.Facade;
 import acc.business.balance.BalanceItem;
 import acc.model.AbstrGroup;
-import acc.model.AccGroup;
-import acc.model.AnalAcc;
 import acc.richclient.MainWindow;
 import acc.richclient.dialogs.AbstractDialog;
 import acc.util.AccException;

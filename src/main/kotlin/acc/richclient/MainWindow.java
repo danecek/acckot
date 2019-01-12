@@ -1,17 +1,14 @@
 package acc.richclient;
 
-import acc.richclient.view.AccountsPane;
-import acc.richclient.controller.AccMenuBar;
-import acc.richclient.controller.actions.ExitAction;
+import acc.richclient.panes.AccountsPane;
 import acc.richclient.dialogs.AccAlert;
-import acc.richclient.view.AbstrPane;
-import acc.richclient.view.DocumentPane;
-import acc.richclient.view.TransactionsPane;
+import acc.richclient.panes.AbstrPane;
+import acc.richclient.panes.DocumentPane;
+import acc.richclient.panes.TransactionsPane;
 import acc.util.Messages;
 import java.util.Optional;
 import java.util.stream.Stream;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -19,12 +16,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class MainWindow extends Application {
 
     public static MainWindow instance;
-    private AccMenuBar libMenuBar;
     private Stage primaryStage;
     private TabPane tabPane;
 
@@ -109,10 +104,6 @@ public class MainWindow extends Application {
 
     }
 
-    public AccMenuBar getLibMenuBar() {
-        return libMenuBar;
-    }
-
     public static void showException(Exception ex) {
         Alert a = new AccAlert(Alert.AlertType.ERROR, ex.toString());
         a.getDialogPane().setFocusTraversable(true);
@@ -125,27 +116,17 @@ public class MainWindow extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setResizable(true);
         instance = this;
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent t) {
-                ExitAction.instance.execute();
-            }
-        });
         primaryStage.setTitle(Messages.Ucetnictvi.cm());
         tabPane = new TabPane();
-        VBox root = new VBox(libMenuBar = new AccMenuBar(), tabPane);
-       //primaryStage.getWidth()
-        Scene s = new Scene(root,  primaryStage.getMaxWidth(), primaryStage.getMaxHeight());
-        s.getStylesheets().addAll(getClass()
-                .getResource("/acc/richclient/css.css").toExternalForm());
-        primaryStage.setScene(s);
+    //    VBox root = new VBox(libMenuBar = new AccMenuBarBak(), tabPane);
+//       //primaryStage.getWidth()
+//      //  Scene s = new Scene(root,  primaryStage.getMaxWidth(), primaryStage.getMaxHeight());
+//        s.getStylesheets().addAll(getClass()
+//                .getResource("/acc/richclient/css.css").toExternalForm());
+//        primaryStage.setScene(s);
         primaryStage.centerOnScreen();
         primaryStage.show();
     }
 
-    public void addTab(Tab t) {
-        tabPane.getTabs().add(t);
-        tabPane.getSelectionModel().select(t);
-    }
 
 }

@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acc.richclient.view;
+package acc.richclient.panes;
 
 import acc.richclient.MainWindow;
-import acc.richclient.controller.actions.AbstrAction;
+
 import java.util.Arrays;
 import java.util.Optional;
+
+import acc.richclient.controller.actions.AbstrAction;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
@@ -38,6 +40,12 @@ public abstract class AbstrPane<T> extends TitledPane {
 
     public abstract Optional<T> getSelected();
 
+    public  AbstrPane<T> addToMain() {
+
+        return this;
+
+    }
+
     public class PaneColumn extends TableColumn<T, String> {
 
         public PaneColumn(String text, int prefWidth, TableColumn<T, String>... cols) {
@@ -48,8 +56,6 @@ public abstract class AbstrPane<T> extends TitledPane {
 
         public PaneColumn(String text, TableColumn<T, String>... cols) {
             super(text);
-            double sw = MainWindow.getInstance().getPrimaryStage().getWidth();
-            setPrefWidth(text.length() * 20);
             getColumns().addAll(Arrays.asList(cols));
         }
 
@@ -58,12 +64,6 @@ public abstract class AbstrPane<T> extends TitledPane {
     protected abstract Node createContent();
 
     public abstract void refresh();
-
-    public Tab addToMain() {
-        Tab t = new Tab(name, this);
-        MainWindow.getInstance().addTab(t);
-        return t;
-    }
 
     Callback<TableView<T>, TableRow<T>> gencb(AbstrAction... ac) {
         return new Callback<TableView<T>, TableRow<T>>() {
@@ -76,7 +76,7 @@ public abstract class AbstrPane<T> extends TitledPane {
                         if (event.getButton() == MouseButton.SECONDARY) {
                             ContextMenu cm = new ContextMenu();
                             for (AbstrAction a : ac) {
-                                cm.getItems().add(a.createMenuItem());
+                           //     cm.getItems().add(a.createMenuItem());
                             }
                             cm.show(MainWindow.getInstance().getPrimaryStage());
                         }
