@@ -17,7 +17,14 @@ abstract class AbstrAction : (ActionEvent) -> Unit {
 class X() : Fragment() {
 
     override val root = borderpane() {
-        dialog {  }
+        dialog {
+            textfield {
+
+            }
+            hbox {
+
+            }
+        }
     }
 }
 

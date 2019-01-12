@@ -1,19 +1,11 @@
 package acc.views
 
 import acc.richclient.controller.menus.AccMenuBar
+import acc.richclient.panes.MyDialog
 import javafx.application.Platform
+import javafx.stage.StageStyle
 import tornadofx.*
 
-
-object ExitAction : () -> Unit {
-    override fun invoke() {
-        Platform.exit()
-    }
-}
-
-object ShowTransaction : () -> Unit {
-    override fun invoke() = acc.richclient.dialogs.AccountCreateDialog().execute()
-}
 
 
 class MainView : View("Metaccounting") {
@@ -22,22 +14,8 @@ class MainView : View("Metaccounting") {
         top<AccMenuBar>()
         center<PaneTabs>()
         bottom {
-            button("b") {
-                action {
-                    dialog("ddddd", owner = null) {
-                        field ("Name"){
-                            textfield ("napis")
-
-                        }
-                        button ("Close"){
-                            action { stage.close() }
-                        }
-
-                    }
-
-
-                }
-
+            button("Dialog") {
+                action {find<MyDialog>().openModal(StageStyle.DECORATED)}
             }
         }
 
