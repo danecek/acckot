@@ -1,13 +1,13 @@
 package acc.richclient.controller.menus
 
 import acc.richclient.controller.actions.*
+import acc.richclient.dialogs.AccountDialog
+import acc.richclient.dialogs.DialogMode
 import acc.util.Messages
 import javafx.event.EventHandler
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
-import tornadofx.View
-import tornadofx.menu
-import tornadofx.menubar
+import tornadofx.*
 
 
 class AccMenuBar : View() {
@@ -24,9 +24,12 @@ class AccMenuBar : View() {
 
         }
         menu(Messages.Ucty.cm()) {
+//            action {
+//                find<AccountDialog>(AccountDialog::mode to DialogMode.CREATE).openModal()
+//            }
             add(AccountsShowAction)
-            add(AcountCreateAction)
-        //    add(AcountUpdateAction)
+            add(AccountCreateAction)
+            //    add(AcountUpdateAction)
             add(AcountDeleteAction)
         }
 

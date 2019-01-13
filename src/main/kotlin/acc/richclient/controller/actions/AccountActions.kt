@@ -3,10 +3,13 @@ package acc.richclient.controller.actions
 import acc.richclient.MainWindow
 import acc.richclient.dialogs.AccDeleteDialog
 import acc.richclient.dialogs.AccountCreateDialog
+import acc.richclient.dialogs.AccountDialog
+import acc.richclient.dialogs.DialogMode
 import acc.richclient.panes.AccountsPane
 import acc.util.AccException
 import acc.util.Messages
 import acc.richclient.views.PaneTabs
+import tornadofx.*
 
 
 object AccountsShowAction : AbstrAction() {
@@ -19,17 +22,12 @@ object AccountsShowAction : AbstrAction() {
 
 }
 
-object AcountCreateAction : AbstrAction() {
+object AccountCreateAction : AbstrAction() {
 
     override val name = Messages.Vytvor_ucet.cm()
 
     override fun execute() {
-        try {
-            AccountCreateDialog().execute()
-        } catch (ex: AccException) {
-            MainWindow.showException(ex)
-        }
-
+        find(AccountDialog::class, params= mapOf(AccountDialog::mode to DialogMode.CREATE)).openModal()
     }
 
 }
