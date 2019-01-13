@@ -1,9 +1,8 @@
 package acc
 
-import acc.views.MainView
+import acc.richclient.views.MainView
 import javafx.application.Application
 import tornadofx.App
-import tornadofx.Stylesheet.Companion.label
 
 class AccApp: App(MainView::class, Styles::class)
 

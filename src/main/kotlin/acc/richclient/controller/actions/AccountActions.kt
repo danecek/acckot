@@ -6,7 +6,7 @@ import acc.richclient.dialogs.AccountCreateDialog
 import acc.richclient.panes.AccountsPane
 import acc.util.AccException
 import acc.util.Messages
-import acc.views.PaneTabs
+import acc.richclient.views.PaneTabs
 
 
 object AccountsShowAction : AbstrAction() {

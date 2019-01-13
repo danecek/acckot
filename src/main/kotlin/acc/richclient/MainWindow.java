@@ -27,16 +27,16 @@ public class MainWindow extends Application {
         return instance;
     }
 
-    public Stream<Node> getTransactionPanes() {
+/*    public Stream<Node> getTransactionPanes() {
         return tabPane.getTabs().stream()
                 .filter((t) -> t.getText().equals(Messages.Transakce.cm()))
                 .map((t) -> t.getContent());
-    }
+    }*
 
     public void refreshTransactionPanes() {
         getTransactionPanes().forEach((p) -> ((TransactionsPane) p).refresh());
     }
-
+*/
     public Optional<TransactionsPane> getSelectedTransactionPane() {
         Tab i = tabPane.getSelectionModel().getSelectedItem();
         if (i == null || !i.getText().equals(Messages.Transakce.cm())) {

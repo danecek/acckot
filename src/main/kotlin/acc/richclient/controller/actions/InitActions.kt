@@ -19,7 +19,6 @@ object InitCreateAction  : AbstrAction() {
         } catch (ex: AccException) {
             MainWindow.showException(ex)
         }
-
     }
 
 }

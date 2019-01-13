@@ -5,10 +5,9 @@ import acc.richclient.MainWindow;
 import acc.richclient.panes.InitsPane;
 import acc.util.AccException;
 import acc.util.Messages;
-import acc.views.PaneTabs;
+import acc.richclient.views.PaneTabs;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
 import javafx.scene.layout.GridPane;
 
 public class InitShowDialog extends AbstractDialog {

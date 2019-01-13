@@ -5,6 +5,7 @@ import acc.model.AnalAcc;
 import acc.model.Document;
 import acc.model.Osnova;
 import acc.richclient.MainWindow;
+import acc.richclient.views.PaneTabs;
 import acc.util.AccException;
 import acc.util.Messages;
 import java.util.List;
@@ -55,7 +56,7 @@ public class TransactionCreateDialog extends TransactionAbstractDialog {
                     Long.parseLong(amountTF.getText()),
                     madatiCB.getValue(), dalCB.getValue(), documentCB.getOptDocument(),
                     bindingDocumentCB.getOptDocument());
-            MainWindow.getInstance().refreshTransactionPanes();
+            PaneTabs.Companion.refreshTransactionPanes();
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }

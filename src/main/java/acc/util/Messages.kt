@@ -26,7 +26,10 @@ enum class Messages {
     Popis,
     Zobraz_doklady, Vytvor_doklad, Zrus_doklad, Zmen_doklady, Zmen_doklad,
     Vytvor_fakturu, Zmen_fakturu, Zrus_fakturu, Datum_splatnosti,
-    Typ_dokladu, Vypis_z_uctu, Ostatni, Faktura, Souvisejici_doklad, pro_souvisejici_doklad;
+    Typ_dokladu, Vypis_z_uctu, Ostatni, Faktura, Souvisejici_doklad, pro_souvisejici_doklad,
+    Zrus, Potvrd;
+
+
 
     fun cm(vararg args: Any): String {
         try {
