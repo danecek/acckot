@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1f132e48-82dd-4612-81f7-fa86d2beeaa4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +13,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,9 +106,9 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DialogMode.kt" />
         <option value="$PROJECT_DIR$/src/main/java/acc/util/Messages.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialog.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AccountActions.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/AccMenuBar.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" />
       </list>
     </option>
   </component>
@@ -232,86 +243,6 @@
               <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="integration" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="integration" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="impl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="richclient" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="richclient" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="richclient" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="actions" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="richclient" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="controller" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="menus" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="richclient" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="dialogs" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="richclient" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -319,7 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547422744990" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547422843987" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -449,13 +380,28 @@
       <option name="project" value="LOCAL" />
       <updated>1547421837889</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1">
+      <created>1547422710328</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1547422710328</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1">
+      <created>1547422750213</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1547422750213</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="54" width="2736" height="1768" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85" visible="true" weight="0.20394237" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85" visible="true" weight="0.18157695" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -782,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AccountActions.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -820,6 +759,13 @@
           <folding>
             <element signature="e#41#280#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
         </state>
       </provider>
     </entry>
