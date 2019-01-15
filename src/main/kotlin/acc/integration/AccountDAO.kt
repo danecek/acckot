@@ -3,7 +3,7 @@ package acc.integration
 import acc.integration.impl.AcountDAODefault
 import acc.model.AnalAcc
 import acc.model.AccGroup
-import acc.model.AccId
+import acc.model.AnalId
 import acc.util.AccException
 import java.util.Optional
 
@@ -22,7 +22,7 @@ abstract class AccountDAO {
     abstract fun getByNumber(name: String): Optional<AnalAcc>
 
     @Throws(AccException::class)
-    abstract fun delete(id: AccId)
+    abstract fun delete(id: AnalId)
 
     @Throws(AccException::class)
     abstract fun getByGroup(accg: AccGroup): List<AnalAcc>

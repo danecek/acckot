@@ -27,7 +27,7 @@ public class DocumentCB extends ComboBox<Document> {
                 if (document == null) {
                     return null;
                 }
-                return document.getName() + " - " + document.getDescription();
+                return document.getNumber() + " - " + document.getDescription();
             }
 
             @Override

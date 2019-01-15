@@ -1,11 +1,13 @@
 package acc.richclient.controller.actions
 
 import acc.richclient.MainWindow
-import acc.richclient.dialogs.DocumentCreateDialog
-import acc.richclient.dialogs.DocumentDeleteDialog
-import acc.richclient.dialogs.DocumentUpdateDialog
+import acc.richclient.dialogs.AccountDialog
+import acc.richclient.dialogs.DialogMode
+import acc.richclient.dialogs.DocumentDialog
 import acc.richclient.panes.DocumentPane
+import acc.richclient.views.PaneTabs
 import acc.util.Messages
+import tornadofx.*
 
 
 object DocumentsShowAction : AbstrAction() {
@@ -14,7 +16,7 @@ object DocumentsShowAction : AbstrAction() {
         get() = Messages.Zobraz_doklady.cm()
 
     override fun execute() {
-        DocumentPane().addToMain()
+        PaneTabs.addTab(Messages.Doklady.cm(), find<DocumentPane>().root)
     }
 
 }
@@ -24,7 +26,8 @@ object DocumentCreateAction : AbstrAction() {
         get() = Messages.Vytvor_doklad.cm()
 
     override fun execute() {
-        DocumentCreateDialog().execute()
+        find<DocumentDialog>(params = mapOf(
+                AccountDialog::mode to DialogMode.CREATE)).openModal()
     }
 
 }
@@ -34,14 +37,13 @@ object DocumentDeleteAction : AbstrAction() {
         get() = Messages.Zrus_doklad.cm()
 
     override fun execute() {
-        MainWindow.instance.getSelectedTab(Messages.Doklady.cm())
+/*        MainWindow.instance.getSelectedTab(Messages.Doklady.cm())
                 .ifPresent { ap ->
                     (ap as DocumentPane).selected
                             .ifPresent { d -> DocumentDeleteDialog(d).execute() }
-                }
+                }*/
 
     }
-
 
 }
 
@@ -53,7 +55,7 @@ object DocumentUpdateAction : AbstrAction() {
         val oap = MainWindow.instance.getSelectedTab(Messages.Doklady.cm())
         oap.ifPresent { ap ->
             val dp = (ap as DocumentPane).selected
-            dp.ifPresent { d -> DocumentUpdateDialog(d).execute() }
+      //      dp.ifPresent { d -> DocumentUpdateDialog(d).execute() }
         }
     }
 

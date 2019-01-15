@@ -73,7 +73,7 @@ public final class BalancePane extends AbstrPane<BalanceItem> {
         tw = new TableView<>();
         tw.setPrefHeight(2000);
         tw.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
-        BalanceColumn groupCol = new BalanceColumn(Messages.Skupina.cm());
+        BalanceColumn groupCol = new BalanceColumn(Messages.Synteticky_ucet.cm());
         BalanceColumn analCol = new BalanceColumn(Messages.Analytika.cm());
         BalanceColumn nameCol = new BalanceColumn(Messages.Jmeno.cm());
 

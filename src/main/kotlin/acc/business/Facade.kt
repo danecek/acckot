@@ -6,14 +6,7 @@ import acc.integration.AccountDAO
 import acc.integration.TransactionDAO
 import acc.integration.impl.AcountDAODefault
 import acc.integration.impl.DocumentDAO
-import acc.model.AnalAcc
-import acc.model.AccGroup
-import acc.model.AccId
-import acc.model.Document
-import acc.model.DocumentId
-import acc.model.DocumentType
-import acc.model.Transaction
-import acc.model.TransactionId
+import acc.model.*
 import acc.util.AccException
 import java.time.LocalDate
 import java.time.Month
@@ -51,7 +44,7 @@ object Facade {
     }
 
     @Throws(AccException::class)
-    fun deleteAccount(id: AccId) {
+    fun deleteAccount(id: AnalId) {
         AcountDAODefault.delete(id)
     }
 
@@ -125,10 +118,9 @@ object Facade {
         DocumentDAO.instance.create(type, name, date, description)
     }
 
-    fun updateDocument(id: DocumentId, type: DocumentType, name: String,
+    fun updateDocument(id: DocumentId,
                        date: LocalDate, description: String) {
-        DocumentDAO.instance.update(id, type, name, date,
-                description)
+        DocumentDAO.instance.update(id,date, description)
     }
 
     @Throws(AccException::class)

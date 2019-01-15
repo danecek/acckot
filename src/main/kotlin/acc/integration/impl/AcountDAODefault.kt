@@ -1,10 +1,7 @@
 package acc.integration.impl
 
 import acc.integration.AccountDAO
-import acc.model.AnalAcc
-import acc.model.AccGroup
-import acc.model.AccId
-import acc.model.Osnova
+import acc.model.*
 import acc.util.AccException
 
 import java.util.ArrayList
@@ -16,7 +13,7 @@ import kotlin.streams.toList
 
 object AcountDAODefault : AccountDAO() {
 
-    private val accountById = TreeMap<AccId, AnalAcc>()
+    private val accountById = TreeMap<AnalId, AnalAcc>()
     private val accountByName = TreeMap<String, AnalAcc>()
 
     override val all: List<AnalAcc>
@@ -46,13 +43,13 @@ object AcountDAODefault : AccountDAO() {
 
     @Throws(AccException::class)
     override fun create(skupina: AccGroup, no: String, name: String) {
-        val a = AnalAcc(keyC++, skupina, no, name)
+        val a = AnalAcc(skupina, no, name)
         accountById[a.id] = a
         accountByName[a.number] = a
     }
 
     @Throws(AccException::class)
-    override fun delete(id: AccId) {
+    override fun delete(id: AnalId) {
         accountById.remove(id)
     }
 

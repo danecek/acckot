@@ -1,6 +1,5 @@
 package acc.richclient;
 
-import acc.richclient.panes.AccountsPane;
 import acc.richclient.dialogs.AccAlert;
 import acc.richclient.panes.AbstrPane;
 import acc.richclient.panes.DocumentPane;
@@ -9,12 +8,9 @@ import acc.util.Messages;
 import java.util.Optional;
 import java.util.stream.Stream;
 import javafx.application.Application;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainWindow extends Application {
@@ -45,15 +41,17 @@ public class MainWindow extends Application {
         return Optional.of((TransactionsPane) i.getContent());
     }
 
-    public Optional<AccountsPane> getAccountPane() {
+  /*  public Optional<AccountsPane> getAccountPane() {
         return tabPane.getTabs().stream()
                 .filter((t) -> t.getText().equals(Messages.Ucty.cm()))
                 .map((t) -> (AccountsPane) t.getContent()).findFirst();
-    }
+    }*/
 
+/*
     public void refreshAccountPane() {
         getAccountPane().ifPresent((ap) -> (ap).refresh());
     }
+*/
 
     public Stream<Tab> getTabByName(String title) {
         return tabPane.getTabs().stream()
@@ -74,11 +72,11 @@ public class MainWindow extends Application {
         getTabByName(title).forEach((Tab ap) -> ((AbstrPane) ap.getContent()).refresh());
     }
 
-    public Stream<DocumentPane> getDocumentPanes() {
+/*    public Stream<DocumentPane> getDocumentPanes() {
         return tabPane.getTabs().stream()
                 .filter((t) -> t.getText().equals(Messages.Doklady.cm()))
                 .map((t) -> (DocumentPane) t.getContent());
-    }
+
 
     public void refreshDocumentPanes() {
         getDocumentPanes().forEach(dp -> dp.refresh());

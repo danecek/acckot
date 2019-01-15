@@ -5,7 +5,6 @@ import acc.richclient.MainWindow
 import acc.richclient.dialogs.TransactionCreateDialog
 import acc.richclient.dialogs.TransactionDeleteDialog
 import acc.richclient.dialogs.TransactionUpdateDialog
-import acc.richclient.panes.AccountsPane
 import acc.util.AccException
 import acc.util.Messages
 import acc.richclient.views.PaneTabs
@@ -18,12 +17,14 @@ object TransactionCreateAction : AbstrAction() {
     }
 }
 
+/*
 object TransactionsShowAction : AbstrAction() {
-    override val name = Messages.Zobraz_transakce.cm()
+    override val number = Messages.Zobraz_transakce.cm()
     override fun execute() {
         PaneTabs.addTab(Messages.Ucty.cm(), AccountsPane());
     }
 }
+*/
 
 
 object TransactionCreateByInvoiceAction : AbstrAction() {

@@ -1,8 +1,6 @@
 package acc.richclient.controller.menus
 
 import acc.richclient.controller.actions.*
-import acc.richclient.dialogs.AccountDialog
-import acc.richclient.dialogs.DialogMode
 import acc.util.Messages
 import javafx.event.EventHandler
 import javafx.scene.control.Menu
@@ -24,24 +22,22 @@ class AccMenuBar : View() {
 
         }
         menu(Messages.Ucty.cm()) {
-//            action {
-//                find<AccountDialog>(AccountDialog::mode to DialogMode.CREATE).openModal()
-//            }
             add(AccountsShowAction)
             add(AccountCreateAction)
-            //    add(AcountUpdateAction)
-            add(AcountDeleteAction)
+            add(AccountDeleteAction)
         }
 
-        menu(Messages.Doklady.cm()) {
+        menu(Messages.Doklady.cm())
+        {
             add(DocumentsShowAction)
             add(DocumentCreateAction)
             add(DocumentUpdateAction)
             add(DocumentDeleteAction)
         }
 
-        menu(Messages.Transakce.cm()) {
-            add(TransactionsShowAction)
+        menu(Messages.Transakce.cm())
+        {
+          //  add(TransactionsShowAction)
             add(TransactionCreateAction)
             add(UpdateTransactionAction)
             add(TransactionDeleteAction)
@@ -49,7 +45,8 @@ class AccMenuBar : View() {
             add(InitCreateAction)
         }
 
-        menu(Messages.Rozvaha.cm()) {
+        menu(Messages.Rozvaha.cm())
+        {
             add(PrintBalanceAction)
             add(BalanceCreateAction)
         }

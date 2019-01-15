@@ -46,11 +46,11 @@ public abstract class TransactionsAbstractPane extends AbstrPane {
         }
 
         public String getDocumentName() {
-            return getDocument().isPresent() ? getDocument().get().getName():"";
+            return getDocument().isPresent() ? getDocument().get().getNumber():"";
         }
 
         public String getRelatedDocumentName() {
-            return getRelatedDocument().isPresent() ? getRelatedDocument().get().getName():"";
+            return getRelatedDocument().isPresent() ? getRelatedDocument().get().getNumber():"";
         }
     }
 
@@ -67,11 +67,11 @@ public abstract class TransactionsAbstractPane extends AbstrPane {
         if (document.isPresent()) {
             sb.append(SP).append(Messages.pro_doklad.cm())
                     .append(AbstractDialog.DEL)
-                    .append(document.get().getName());
+                    .append(document.get().getNumber());
         }
         if (document.isPresent()) {
             sb.append(SP).append(Messages.pro_souvisejici_doklad.cm())
-                    .append(AbstractDialog.DEL).append(document.get().getName());
+                    .append(AbstractDialog.DEL).append(document.get().getNumber());
         }
         return sb.toString();
     }

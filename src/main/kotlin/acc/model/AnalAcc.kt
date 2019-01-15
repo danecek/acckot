@@ -1,7 +1,6 @@
 package acc.model
 
-class AnalAcc(idn: Int,
-              override var parent: AccGroup?,
+class AnalAcc(override var parent: AccGroup?,
               val anal: String,
               override val fullName: String
 ) : AbstrGroup() {
@@ -11,7 +10,8 @@ class AnalAcc(idn: Int,
         get() = parent!!.isActive
 
     override val groupType = GroupEnum.ANAL
-    val id = AccId(idn)
+
+    val id = AnalId(parent!!, anal)
 
     val isPocUcetRozv: Boolean
         get() = parent == Osnova.pocatecniUcetRozvazny
@@ -47,5 +47,7 @@ class AnalAcc(idn: Int,
     override fun toString(): String {
         return number
     }
+
+
 
 }

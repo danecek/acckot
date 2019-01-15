@@ -12,17 +12,17 @@ class Styles : Stylesheet() {
         val welcomeScreen by cssclass()
         val content by cssclass()
         val heading by cssclass()
-        val tabPane  by cssclass()
+        val tabPane by cssclass()
         val control by cssclass()
         val textField by cssclass()
         val comboBox by cssclass()
-
-
-
     }
 
     init {
-        textField and comboBox {
+        textField {
+            fontSize = 30.px
+        }
+        comboBox {
             fontSize = 30.px
         }
         tabPane {

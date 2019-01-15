@@ -5,9 +5,7 @@ import acc.util.Messages
 import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Tab
-import tornadofx.View
-import tornadofx.find
-import tornadofx.tabpane
+import tornadofx.*
 import java.util.stream.Stream
 
 class PaneTabs : View() {
@@ -25,15 +23,29 @@ class PaneTabs : View() {
             tabs().add(Tab(text, node))
         }
 
-        fun getTransactionPanes(): Stream<TransactionsPane> {
-            return tabs().stream()
-                    .filter { t -> t.getText() == Messages.Transakce.cm() }
-                    .map { t -> t.getContent() as TransactionsPane }
-        }
+        val transactionPanes: Stream<TransactionsPane>
+            get() {
+                return tabs().stream()
+                        .filter { t -> t.text == Messages.Transakce.cm() }
+                        .map { t -> t.content as TransactionsPane }
+            }
 
         fun refreshTransactionPanes() {
-            getTransactionPanes().forEach { it.refresh() }
+            transactionPanes.forEach { it.refresh() }
         }
+
+ /*       val accountPane: AccountPane?
+            get() {
+                val t = tabs().stream()
+                        .filter { t -> t.text == Messages.Ucty.cm() }
+                        .findFirst()
+                return if (t.isPresent) t.get().content as AccountPane else null
+            }
+
+        fun refreshAccountPane() {
+            accountPane?.refresh()
+        }*/
+
 
     }
 
