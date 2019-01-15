@@ -8,7 +8,7 @@ package acc.richclient.dialogs;
 import acc.business.AccDatePicker;
 import acc.business.Facade;
 import acc.richclient.MainWindow;
-import acc.richclient.view.TransactionsPane;
+import acc.richclient.panes.TransactionsPane;
 import acc.util.AccException;
 import acc.util.Messages;
 import javafx.scene.Node;
@@ -41,14 +41,14 @@ public class TransactionsShowDialog extends AbstractDialog {
         row++;
         gp.add(new Label(Messages.Pridruzeny_doklad.cm() + DEL), 0, row);
         try {
-            gp.add(documentCB = new DocumentCB(Facade.instance.getAllDocuments()), 1, row);
+            gp.add(documentCB = new DocumentCB(Facade.INSTANCE.getAllDocuments()), 1, row);
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }
         row++;
         gp.add(new Label(Messages.Souvisejici_doklad.cm() + DEL), 0, row);
         try {
-            gp.add(relatedDocumentCB = new DocumentCB(Facade.instance.getAllDocuments()), 1, row);
+            gp.add(relatedDocumentCB = new DocumentCB(Facade.INSTANCE.getAllDocuments()), 1, row);
         } catch (AccException ex) {
             MainWindow.showException(ex);
         }

@@ -1,6 +1,6 @@
 package acc.richclient.dialogs;
 
-import acc.richclient.view.BalancePane;
+import acc.richclient.panes.BalancePane;
 import acc.richclient.MainWindow;
 import acc.util.AccException;
 import acc.util.Messages;
@@ -42,7 +42,7 @@ public class BalanceCreateDialog extends AbstractDialog {
     @Override
     public void ok() {
         BalancePane bp = new BalancePane(monthCB.getValue());
-        Tab tbp = bp.addToMain();
+        bp.addToMain();
 //        Tab balsheet = new Tab(Messages.Rozvaha.cm() + DEL
 //                + BalanceCreateDialog.monthFormater.format(monthCB.getValue()), table);
 //        TabPane tp = MainWindow.getInstance().getTabPane();

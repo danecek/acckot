@@ -1,5 +1,6 @@
 package acc.business.balance;
 
+import acc.model.AbstrGroup;
 import acc.model.AccGroup;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 public class BalanceItem {
 
-    private final Optional<AccGroup> group;
+    private final Optional<AbstrGroup> group;
     private long initAssets;
     private long initLiabilities;
     private long assets;
@@ -21,7 +22,7 @@ public class BalanceItem {
 
     private final Map<String, BalanceItem> children = new HashMap<>();
 
-    public BalanceItem(AccGroup ag) {
+    public BalanceItem(AbstrGroup ag) {
         this.group = Optional.of(ag);
     }
 
@@ -50,7 +51,7 @@ public class BalanceItem {
         return children;
     }
 
-    public Optional<AccGroup> getGroup() {
+    public Optional<AbstrGroup> getGroup() {
         return group;
     }
 

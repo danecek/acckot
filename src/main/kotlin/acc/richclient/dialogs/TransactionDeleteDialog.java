@@ -4,6 +4,7 @@ import acc.business.Facade;
 import acc.model.Transaction;
 import acc.model.TransactionId;
 import acc.richclient.MainWindow;
+import acc.richclient.views.PaneTabs;
 import acc.util.AccException;
 import acc.util.Messages;
 
@@ -17,7 +18,7 @@ public class TransactionDeleteDialog extends TransactionAbstractDialog {
         super(Messages.Zrus_transakci.cm());
         id = t.getId();
         set(t);
- //       datePicker.setDisable(true);
+        //       datePicker.setDisable(true);
         amountTF.setDisable(true);
         madatiCB.setDisable(true);
         dalCB.setDisable(true);
@@ -33,8 +34,8 @@ public class TransactionDeleteDialog extends TransactionAbstractDialog {
     @Override
     public void ok() throws AccException {
         try {
-            Facade.instance.deleteTransaction(id);
-            MainWindow.getInstance().refreshTransactionPanes();
+            Facade.INSTANCE.deleteTransaction(id);
+            PaneTabs.Companion.refreshTransactionPanes();
         } catch (AccException ex) {
             MainWindow.getInstance().showException(ex);
         }

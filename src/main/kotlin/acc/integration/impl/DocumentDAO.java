@@ -19,22 +19,20 @@ public final class DocumentDAO {
     private final NavigableMap<DocumentId, acc.model.Document> documentMapByID = new TreeMap<>();
 
     private DocumentDAO() {
-
         create(DocumentType.INVOICE, "F1", LocalDate.now(), "bla");
         create(DocumentType.BANK_STATEMENT, "V1", LocalDate.now(), "bla");
-
     }
 
     public void create(DocumentType type, String name, LocalDate date,
             String description) {
-        Document d = new Document(new DocumentId(keyC++), type, name, date,
+        Document d = new Document(type, name, date,
                 description);
         documentMapByID.put(d.getId(), d);
     }
 
-    public void update(DocumentId id, DocumentType type, String name, LocalDate date,
+    public void update(DocumentId id, LocalDate date,
             String description) {
-        Document d = new Document(id, type, name, date, description);
+        Document d = new Document(id.getType(), id.getName(), date, description);
         documentMapByID.replace(d.getId(), d);
     }
 
@@ -44,7 +42,7 @@ public final class DocumentDAO {
 
     public List<Document> getByRegexp(String regexp) throws AccException {
         return documentMapByID.values().stream()
-                .filter(d -> d.getName().matches(regexp))
+                .filter(d -> d.getNumber().matches(regexp))
                 .collect(Collectors.toList());
     }
 
