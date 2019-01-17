@@ -90,6 +90,11 @@ object Facade {
         TransactionDAO.instance.delete(id)
     }
 
+    @Throws(AccException::class)
+    fun getInits(acc: AnalAcc?): List<Init> {
+        return TransactionDAO.instance.getInits(acc)
+    }
+
 
     // Rozvaha
 
@@ -112,10 +117,7 @@ object Facade {
         }
     }
 
-    @Throws(AccException::class)
-    fun getInits(acc: AnalAcc?): List<Init> {
-        return TransactionDAO.instance.getInits(acc)
-    }
+
 
     // Document ***************************************************************
     fun createDocument(type: DocumentType, date: LocalDate, name: String, description: String) {
@@ -136,8 +138,6 @@ object Facade {
     fun getDocumentByName(name: String): List<Document> {
         return DocumentDAO.instance.getByRegexp(name)
     }
-
-
 
 
     val POCATECNI_STAV = "pocatecni stav"

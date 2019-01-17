@@ -13,28 +13,3 @@ abstract class AbstrAction : (ActionEvent) -> Unit {
     abstract val name: String
     abstract fun execute()
 }
-
-class X() : Fragment() {
-
-    override val root = borderpane() {
-        dialog {
-            textfield {
-
-            }
-            hbox {
-
-            }
-        }
-    }
-}
-
-object TestFragment : AbstrAction() {
-    override fun execute() {
-        val find = find<X>().openModal(StageStyle.DECORATED)
-    }
-
-    override val name: String
-        get() = "TestFragment"
-
-
-}

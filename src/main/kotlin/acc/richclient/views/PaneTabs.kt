@@ -58,7 +58,7 @@ class PaneTabs : View() {
             get() = transactionPanes
                     .filter { it.selected != null }
                     .findFirst().orElse(null)?.selected
-        
+
         // documents
         val documentPane: DocumentPane?
             get() = tabs().stream()
@@ -83,6 +83,8 @@ class PaneTabs : View() {
         fun refreshAccountPane() {
             accountPane?.refresh()
         }
+
+
 
         val selectedAccount: AnalAcc?
             get() = accountPane?.selected

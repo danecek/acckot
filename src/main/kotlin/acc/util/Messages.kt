@@ -41,6 +41,9 @@ enum class Messages {
     Zmen_transakci,
     Zrus_transakci,
     Zobraz_transakce,
+    Vytvor_inicializaci,
+    Zmen_inicializaci,
+    Zrus_inicializaci,
     Od,
     S_uctem,
     Do,
@@ -108,7 +111,9 @@ enum class Messages {
     neni_vybran_zadny_ucet,
     neplatny_typ_dokumentu,
     chybne_datum,
+    Pro_ucet,
     ;
+
 
 
 
@@ -126,5 +131,8 @@ enum class Messages {
         private val rb = ResourceBundle.getBundle("acc.util.messages", Locale("cs"))
         private val LOG = Logger.getLogger(Messages::class.java.name)
      }
+
+
+
 
 }

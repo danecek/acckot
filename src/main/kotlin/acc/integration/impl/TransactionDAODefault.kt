@@ -83,8 +83,10 @@ class TransactionDAODefault : TransactionDAO() {
     @Throws(AccException::class)
     override fun getInits(acc: AnalAcc?): List<Init> {
         return transactionMap.values.stream()
-                .filter { it is Init }
+                .filter{ it is Init }
+                .filter { acc==null || it.maDati == acc || it.dal == acc }
                 .map { it as Init }
+                .peek { println(it) }
                 .toList()
     }
 

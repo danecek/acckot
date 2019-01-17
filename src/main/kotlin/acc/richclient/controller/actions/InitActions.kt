@@ -1,22 +1,18 @@
 package acc.richclient.controller.actions
 
-import acc.richclient.MainWindow
-import acc.richclient.dialogs.CreateInitDialog
-import acc.util.AccException
+import acc.richclient.dialogs.InitCreateDialog
+import acc.richclient.dialogs.InitShowDialog
 import acc.util.Messages
+import javafx.stage.StageStyle
 import tornadofx.*
 
-object InitCreateAction  : AbstrAction() {
+object InitCreateAction : AbstrAction() {
 
     override val name: String
         get() = Messages.Nastav_pocatecni_stav.cm()
 
     override fun execute() {
-        try {
-            CreateInitDialog().execute()
-        } catch (ex: AccException) {
-            MainWindow.showException(ex)
-        }
+        find<InitCreateDialog>().openModal()
     }
 
 }
@@ -24,11 +20,9 @@ object InitCreateAction  : AbstrAction() {
 object InitsShowAction : AbstrAction() {
     override val name: String
         get() = Messages.Zobraz_pocatecni_stavy.cm()
+
     override fun execute() {
-       // find<InitShowDialogKot>().openModal()
-
+        find<InitShowDialog>().openModal()
     }
-
-
 
 }

@@ -5,6 +5,7 @@ import acc.util.Messages
 import javafx.event.EventHandler
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
+import javafx.scene.control.Separator
 import tornadofx.*
 
 
@@ -18,8 +19,6 @@ class AccMenuBar : View() {
     override val root = menubar {
         menu(Messages.File.cm()) {
             add(Exit)
-            add(TestFragment)
-
         }
         menu(Messages.Ucty.cm()) {
             add(AccountsShowAction)
@@ -41,6 +40,7 @@ class AccMenuBar : View() {
             add(TransactionCreateAction)
             add(TransactionUpdateAction)
             add(TransactionDeleteAction)
+            add(Separator())
             add(InitsShowAction)
             add(InitCreateAction)
         }
