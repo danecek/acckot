@@ -1,36 +1,32 @@
 package acc.richclient.dialogs
 
-import acc.business.Facade
 import acc.model.Document
 import acc.model.DocumentType
-import acc.richclient.panes.DocumentPane
+import acc.richclient.views.PaneTabs
 import acc.util.Global
 import acc.util.Messages
-import javafx.scene.control.TableView
 import javafx.util.StringConverter
 import tornadofx.*
 import java.time.LocalDate
 
-class DocumentDialogModel : ItemViewModel<Document>() {
+class DocumentDialogModel(doc: Document?) : ItemViewModel<Document>(doc) {
+    val id = bind(Document::id)
     val type = bind(Document::type)
     val date = bind(Document::date)
     val number = bind(Document::number)
     val description = bind(Document::description)
 }
 
-class DocumentDialog : Fragment() {
+abstract class DocumentAbstractDialog(private val mode: DialogMode) : Fragment() {
 
-    private val mode: DialogMode by params
-    val model = DocumentDialogModel()// by inject()
-    private val doc: Document by params
+   // private val doc: Document? by params
+    val model = DocumentDialogModel(params["doc"] as? Document)
 
     init {
-        if (mode != DialogMode.CREATE && params["doc"] != null)
-            model.item = params["doc"] as Document
-        when (mode) {
-            DialogMode.CREATE -> title = Messages.Vytvor_doklad.cm()
-            DialogMode.UPDATE -> title = Messages.Zmen_doklad.cm()
-            DialogMode.DELETE -> title = Messages.Zrus_doklad.cm()
+        title = when (mode) {
+            DialogMode.CREATE -> Messages.Vytvor_doklad.cm()
+            DialogMode.UPDATE -> Messages.Zmen_doklad.cm()
+            DialogMode.DELETE -> Messages.Zrus_doklad.cm()
         }
     }
 
@@ -86,16 +82,8 @@ class DocumentDialog : Fragment() {
             button(acc.util.Messages.Potvrd.cm()) {
                 enableWhen(model.valid)
                 action {
-                    when (mode) {
-                        DialogMode.CREATE ->
-                            Facade.createDocument(model.type.value, model.number.value,
-                                    model.date.value, model.description.value ?: "")
-                        DialogMode.UPDATE ->
-                            Facade.updateDocument(doc.id, model.date.value, model.description.value)
-                        DialogMode.DELETE -> Facade.deleteDocument(doc.id)
-
-                    }
-                    find<DocumentPane>().refresh()
+                    ok()
+                    PaneTabs.refreshDocumentPane()
                     close()
                 }
 
@@ -106,11 +94,10 @@ class DocumentDialog : Fragment() {
                 }
             }
         }
+
     }
+    abstract val ok: () -> Unit
 }
 
-fun DocumentPane.refresh() {
-    val tw = root.content as TableView<Document>
-    tw.items.setAll(Facade.allDocuments.observable())
-}
+
 

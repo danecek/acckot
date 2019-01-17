@@ -1,6 +1,5 @@
 package acc.integration
 
-import acc.integration.impl.AcountDAODefault
 import acc.model.AnalAcc
 import acc.model.AccGroup
 import acc.model.AnalId
@@ -32,7 +31,7 @@ abstract class AccountDAO {
 
     companion object {
 
-      //  var instance: AccountDAO = AcountDAODefault()
+      //  var instance: AccountDAO = AccountDAODefault()
     }
 
 }

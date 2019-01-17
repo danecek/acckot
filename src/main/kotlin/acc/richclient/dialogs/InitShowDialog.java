@@ -2,7 +2,6 @@ package acc.richclient.dialogs;
 
 import acc.business.Facade;
 import acc.richclient.MainWindow;
-import acc.richclient.panes.InitsPane;
 import acc.util.AccException;
 import acc.util.Messages;
 import acc.richclient.views.PaneTabs;
@@ -34,8 +33,8 @@ public class InitShowDialog extends AbstractDialog {
 
     @Override
     public void ok() throws AccException {
-        PaneTabs.Companion.addTab(Messages.Pocatecni_stavy.cm(),
-                new InitsPane(accCB.getOptAccount()));
+/*        PaneTabs.Companion.addTab(Messages.Pocatecni_stavy.cm(),
+                new InitsPane(accCB.getOptAccount()));*/
     }
 
     @Override

@@ -37,9 +37,9 @@ class AccMenuBar : View() {
 
         menu(Messages.Transakce.cm())
         {
-          //  add(TransactionsShowAction)
+            add(TransactionsShowAction)
             add(TransactionCreateAction)
-            add(UpdateTransactionAction)
+            add(TransactionUpdateAction)
             add(TransactionDeleteAction)
             add(InitsShowAction)
             add(InitCreateAction)

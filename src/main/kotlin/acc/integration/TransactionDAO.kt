@@ -1,39 +1,37 @@
 package acc.integration
 
 import acc.integration.impl.TransactionDAODefault
-import acc.model.AnalAcc
-import acc.model.Document
-import acc.model.Transaction
-import acc.model.TransactionId
+import acc.model.*
 import acc.util.AccException
-import java.time.LocalDate
-import java.util.Optional
 
 abstract class TransactionDAO {
 
-    abstract val all: List<Transaction>
+    @Throws(AccException::class)
+    abstract fun createTransaction(amount: Long, madati: AnalAcc,
+                                   dal: AnalAcc, document: Document, bindingDocument: Document?)
+
 
     @Throws(AccException::class)
-    abstract fun create(amount: Long, madati: AnalAcc,
-                        dal: AnalAcc, document: Optional<Document>, bindingDocument: Optional<Document>)
+    abstract fun all(): List<Transaction>
+
+    @Throws(AccException::class)
+    abstract fun get(tf: TransactionFilter): List<Transaction>
 
     @Throws(AccException::class)
     abstract fun update(id: TransactionId, amount: Long,
-                        madati: AnalAcc, dal: AnalAcc, document: Optional<Document>,
-                        bindingDocument: Optional<Document>)
+                        madati: AnalAcc, dal: AnalAcc, document: Document,
+                        bindingDocument: Document)
 
     @Throws(AccException::class)
     abstract fun delete(id: TransactionId)
 
     @Throws(AccException::class)
-    abstract operator fun get(optOd: Optional<LocalDate>, optDo: Optional<LocalDate>,
-                              acc: Optional<AnalAcc>, optDocument: Optional<Document>, optRelatedDocument: Optional<Document>): List<Transaction>
+    abstract fun createInit(amount: Long, maDati: AnalAcc, dal:AnalAcc)
 
     @Throws(AccException::class)
-    abstract fun getInits(acc: Optional<AnalAcc>): List<Transaction>
+    abstract fun getInits(acc: AnalAcc?): List<Init>
 
     companion object {
-
-        var instance: TransactionDAO = TransactionDAODefault()
+        val instance = TransactionDAODefault()
     }
 }

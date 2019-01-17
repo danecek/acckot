@@ -2,8 +2,6 @@ package acc.richclient;
 
 import acc.richclient.dialogs.AccAlert;
 import acc.richclient.panes.AbstrPane;
-import acc.richclient.panes.DocumentPane;
-import acc.richclient.panes.TransactionsPane;
 import acc.util.Messages;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -30,26 +28,26 @@ public class MainWindow extends Application {
     }*
 
     public void refreshTransactionPanes() {
-        getTransactionPanes().forEach((p) -> ((TransactionsPane) p).refresh());
+        getTransactionPanes().forEach((p) -> ((TransactionsFragment) p).refreshTransactionPanes());
     }
 */
-    public Optional<TransactionsPane> getSelectedTransactionPane() {
+/*    public Optional<TransactionsFragment> getSelectedTransactionPane() {
         Tab i = tabPane.getSelectionModel().getSelectedItem();
         if (i == null || !i.getText().equals(Messages.Transakce.cm())) {
             return Optional.empty();
         }
-        return Optional.of((TransactionsPane) i.getContent());
-    }
+        return Optional.of((TransactionsFragment) i.getContent());
+    }*/
 
-  /*  public Optional<AccountsPane> getAccountPane() {
+  /*  public Optional<AccountsView> getAccountPane() {
         return tabPane.getTabs().stream()
                 .filter((t) -> t.getText().equals(Messages.Ucty.cm()))
-                .map((t) -> (AccountsPane) t.getContent()).findFirst();
+                .map((t) -> (AccountsView) t.getContent()).findFirst();
     }*/
 
 /*
     public void refreshAccountPane() {
-        getAccountPane().ifPresent((ap) -> (ap).refresh());
+        getAccountPane().ifPresent((ap) -> (ap).refreshTransactionPanes());
     }
 */
 
@@ -72,14 +70,14 @@ public class MainWindow extends Application {
         getTabByName(title).forEach((Tab ap) -> ((AbstrPane) ap.getContent()).refresh());
     }
 
-/*    public Stream<DocumentPane> getDocumentPanes() {
+/*    public Stream<DocumentView> getDocumentPanes() {
         return tabPane.getTabs().stream()
                 .filter((t) -> t.getText().equals(Messages.Doklady.cm()))
-                .map((t) -> (DocumentPane) t.getContent());
+                .map((t) -> (DocumentView) t.getContent());
 
 
     public void refreshDocumentPanes() {
-        getDocumentPanes().forEach(dp -> dp.refresh());
+        getDocumentPanes().forEach(dp -> dp.refreshTransactionPanes());
     }
 
     /**
@@ -97,7 +95,7 @@ public class MainWindow extends Application {
         launch(args);
 //        System.out.println(TransactionDAODefault.instance);
 //        System.out.println(DocumentDAO.instance);
-//        System.out.println(AcountDAODefault.instance);
+//        System.out.println(AccountDAODefault.instance);
 //        System.out.println(CompanyDAO.instance);
 
     }

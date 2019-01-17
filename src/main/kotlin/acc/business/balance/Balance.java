@@ -82,9 +82,12 @@ public class Balance {
         for (Transaction trans : Facade.INSTANCE.getAllTransactions()) {
             LocalDate begin = LocalDate.of(Global.INSTANCE.getYear(), month, 1).minusDays(1);
             LocalDate end = begin.plusMonths(1);
-            boolean isInit = !trans.getDate().isPresent();
-            boolean inMonth = !isInit && trans.getDate().get().isAfter(begin)
+            boolean isInit = false;//!trans.getDate().isPresent();
+            boolean inMonth = true;
+/*
+                    !isInit && trans.getDate().get().isAfter(begin)
                     && trans.getDate().get().isBefore(end);
+*/
 
             add(trans.getDal(), inMonth, isInit, -trans.getAmount());
             add(trans.getMaDati(), inMonth, isInit, +trans.getAmount());

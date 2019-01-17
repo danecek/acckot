@@ -11,7 +11,7 @@ import java.util.logging.Level
 import java.util.logging.Logger
 import kotlin.streams.toList
 
-object AcountDAODefault : AccountDAO() {
+object AccountDAODefault : AccountDAO() {
 
     private val accountById = TreeMap<AnalId, AnalAcc>()
     private val accountByName = TreeMap<String, AnalAcc>()
@@ -36,7 +36,7 @@ object AcountDAODefault : AccountDAO() {
             create(Osnova.getGroup("501").get(), "001", "Material")
 
         } catch (ex: AccException) {
-            Logger.getLogger(AcountDAODefault::class.java.name).log(Level.SEVERE, null, ex)
+            Logger.getLogger(AccountDAODefault::class.java.name).log(Level.SEVERE, null, ex)
         }
 
     }

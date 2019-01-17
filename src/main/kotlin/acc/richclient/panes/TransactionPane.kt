@@ -1,7 +1,6 @@
 package acc.richclient.panes
 
 import acc.business.Facade
-import acc.model.Document
 import acc.model.Transaction
 import acc.model.TransactionFilter
 import acc.util.Messages
@@ -9,13 +8,13 @@ import javafx.scene.control.TableView
 import javafx.scene.control.TitledPane
 import tornadofx.*
 
-class DocumentPane(val content: TableView<Document>)
-    : TitledPane(Messages.Doklady.cm(), content) {
+class TransactionPane(val content: TableView<Transaction>, val tf : TransactionFilter)
+    : TitledPane(Messages.Transakce.cm(), content) {
 
     fun refresh() {
-        content.items.setAll(Facade.allDocuments.observable())
+        content.items.setAll(Facade.getTransactions(tf).observable())
     }
     
-    val selected: Document?
+    val selected: Transaction?
         get() =  content.selectedItem
 }

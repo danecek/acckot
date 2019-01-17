@@ -108,7 +108,6 @@ enum class Messages {
     neni_vybran_zadny_ucet,
     neplatny_typ_dokumentu,
     chybne_datum,
-
     ;
 
 
@@ -126,7 +125,6 @@ enum class Messages {
     companion object {
         private val rb = ResourceBundle.getBundle("acc.util.messages", Locale("cs"))
         private val LOG = Logger.getLogger(Messages::class.java.name)
-
-    }
+     }
 
 }
