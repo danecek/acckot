@@ -2,89 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f132e48-82dd-4612-81f7-fa86d2beeaa4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/DocumentDAO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/AmountConverter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/DateConverter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/AccountCreateDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/AccountDeleteDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/AccountUpdateDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/BalanceShowDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/InitDeleteDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/AccountView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/BalancePane.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/BalanceView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/AccDatePicker.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountDAO.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/AccountDAODefault.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/AccountDAODefault.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/DocumentDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/impl/TransactionDAODefault.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAO.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrGroup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrGroup.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrId.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/Anal.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AnalAcc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AnalAcc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AnalId.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AnalId.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/Document.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Document.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocumentId.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocumentId.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocumentType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocumentType.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionId.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionId.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AbstrAction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/AbstrAction.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/AccountActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/AccountActions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/BalanceActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/BalanceActions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/DocumentActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/DocumentActions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/FileActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/FileActions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/InitActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/InitActions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions/TransactionActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/menus/AccMenuBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/AccMenuBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AbstractDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccAlert.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountAbstractDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/AccountAbstractDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/BalanceCreateDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/CreateInitDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DialogMode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/DialogMode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocTypeCB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentAbstractDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/DocumentAbstractDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentCB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentCreateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/DocumentCreateDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDeleteDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/DocumentDeleteDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentUpdateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/DocumentUpdateDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/InitAbstrDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/InitAbstractDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/InitAbstractDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/InitCreateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/InitCreateDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/InitShowDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/InitShowDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/MonthCB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/PrinterDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/PrinterDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionAbstractDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/TransactionAbstractDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionCreateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/TransactionCreateDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDeleteDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/TransactionDeleteDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionUpdateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/TransactionUpdateDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/TransactionsShowDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AbstrPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccTabPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/AccountPane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountsView.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/DocumentPane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/DocumentView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/InitFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/InitFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/InitPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/InitPane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/TransactionPane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/TransactionsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/MainView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/PaneTabs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/PaneTabs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/util/Global.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/util/Global.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAO.kt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -98,11 +18,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/BalanceActions.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="858">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/AccApp.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -145,7 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/dialogs/InitDeleteDialog.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/AmountConverter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/DateConverter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/InitPane.kt" />
@@ -196,6 +133,7 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/TransactionPane.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/BalanceActions.kt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -334,25 +272,6 @@
               <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="integration" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="kotlin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="acc" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="integration" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="impl" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="acckot" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -394,7 +313,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548113854568" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548114177105" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/actions" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -582,13 +501,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547727193149</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1">
+      <created>1548113864455</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1548113864455</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="54" width="2736" height="1768" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.85" visible="true" weight="0.24450341" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85" visible="true" weight="0.24450341" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -707,20 +634,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/AccountPane.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/panes/BalancePane.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1038,8 +951,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/BalanceActions.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="858">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/AccApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

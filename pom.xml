@@ -12,7 +12,7 @@
         <tornadofx.version>1.7.17</tornadofx.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <main.class>acc.richclient.MainWindow</main.class>
+        <main.class>acc.AccApp</main.class>
     </properties>
 
     <dependencies>
