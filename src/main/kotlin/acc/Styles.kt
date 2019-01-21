@@ -19,6 +19,12 @@ class Styles : Stylesheet() {
     }
 
     init {
+        titledPane {
+            prefWidth = 1000.px
+        }
+        datePicker {
+            fontSize = 30.px
+        }
         textField {
             fontSize = 30.px
         }

@@ -16,8 +16,18 @@ import java.util.stream.Stream
 import kotlin.streams.toList
 
 object Osnova {
-
+    
     private val accGroupsByNumber = TreeMap<String, AccGroup>()
+
+    val Software="013"
+    val Pokladna="211"
+    val Bankovní_účty="221"
+    val Peníze_na_cestě="261"
+    val Odběratelé="311"
+    val Dodavatelé="321"
+    val Spotřeba_materiálu="501"
+    val Počáteční_účet_rozvažný ="961"
+    val Konečný_účet_rozvažný="962"
 
     val tridaZuctovaciVztahy: AccGroup
         get() = (accGroupsByNumber["3"])!!
@@ -25,20 +35,25 @@ object Osnova {
     val tridaNaklady: AccGroup
         get() = accGroupsByNumber["5"]!!
 
-    val dodavetele: AccGroup
-        get() = accGroupsByNumber["321"]!!
+    val dodavatele: AccGroup
+        get() = accGroupsByNumber[Dodavatelé]!!
 
     val material: AccGroup
-        get() = accGroupsByNumber["321"]!!
+        get() = accGroupsByNumber[Spotřeba_materiálu]!!
+
+    val pokladna: AccGroup
+        get() = accGroupsByNumber[Pokladna]!!
+
+    val banka: AccGroup
+        get() = accGroupsByNumber[Bankovní_účty]!!
 
     val pocatecniUcetRozvazny: AccGroup
-        get() = accGroupsByNumber["961"]!!
+        get() = accGroupsByNumber[Počáteční_účet_rozvažný]!!
 
     val groups: List<AccGroup>
         get() = accGroupsByNumber.values
                 .stream().toList()
     lateinit var pocUcetRozv: AnalAcc
-    //       .collect<List<AccGroup>, Any>(Collectors.<AccGroup>toList())
 
     init {
         val gris = AccGroup::class.java.getResourceAsStream("/acc/model/osnova.csv")
@@ -81,18 +96,11 @@ object Osnova {
     fun syntAccounts(): List<AccGroup> {
         return accGroupsByNumber.values.stream()
                 .filter { a -> a.groupType === GroupEnum.SYNT_ACCOUNT }.toList()
-        //      .collect<List<AccGroup>, Any>(Collectors.toList())
     }
 
     fun getSubGroups(prefix: String): List<AccGroup> {
         return groups.stream()
                 .filter { g -> g.number.startsWith(prefix) }.toList()
-        //  .collect<List<AccGroup>, Any>(Collectors.toList())
     }
-
-/*        companion object {
-
-            val instance = Osnova()
-        }*/
 }
 

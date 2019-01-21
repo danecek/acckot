@@ -7,7 +7,7 @@ abstract class AbstrGroup : Comparable<AbstrGroup> {
          abstract var parent: AccGroup?
 
         val name: String
-                get() = fullName.substring(0, Math.min(30, fullName.length))
+                get() = fullName.take(30)
         abstract val isActive: Boolean
         abstract val isPassive: Boolean
         open val balanced: Boolean

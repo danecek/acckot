@@ -1,3 +1,8 @@
 package acc.model
 
-class TransactionId(override val id: Int) : AbstrId<TransactionId>()
+data class TransactionId(val id: Int) : Comparable<TransactionId> {
+    override fun compareTo(other: TransactionId): Int =
+            id.compareTo(other.id)
+
+    override fun toString()= id.toString()
+}

@@ -1,8 +1,6 @@
 package acc.util
 
-class AccException : Exception {
+class AccException(message: String, ex: Exception?=null) : Exception(message, ex) {
 
-    constructor(message: String, ex: Exception) : super(message, ex)
-    constructor(cause: Exception) : super(cause)
 
 }

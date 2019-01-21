@@ -1,11 +1,9 @@
 package acc.richclient.views
 
-import acc.model.AnalAcc
-import acc.model.Document
-import acc.model.Transaction
-import acc.richclient.panes.AccountPane
-import acc.richclient.panes.DocumentPane
-import acc.richclient.panes.TransactionPane
+import acc.richclient.views.panes.AccountPane
+import acc.richclient.views.panes.DocumentPane
+import acc.richclient.views.panes.InitPane
+import acc.richclient.views.panes.TransactionPane
 import acc.util.Messages
 import javafx.collections.ObservableList
 import javafx.scene.Node
@@ -17,19 +15,6 @@ class PaneTabs : View() {
 
     override val root = tabpane()
 
-/*
-    fun refreshTransactionPanes() {
-        println("refreshTransactionPanes")
-*/
-/*        findAll<TransactionsFragment>().stream().forEach {
-            println(it)
-            it.refresh()
-        }*//*
-
-        find<TransactionsFragment>().refresh()
-    }
-*/
-
     companion object {
 
         private fun tabs(): ObservableList<Tab> {
@@ -37,11 +22,12 @@ class PaneTabs : View() {
         }
 
         fun addTab(text: String, node: Node) {
-            tabs().add(Tab(text, node))
+            val t = Tab(text, node)
+            tabs().add(t)
+            t.select()
         }
 
         // transactions
-
         val transactionPanes: Stream<TransactionPane>
             get() = tabs().stream()
                     .filter { t -> t.text == Messages.Transakce.cm() }
@@ -54,15 +40,23 @@ class PaneTabs : View() {
                     }
         }
 
-        val selectedTransaction: Transaction?
-            get() = transactionPanes
-                    .filter { it.selected != null }
-                    .findFirst().orElse(null)?.selected
+        // inits
+        val initPanes: Stream<InitPane>
+            get() = tabs().stream()
+                    .filter { t -> t.text == Messages.Pocatecni_stavy.cm() }
+                    .map { t: Tab -> (t.content as InitPane) }
+
+        fun refreshInitPanes() {
+            initPanes
+                    .forEach {
+                        it.refresh()
+                    }
+        }
 
         // documents
         val documentPane: DocumentPane?
             get() = tabs().stream()
-                    .filter { t -> t.text == Messages.Doklad.cm() }
+                    .filter { t -> t.text == Messages.Doklady.cm() }
                     .map { t: Tab -> (t.content as DocumentPane) }
                     .findFirst().orElse(null)
 
@@ -70,25 +64,16 @@ class PaneTabs : View() {
             documentPane?.refresh()
         }
 
-        val selectedDocument: Document?
-            get() = documentPane?.selected
-
         // accounts
         val accountPane: AccountPane?
             get() = tabs().stream()
                     .filter { t -> t.text == Messages.Ucty.cm() }
                     .map { t: Tab -> (t.content as AccountPane) }
                     .findFirst().orElse(null)
-        
+
         fun refreshAccountPane() {
             accountPane?.refresh()
         }
-
-
-
-        val selectedAccount: AnalAcc?
-            get() = accountPane?.selected
-
 
     }
 
