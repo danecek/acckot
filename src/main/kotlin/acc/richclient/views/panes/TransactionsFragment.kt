@@ -12,6 +12,8 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
 import tornadofx.*
+import java.time.LocalDate
+import java.util.*
 
 class TransactionsFragment : Fragment() {
 
@@ -49,6 +51,22 @@ class TransactionsFragment : Fragment() {
             }
             column<Transaction, String>(Messages.Popis.cm()) { t ->
                 SimpleStringProperty(t.value.document.description)
+            }
+
+        }
+        fun LocalDate.x() = Global.df.format(this)
+        nestedColumn(Messages.Souvisejici_faktura.cm()) {
+            column<Transaction, String>(Messages.Datum.cm()) { t ->
+                SimpleStringProperty(t.value.relatedDocument?.date?.x()?:"")
+            }
+            column<Transaction, String>(Messages.Typ_dokladu.cm()) { t ->
+                SimpleStringProperty(t.value.relatedDocument?.type?.text?:"")
+            }
+            column<Transaction, String>(Messages.Cislo.cm()) { t ->
+                SimpleStringProperty(t.value.relatedDocument?.number?.toString()?:"")
+            }
+            column<Transaction, String>(Messages.Popis.cm()) { t ->
+                SimpleStringProperty(t.value.relatedDocument?.description?:"")
             }
 
         }

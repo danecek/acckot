@@ -6,14 +6,13 @@
 package acc.richclient.views.dialogs
 
 import acc.business.Facade
-import acc.model.Document
 import acc.model.TransactionFilter
 import acc.richclient.views.PaneTabs
 import acc.richclient.views.panes.TransactionsFragment
 import acc.richclient.views.DateConverter
+import acc.richclient.views.DocumentConverter
 import acc.util.Messages
 import acc.util.withColon
-import javafx.util.StringConverter
 import tornadofx.*
 
 class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
@@ -25,16 +24,6 @@ class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
 
 class TransactionsShowDialog : Fragment() {
 
-
-    object DocumentConverter : StringConverter<Document>() {
-        override fun fromString(string: String?): Document =
-                throw UnsupportedOperationException()
-
-        override fun toString(doc: Document?): String =
-                if (doc == null) ""
-                else doc.number.toString().withColon + doc.description.take(50)
-
-    }
 
     val model = TransactionFilterModel()
 
@@ -66,7 +55,6 @@ class TransactionsShowDialog : Fragment() {
                     button(Messages.Potvrd.cm()) {
                         enableWhen(model.valid)
                         action {
-                            //    docModel.commit()
                             val tf = TransactionFilter(model.oD.value, model.Do.value,
                                     model.acc.value,model.doc.value)
                             PaneTabs.addTab(Messages.Transakce.cm(),
