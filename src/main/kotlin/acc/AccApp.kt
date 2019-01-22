@@ -10,8 +10,9 @@ class AccApp: App(MainView::class, Styles::class) {
     }
 }
 
-
 fun main(args: Array<String>) {
     Application.launch(AccApp::class.java, *args)
+
+
 }
 

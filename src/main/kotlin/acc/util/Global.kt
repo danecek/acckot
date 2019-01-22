@@ -9,7 +9,8 @@ object Global {
 
     var year = 2019
 
-    val df = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Global.locale)
+    val df = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+            .withLocale(Global.locale)
 
 
 }

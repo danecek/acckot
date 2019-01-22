@@ -4,17 +4,21 @@ class AnalAcc(override var parent: AccGroup?,
               val anal: String,
               override val fullName: String
 ) : AbstrGroup() {
+
+    val syntAccount: AccGroup
+        get() = parent!!
+
     override val isPassive: Boolean
-        get() = parent!!.isPassive
+        get() =syntAccount.isPassive
     override val isActive: Boolean
-        get() = parent!!.isActive
+        get() = syntAccount.isActive
 
     override val groupType = GroupEnum.ANAL
 
-    val id = AnalId(parent!!, anal)
+    val id = AnalId(syntAccount, anal)
 
     val isPocUcetRozv: Boolean
-        get() = parent == Osnova.pocatecniUcetRozvazny
+        get() = syntAccount == Osnova.pocatecniUcetRozvazny
 
     val numberName: String
         get() = if (isPocUcetRozv) {
@@ -25,14 +29,10 @@ class AnalAcc(override var parent: AccGroup?,
         return number.compareTo(other.number)
     }
 
-    val syntAccount: AccGroup
-        get() = parent!!
-
     val aClass: AccGroup
         get() = syntAccount
                 .optParent.get()
                 .optParent.get()
-
 
     override fun equals(other: Any?): Boolean {
         return if (other !is AnalAcc) {
@@ -41,13 +41,12 @@ class AnalAcc(override var parent: AccGroup?,
     }
 
     override val number: String
-        get() = parent!!.number + anal
+        get() = syntAccount.number + anal
 
 
     override fun toString(): String {
         return number
     }
-
 
 
 }
