@@ -19,8 +19,8 @@ import tornadofx.*
 class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
     val oD = bind(TransactionFilter::Od)
     val Do = bind(TransactionFilter::Do)
-    val docId = bind(TransactionFilter::doc)
-    val relatedDoc = bind(TransactionFilter::relatedDoc)
+    val acc = bind(TransactionFilter::account)
+    val doc = bind(TransactionFilter::doc)
 }
 
 class TransactionsShowDialog : Fragment() {
@@ -52,13 +52,11 @@ class TransactionsShowDialog : Fragment() {
                             converter = DateConverter
                         }
                     }
-                    field(Messages.Doklad.cm().withColon) {
-                        combobox(model.docId, Facade.allDocuments) {
-                            converter = DocumentConverter
-                        }
+                    field(Messages.Ucet.cm().withColon) {
+                        combobox(model.acc, Facade.allAccounts)
                     }
-                    field(Messages.Pridruzeny_doklad.cm().withColon) {
-                        combobox(model.relatedDoc, Facade.allDocuments) {
+                    field(Messages.Doklad.cm().withColon) {
+                        combobox(model.doc, Facade.allDocuments) {
                             converter = DocumentConverter
                         }
                     }
@@ -70,7 +68,7 @@ class TransactionsShowDialog : Fragment() {
                         action {
                             //    docModel.commit()
                             val tf = TransactionFilter(model.oD.value, model.Do.value,
-                                    model.docId.value, model.relatedDoc.value)
+                                    model.acc.value,model.doc.value)
                             PaneTabs.addTab(Messages.Transakce.cm(),
                                     find<TransactionsFragment>(mapOf("tf" to tf)).root)
                             close()

@@ -6,17 +6,16 @@ import acc.util.withColon
 import java.time.LocalDate
 
 class TransactionFilter(val Od: LocalDate?=null, val Do: LocalDate?=null,
-                        val doc: Document?=null, val relatedDoc: Document?=null) {
+                        val account: AnalAcc? = null,
+                        val doc: Document?=null) {
 
     fun match(t: Transaction): Boolean {
         val date = t.document.date
-
         if (Od != null && date.isBefore(Od)) return false
         if (Do != null && date.isAfter(Do)) return false
-        if (doc != null && t.document.id != doc.id) return false
-        if (relatedDoc != null && t.relatedDocument != relatedDoc) return false
+        if (account != null && t.maDati != account && t.dal != account) return false
+        if (doc != null && t.document != doc && t.relatedDocument!=doc) return false
         return true
-
     }
 
     override fun toString(): String {

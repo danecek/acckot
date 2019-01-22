@@ -5,6 +5,7 @@ import acc.model.AnalAcc
 import acc.richclient.views.dialogs.AccountDeleteDialog
 import acc.richclient.views.dialogs.AccountUpdateDialog
 import acc.util.Messages
+import javafx.scene.control.Alert
 import javafx.scene.control.TableView
 import tornadofx.*
 
@@ -19,6 +20,9 @@ class AccountView : View() {
                 find<AccountUpdateDialog>(params = mapOf("acc" to selectedItem)).openModal()
             }
             item(Messages.Zrus_ucet.cm()).action {
+              if (Facade.accountIsUsed(selectedItem)) {
+                  alert(Alert.AlertType.ERROR, Messages.Ucet_je_pouzit_v_transakci.cm())
+              } else
                 find<AccountDeleteDialog>(params = mapOf("acc" to selectedItem)).openModal()
             }
         }

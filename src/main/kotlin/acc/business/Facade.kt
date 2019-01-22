@@ -61,6 +61,11 @@ object Facade {
         AccountDAODefault.delete(id)
     }
 
+    fun accountIsUsed(acc: AnalAcc?): Boolean {
+       return getTransactions(TransactionFilter(account= acc)).isNotEmpty() ||
+               getInits(acc).isNotEmpty()
+    }
+
     // Transakce
     @Throws(AccException::class)
     fun createTransaction(amount: Long, madati: AnalAcc, dal: AnalAcc,
@@ -183,6 +188,7 @@ object Facade {
     fun createBalance(month: Month): List<BalanceItem> {
         return Balance().createBalance(month)
     }
+
 
 
     val POCATECNI_STAV = "pocatecni stav"
