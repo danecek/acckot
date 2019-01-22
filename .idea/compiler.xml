@@ -9,8 +9,5 @@
         <module name="acckot" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="acckot" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
