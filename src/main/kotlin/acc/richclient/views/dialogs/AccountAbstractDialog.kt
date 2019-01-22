@@ -42,8 +42,7 @@ abstract class AccountAbstractDialog(val mode: DialogMode) : Fragment() {
             }
 
             field(Messages.Analytika.cm()) {
-                textfield(model.anal.name) {
-
+                textfield(model.anal) {
                     isDisable = mode != DialogMode.CREATE
                     validator {
                         if (it == null || !Pattern.matches("\\d\\d\\d", it))
@@ -54,7 +53,6 @@ abstract class AccountAbstractDialog(val mode: DialogMode) : Fragment() {
             }
             field(Messages.Nazev.cm()) {
                 textfield(model.name) {
-                    text = ""
                     isDisable = mode == DialogMode.DELETE
                 }
             }
