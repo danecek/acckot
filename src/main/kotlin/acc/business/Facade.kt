@@ -1,15 +1,11 @@
 package acc.business
 
-import acc.business.balance.Balance
-import acc.business.balance.BalanceItem
+import acc.integration.AccountCache
+import acc.integration.DocumentDAO
 import acc.integration.TransactionDAO
-import acc.integration.impl.AccountDAODefault
-import acc.integration.impl.DocumentDAO
 import acc.model.*
 import acc.util.AccException
 import java.time.LocalDate
-import java.time.Month
-//import java.util.*
 import kotlin.streams.toList
 
 object Facade {
@@ -17,182 +13,115 @@ object Facade {
     // Ucty
     val allAccounts: List<AnalAcc>
         @Throws(AccException::class)
-        get() = AccountDAODefault.all
+        get() = AccountCache.allAccs
 
     val balanceAccounts: List<AnalAcc>
         @Throws(AccException::class)
-        get() = AccountDAODefault.balancing
-
+        get() = AccountCache.balanceAccs
 
     val dodavatele: List<AnalAcc>  // 321
-        get() = AccountDAODefault.dodavatele
+        get() = AccountCache.dodavatele
 
-    val pokladna: List<AnalAcc>
-        get() = AccountDAODefault.pokladna
+    val pokladny: List<AnalAcc>
+        get() = AccountCache.pokladny
 
 
     @Throws(AccException::class)
-    fun createAccount(group: AccGroup, no: String, name: String) {
-        AccountDAODefault.create(group, no, name)
+    fun createAccount(group: AccGroup, no: String, name: String, initAmount: Long) {
+        AccountCache.createAcc(group, no, name, initAmount)
     }
 
     @Throws(AccException::class)
-    fun pur(): AnalAcc {
-        return AccountDAODefault.pocatecniUcetRozvazny
-    }
-
-    @Throws(AccException::class)
-    fun getAccountsByGroup(accg: AccGroup): List<AnalAcc> {
-        return AccountDAODefault.getByGroup(accg)
-    }
-
-    @Throws(AccException::class)
-    fun getAccountsByClass(accg: AccGroup): List<AnalAcc> {
-        return AccountDAODefault.getByClass(accg)
-    }
-
-    @Throws(AccException::class)
-    fun updateAccount(group: AccGroup, no: String, name: String) {
-        AccountDAODefault.update(group, no, name)
+    fun updateAccount(id: AnalId, name: String, initAmount: Long) {
+        AccountCache.updateAcc(id, name, initAmount)
     }
 
     @Throws(AccException::class)
     fun deleteAccount(id: AnalId) {
-        AccountDAODefault.delete(id)
+        AccountCache.deleteAcc(id)
     }
 
     fun accountIsUsed(acc: AnalAcc?): Boolean {
-       return getTransactions(TransactionFilter(account= acc)).isNotEmpty() ||
-               getInits(acc).isNotEmpty()
+        return transactionsByFilter(TransactionFilter(acc = acc)).isNotEmpty()
     }
 
-    // Transakce
+    // Transakce ***************************************************************
+    val allTransactions: List<Transaction>
+        @Throws(AccException::class)
+        get() = TransactionDAO.allTransaction
+
     @Throws(AccException::class)
     fun createTransaction(amount: Long, madati: AnalAcc, dal: AnalAcc,
                           document: Document, relatedDocument: Document?) {
-        TransactionDAO.createTransaction(amount, madati,
+        TransactionDAO.createTransaction(null, amount, madati,
                 dal, document, relatedDocument)
     }
 
+
     @Throws(AccException::class)
-    fun getTransactions(tf: TransactionFilter): List<Transaction> {
-        return TransactionDAO.get(tf)
+    fun transactionsByFilter(tf: TransactionFilter): List<Transaction> {
+        return TransactionDAO.getTrans(tf)
     }
-
-    val allTransactions: List<Transaction>
-        @Throws(AccException::class)
-        get() = TransactionDAO.all()
-
 
     @Throws(AccException::class)
     fun updateTransaction(id: TransactionId, amount: Long,
                           madati: AnalAcc, dal: AnalAcc, document: Document,
-                          bindingDocument: Document) {
-        TransactionDAO.update(id, amount, madati, dal,
-                document, bindingDocument)
+                          relatedDocument: Document?) {
+        TransactionDAO.updateTrans(id, amount, madati, dal,
+                document, relatedDocument)
     }
 
     @Throws(AccException::class)
     fun deleteTransaction(id: TransactionId) {
-        TransactionDAO.delete(id)
+        TransactionDAO.deleteTrans(id)
     }
 
-    // Init ***************************************************************
-    @Throws(AccException::class)
-    fun getInits(acc: AnalAcc? = null): List<Init> {
-        return TransactionDAO.getInits(acc)
-    }
-
-    @Throws(AccException::class)
-    fun createInit(amount: Long, acc: AnalAcc, madatiDal: MadatiDal) {
-        when (madatiDal) {
-            MadatiDal.MA_DATI -> {
-                TransactionDAO
-                        .createInit(amount, acc, pur())
-            }
-            MadatiDal.DAL -> {
-                TransactionDAO
-                        .createInit(amount, pur(), acc)
-            }
-        }
-    }
-
-    fun deleteInit(amount: Long, acc: AnalAcc, madatiDal: MadatiDal) {
-        when (madatiDal) {
-            MadatiDal.MA_DATI -> {
-                TransactionDAO
-                        .createInit(amount, acc, pur())
-            }
-            MadatiDal.DAL -> {
-                TransactionDAO
-                        .createInit(amount, pur(), acc)
-            }
-        }
-    }
-
-
-
-
-    // Document ***************************************************************
-    fun createDocument(type: DocumentType, number: Int, date: LocalDate, description: String) {
-        DocumentDAO.create(type, number, date, description)
-    }
-
+    // Doklady  ***************************************************************
     val allDocuments: List<Document>
         @Throws(AccException::class)
-        get() = DocumentDAO.all
+        get() = DocumentDAO.allDocs
 
     val allInvoices: List<Document>
         @Throws(AccException::class)
-        get() = DocumentDAO.all
-                .filter { it.type == DocumentType.INVOICE }
+        get() = DocumentDAO.allDocs
+                .filter { it.type == DocType.INVOICE }
 
     val unpaidInvoices: List<Document>
         @Throws(AccException::class)
         get() {
             val paidInvoices = allTransactions.stream()
-                    .map { it -> it.relatedDocument }
-                    .filter{it !=null}
+                    .map { it -> it.relatedDocId }
+                    .filter { it != null }
             (allInvoices as MutableList).removeAll(paidInvoices.toList())
             return allInvoices
         }
 
-    fun getDocumentById(docId: DocumentId): Document? {
-        return DocumentDAO.getById(docId)
+    fun documentById(docId: DocId): Document? {
+        return DocumentDAO.docById(docId)
     }
 
     @Throws(AccException::class)
-    fun getDocumentByRegexp(regexp: String): List<Document> {
-        return DocumentDAO.getByRegexp(regexp)
+    fun documentsByFilter(docFilter: DocFilter): List<Document> {
+        return DocumentDAO.docsByFilter(docFilter) //as MutableList<Document>
     }
 
-    fun updateDocument(id: DocumentId,
+    fun createDocument(type: DocType, number: Int, date: LocalDate, description: String) {
+        DocumentDAO.createDoc(type, number, date, description)
+    }
+
+    fun updateDocument(id: DocId,
                        date: LocalDate, description: String) {
-        DocumentDAO.update(id, date, description)
+        DocumentDAO.updateDoc(id, date, description)
     }
 
     @Throws(AccException::class)
-    fun deleteDocument(id: DocumentId) {
-        DocumentDAO.delete(id)
+    fun deleteDocument(id: DocId) {
+        DocumentDAO.deleteDoc(id)
     }
 
-
-    fun genDocumentId(docType: DocumentType): Int {
-        return DocumentDAO.findFreeDocumentId(docType)
+    fun genDocumentId(docType: DocType): Int {
+        return DocumentDAO.findFreeDocId(docType)
     }
-
-
-    // Rozvaha ***************************************************************
-
-    @Throws(AccException::class)
-    fun createBalance(month: Month): List<BalanceItem> {
-        return Balance().createBalance(month)
-    }
-
-
-
-    val POCATECNI_STAV = "pocatecni stav"
-
 
 
 }

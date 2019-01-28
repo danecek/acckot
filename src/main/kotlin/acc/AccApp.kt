@@ -1,10 +1,10 @@
 package acc
 
-import acc.richclient.views.MainView
+import acc.richclient.dialogs.ConfigInitDialog
 import javafx.application.Application
 import tornadofx.*
 
-class AccApp: App(MainView::class, Styles::class) {
+class AccApp: App(ConfigInitDialog::class, Styles::class) {
     init {
         reloadStylesheetsOnFocus()
     }
@@ -12,7 +12,5 @@ class AccApp: App(MainView::class, Styles::class) {
 
 fun main(args: Array<String>) {
     Application.launch(AccApp::class.java, *args)
-
-
 }
 

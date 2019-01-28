@@ -1,17 +1,23 @@
 package acc.model
 
-abstract class AbstrGroup : Comparable<AbstrGroup> {
-         abstract val groupType: GroupEnum
-         abstract val number: String
-         abstract val fullName: String
-         abstract var parent: AccGroup?
+import acc.Options
 
-        val name: String
-                get() = fullName.take(30)
-        abstract val isActive: Boolean
-        abstract val isPassive: Boolean
-        open val balanced: Boolean
-                get() = isPassive || isActive
+abstract class AbstrGroup(
+        var parent: AccGroup?,
+        val groupType: GroupEnum,
+        open val number: String,
+        var name: String
+) : Comparable<AbstrGroup> {
+
+    val cropName: String
+        get() = name.take(Options.nameCrop)
+    val numberName = "$number - $cropName"
+    abstract val isActive: Boolean
+    abstract val isPassive: Boolean
+    val balanced: Boolean
+        get() = isPassive || isActive
+
+    override fun toString() = numberName
 
 
 }

@@ -19,6 +19,18 @@ class Styles : Stylesheet() {
     }
 
     init {
+        tableView {
+            prefWidth = 2000.px
+        }
+        radioButton {
+            fontSize = 30.px
+        }
+        textArea {
+            fontSize = 30.px
+        }
+        checkBox {
+            fontSize = 30.px
+        }
         titledPane {
             prefWidth = 1000.px
         }

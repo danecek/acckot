@@ -3,15 +3,15 @@ package acc.model
 import java.time.LocalDate
 
 class Document(
-        val type: DocumentType,
+        val type: DocType,
         val number: Int,
-        val date: LocalDate,
-        val description: String) {
+        var date: LocalDate,
+        var description: String) {
 
-    val id: DocumentId
-        get() = DocumentId(type, number)
+    val id: DocId
+        get() = DocId(type, number)
 
     override fun toString(): String {
-        return "${type.text}$number - ${description.take(30)}"
+        return "${type.abbr}$number - ${description.take(30)}"
     }
 }

@@ -1,28 +1,31 @@
 package acc.model
 
-import acc.util.Global
+import acc.business.Facade
 import acc.util.Messages
 import acc.util.withColon
 import java.time.LocalDate
 
-class TransactionFilter(val Od: LocalDate?=null, val Do: LocalDate?=null,
-                        val account: AnalAcc? = null,
-                        val doc: Document?=null) {
+class TransactionFilter(from: LocalDate?=null, tto: LocalDate?=null,
+                        val acc: AnalAcc? = null,
+                        val doc: Document?=null) : AbstrFilter(from, tto) {
 
     fun match(t: Transaction): Boolean {
-        val date = t.document.date
-        if (Od != null && date.isBefore(Od)) return false
-        if (Do != null && date.isAfter(Do)) return false
-        if (account != null && t.maDati != account && t.dal != account) return false
-        if (doc != null && t.document != doc && t.relatedDocument!=doc) return false
+        if (!matchDate(t.doc.date)) return false
+        if (acc != null && t.maDati != acc && t.dal != acc) return false
+        if (doc != null && t.doc != doc && t.relatedDocId!=doc) return false
         return true
     }
 
     override fun toString(): String {
-       val sb= StringBuilder()
-        if (Od!=null)
-            sb.append(Messages.Od.cm().withColon).append(Global.df.format(Od))
-        return sb.toString()
+        val buf = super.elems()
+        if (acc!=null) {
+            buf.add("${Messages.S_uctem.cm().withColon}${acc.numberName}")
+        }
+        if (doc!=null) {
+            buf.add("${Messages.S_dokladem.cm().withColon}${doc.id}")
+        }
+        return if (buf.isEmpty()) Messages.Vsechny.cm()
+        else buf.joinToString (separator =  COMMA_DEL)
     }
 
 }

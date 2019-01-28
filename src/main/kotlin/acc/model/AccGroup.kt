@@ -1,17 +1,12 @@
 package acc.model
 
-import java.util.Objects
-import java.util.Optional
+import java.util.*
 
 class AccGroup(
-        override val groupType: GroupEnum,
-        override val number: String,
-        override val fullName: String
-        ) : AbstrGroup() {
-
-    override var parent: AccGroup? = null
-    val optParent: Optional<AccGroup>
-        get() = Optional.ofNullable(parent)
+        groupType: GroupEnum,
+        number: String,
+        name: String
+) : AbstrGroup(null, groupType, number, name) {
 
     override val isActive: Boolean
         get() {
@@ -28,18 +23,13 @@ class AccGroup(
         get() {
             if (groupType === GroupEnum.CLASS) {
                 when (number) {
-                    "3", "9" -> return true
+                    "3",
+                    "9" -> return true
                     else -> return false
                 }
             }
             return parent!!.isPassive
         }
-
-
-
-/*    fun setParent(parent: AccGroup) {
-        this.parent = parent
-    }*/
 
     override fun equals(other: Any?): Boolean {
         if (other == null) {
@@ -56,12 +46,8 @@ class AccGroup(
         return hash
     }
 
-    override fun toString(): String {
-        return "$number - $name"
-    }
-
     override fun compareTo(other: AbstrGroup): Int {
-        return number.compareTo((other as AccGroup).number)
+        return number.compareTo(other.number)
     }
 
 }

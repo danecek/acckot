@@ -3,14 +3,14 @@ package acc.business.balance
 import acc.model.AbstrGroup
 import java.util.*
 
-class BalanceItem(val group: AbstrGroup?=null) {
+class BalanceItem(val group: AbstrGroup? = null) {
 
     var initAssets: Long = 0
     var initLiabilities: Long = 0
-    var assets: Long = 0
-    var liabilities: Long = 0
-    var assetsSum: Long = 0
-    var liabilitiesSum: Long = 0
+    var periodAssets: Long = 0
+    var periodLiabilities: Long = 0
+    var sumAssets: Long = 0
+    var sumLiabilities: Long = 0
     var finalAssets: Long = 0
     var finalLiabilities: Long = 0
 
@@ -36,38 +36,40 @@ class BalanceItem(val group: AbstrGroup?=null) {
     }
 
     fun appendItemsTo(items: MutableList<BalanceItem>): List<BalanceItem> {
-        children.forEach { k, v -> v.appendItemsTo(items) }
+        children.values.forEach {
+            it.appendItemsTo(items)
+        }
         items.add(this)
         return items
     }
 
     fun sum() {
-        children.forEach { k, v ->
-            v.sum()
-            addInitAssets(v.initAssets)
-            addInitLiabilities(v.initLiabilities)
-            addAssets(v.assets)
-            addLiabilities(v.liabilities)
-            addAssetsSum(v.assetsSum)
-            addLiabilitiesSum(v.liabilitiesSum)
-            addFinalLiabilities(v.finalLiabilities)
+        children.values.forEach {
+            it.sum()
+            addInitAssets(it.initAssets)
+            addInitLiabilities(it.initLiabilities)
+            addAssets(it.periodAssets)
+            addLiabilities(it.periodLiabilities)
+            addAssetsSum(it.sumAssets)
+            addLiabilitiesSum(it.sumLiabilities)
+            addFinalLiabilities(it.finalLiabilities)
         }
     }
 
     fun addAssets(suma: Long) {
-        assets += suma
+        periodAssets += suma
     }
 
     fun addLiabilities(suma: Long) {
-        liabilities += suma
+        periodLiabilities += suma
     }
 
     fun addAssetsSum(suma: Long) {
-        assetsSum += suma
+        sumAssets += suma
     }
 
     fun addLiabilitiesSum(suma: Long) {
-        liabilitiesSum += suma
+        sumLiabilities += suma
     }
 
     fun addInitAssets(suma: Long) {
@@ -87,13 +89,13 @@ class BalanceItem(val group: AbstrGroup?=null) {
     }
 
     override fun toString(): String {
-        return "BalanceItem{" + "group=" + group + ", assets=" + assets + ", liabilities=" + liabilities + ", assetsSum=" + assetsSum + ", liabilitiesSum=" + liabilitiesSum + '}'.toString()
+        return "BalanceItem{" + "group=" + group + ", periodAssets=" + periodAssets + ", periodLiabilities=" + periodLiabilities + ", sumAssets=" + sumAssets + ", sumLiabilities=" + sumLiabilities + '}'.toString()
     }
 
     companion object {
 
         internal fun sp(l: Int): String {
-             val s = CharArray(l)
+            val s = CharArray(l)
             Arrays.fill(s, ' ')
             return String(s)
         }

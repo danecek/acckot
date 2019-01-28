@@ -4,7 +4,7 @@ import acc.business.Facade
 import acc.model.AbstrGroup
 import acc.model.AnalAcc
 import acc.util.AccException
-import acc.util.Global
+import acc.Options
 import java.time.LocalDate
 import java.time.Month
 import java.util.*
@@ -39,18 +39,16 @@ class Balance {
         return newItem
     }
 
-    fun addInit(acc: AnalAcc, amount: Long) {
-        if (!acc.balanced) {
-            return
-        }
+    fun addInit(acc: AnalAcc) {
         val item = bitems[acc]!!
+        println(acc.initAmount)
         if (acc.isActive) {
-            item.addInitAssets(amount)
-            item.addFinalAssets(amount)
+            item.addInitAssets(acc.initAmount)
+            item.addFinalAssets(acc.initAmount)
 
         } else {
-            item.addInitLiabilities(amount)
-            item.addFinalLiabilities(amount)
+            item.addInitLiabilities(acc.initAmount)
+            item.addFinalLiabilities(acc.initAmount)
 
         }
     }
@@ -72,23 +70,21 @@ class Balance {
 
     }
 
-
     @Throws(AccException::class)
     private fun sumTransactions(month: Month) {
-
-        Facade.getInits().forEach {
-            addInit(it.maDati, it.amount)
-            addInit(it.dal, -it.amount)
+        Facade.balanceAccounts.forEach {
+            addInit(it)
         }
         Facade.allTransactions.stream()
                 .forEach { trans ->
-                    val monthBegin = LocalDate.of(Global.year, month, 1)
+                    val monthBegin = LocalDate.of(Options.year, month, 1)
                     val nextMontBegin = monthBegin.plusMonths(1)
-                    val transDate = trans.document.date
+                    val transDate = trans.doc.date
                     val inMonth =
                             !transDate.isBefore(monthBegin) and transDate.isBefore(nextMontBegin)
-                    if (trans.maDati.balanced)
-                        addTrans(trans.maDati, inMonth, +trans.amount)
+                    val maDati = trans.maDati
+                    if (maDati.balanced)
+                        addTrans(maDati, inMonth, +trans.amount)
                     if (trans.dal.balanced)
                         addTrans(trans.dal, inMonth, -trans.amount)
                 }

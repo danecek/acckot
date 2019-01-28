@@ -1,6 +1,6 @@
 package acc.richclient.controller
 
-import acc.richclient.views.dialogs.BalanceShowDialog
+import acc.richclient.dialogs.BalanceShowDialog
 import acc.util.Messages
 import tornadofx.*
 

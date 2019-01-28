@@ -1,9 +1,9 @@
 package acc.model
 
-class Transaction(
-        id: TransactionId,
-        amount: Long,
-        maDati: AnalAcc,
-        dal: AnalAcc,
-        val document: Document,
-        val relatedDocument: Document? = null) : AbstrTransaction(id, amount, maDati, dal)
+data class Transaction(
+        val id: TransactionId,
+        val amount: Long,
+        val maDati: AnalAcc,
+        val dal: AnalAcc,
+        val doc: Document,
+        val relatedDocId: Document? = null)
