@@ -1,13 +1,13 @@
 package acc.richclient
 
 import acc.business.Facade
+import acc.model.AnalAcc
 import acc.model.DocType
 import acc.richclient.controller.*
 import acc.richclient.dialogs.AccountCreateDialog
+import acc.richclient.dialogs.AccountUpdateDialog
 import acc.richclient.dialogs.DialogMode
 import acc.richclient.dialogs.DocumentCreateDialog
-import acc.richclient.dialogs.DocumentsShowDialog
-import acc.richclient.panes.AccountView
 import acc.util.Messages
 import javafx.application.Platform
 import javafx.beans.InvalidationListener
@@ -28,20 +28,18 @@ class AccMenuBar : View() {
 
     init {
         find<PaneTabs>().root.tabs.addListener(
-                AccountPaneClosed
+                ShowAccountsAction
         )
     }
 
-    object AccountPaneClosed : SimpleBooleanProperty(PaneTabs.accountPane == null), InvalidationListener {
+    object AccountPaneClosed : SimpleBooleanProperty(PaneTabs.accountPane == null),
+            InvalidationListener {
         override fun invalidated(observable: Observable?) {
             value = PaneTabs.accountPane == null
         }
     }
 
-    fun openDocCreateDialog(docType: DocType) {
-        val id = Facade.genDocumentId(docType)
-        find<DocumentCreateDialog>(params = mapOf("docType" to docType, "number" to id)).openModal()
-    }
+
 
     override val root = menubar {
         menu(Messages.File.cm()) {
@@ -53,10 +51,9 @@ class AccMenuBar : View() {
         }
         menu(Messages.Ucty.cm()) {
             item(Messages.Zobraz_ucty.cm()) {
-                enableWhen(AccountPaneClosed)
+                enableWhen(ShowAccountsAction)
                 action {
-                    if (PaneTabs.accountPane == null)
-                        PaneTabs.addTab(Messages.Ucty.cm(), tornadofx.find<AccountView>().root)
+                    ShowAccountsAction.execute()
                 }
             }
             item(Messages.Vytvor_ucet.cm()) {
@@ -66,12 +63,10 @@ class AccMenuBar : View() {
                 }
             }
         }
-        menu(Messages.Doklady.cm())    {
-            menu(Messages.Zobraz_doklady.cm()) {
-                action {
-                    find<DocumentsShowDialog>().openModal()
-                }
-            }
+        menu(Messages.Doklady.cm()) {
+            add(ShowAllDocumentsAction)
+            add(ShowDocumentsAction)
+            add(ShowUnpaidInvocesAction)
             menu(Messages.Vytvor.cm()) {
                 item(Messages.Fakturu.cm()) {
                     action {
@@ -102,7 +97,8 @@ class AccMenuBar : View() {
         }
         menu(Messages.Transakce.cm())
         {
-            add(TransactionsShowAction)
+            add(ShowAllTransactionsAction)
+            add(ShowTransactionsAction)
             add(TransactionCreateAction)
         }
         menu(Messages.Rozvaha.cm())

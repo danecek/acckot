@@ -12,7 +12,7 @@ class TransactionFilter(from: LocalDate?=null, tto: LocalDate?=null,
     fun match(t: Transaction): Boolean {
         if (!matchDate(t.doc.date)) return false
         if (acc != null && t.maDati != acc && t.dal != acc) return false
-        if (doc != null && t.doc != doc && t.relatedDocId!=doc) return false
+        if (doc != null && t.doc != doc && t.relatedDoc!=doc) return false
         return true
     }
 

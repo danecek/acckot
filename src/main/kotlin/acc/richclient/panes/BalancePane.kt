@@ -17,6 +17,4 @@ class BalancePane(private val month: Month, private val content: TableView<Balan
         content.items.setAll(Balance().createBalance(month))
     }
 
-    val selected: BalanceItem?
-        get() = content.selectedItem
 }

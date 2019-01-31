@@ -6,4 +6,4 @@ data class Transaction(
         val maDati: AnalAcc,
         val dal: AnalAcc,
         val doc: Document,
-        val relatedDocId: Document? = null)
+        val relatedDoc: Document? = null)

@@ -15,8 +15,7 @@ import java.time.LocalDate
 fun toDateTime(localDate: LocalDate): DateTime {
     val dt = DateTime(DateTimeZone.UTC).withDate(
             localDate.getYear(), localDate.getMonthValue(), localDate.getDayOfMonth()
-    ).withTime(0, 0, 0, 0)
-    println("$localDate->$dt")
+    ).withTime(1, 1, 1, 1)
     return dt
 }
 
@@ -25,8 +24,7 @@ fun toDateTime(localDate: LocalDate): DateTime {
  */
 fun toLocalDate(dateTime: DateTime): LocalDate {
     val dateTimeUtc = dateTime.withZone(DateTimeZone.UTC)
-    val lc = LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth + 1)
-    println("$dateTime->$lc")
+    val lc = LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
     return lc
 }
 

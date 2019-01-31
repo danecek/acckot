@@ -1,8 +1,9 @@
 package acc.richclient
 
-import acc.richclient.panes.AccountPane
-import acc.richclient.panes.DocumentPane
-import acc.richclient.panes.TransactionPane
+import acc.model.DocFilter
+import acc.model.TransactionFilter
+import acc.model.UnpaidInvoicesFilter
+import acc.richclient.panes.*
 import acc.util.Messages
 import javafx.collections.ObservableList
 import javafx.scene.Node
@@ -29,8 +30,14 @@ class PaneTabs : View() {
         // transactions
         val transactionPanes: Stream<TransactionPane>
             get() = tabs().stream()
-                    .filter { t -> t.text == Messages.Transakce.cm() }
-                    .map { t: Tab -> (t.content as TransactionPane) }
+                    .filter { it.content is TransactionPane }
+                    .map { it.content as TransactionPane }
+
+        fun showTransactionPane(tf: TransactionFilter? = null) {
+            PaneTabs.addTab(Messages.Transakce.cm(),
+                    find<TransactionsPaneFragment>(params =
+                    mapOf(TransactionFilter::class.simpleName to tf)).root)
+        }
 
         fun refreshTransactionPanes() {
             transactionPanes
@@ -40,31 +47,51 @@ class PaneTabs : View() {
         }
 
         // documents
-        val documentPane: DocumentPane?
+        val documentPanes: Stream<DocumentPane>
             get() = tabs().stream()
-                    .filter { t -> t.text == Messages.Doklady.cm() }
-                    .map { t: Tab -> (t.content as DocumentPane) }
-                    .findFirst().orElse(null)
+                    .filter { it.content is DocumentPane }
+                    .map { it.content as DocumentPane }
 
-        fun refreshDocumentPane() {
-            documentPane?.refresh()
+
+        fun showDocumentPane(df: DocFilter? = null) {
+            PaneTabs.addTab(Messages.Doklady.cm(),
+                    find<DocumentPaneFragment>(params = mapOf(DocFilter::class.simpleName to df)).root)
         }
 
-        // accountsFile
+        fun showUnpaidInvoicesPane() {
+            PaneTabs.addTab(Messages.Doklady.cm(),
+                    find<DocumentPaneFragment>(params =
+                    mapOf(DocFilter::class.simpleName to UnpaidInvoicesFilter)).root)
+        }
+
+
+        fun refreshDocumentPanes() {
+            documentPanes.forEach {
+                it.refresh()
+            }
+        }
+
+        fun refreshDocAndTransPane() {
+            refreshDocumentPanes()
+            refreshTransactionPanes()
+        }
+
+        // accounts
         val accountPane: AccountPane?
             get() = tabs().stream()
-                    .filter { t -> t.text == Messages.Ucty.cm() }
-                    .map { t: Tab -> (t.content as AccountPane) }
+                    .filter { it.content is AccountPane }
+                    .map { it.content as AccountPane }
                     .findFirst().orElse(null)
 
         fun refreshAccountPane() {
             accountPane?.refresh()
         }
 
-        fun refreshDocAndTransPane() {
-            refreshDocumentPane()
-            refreshTransactionPanes()
-          }
+        fun showAccountPane() {
+            if (accountPane == null)
+                PaneTabs.addTab(Messages.Ucty.cm(), find<AccountPaneView>().root)
+        }
+
 
     }
 

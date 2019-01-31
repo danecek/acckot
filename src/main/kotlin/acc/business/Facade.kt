@@ -6,7 +6,6 @@ import acc.integration.TransactionDAO
 import acc.model.*
 import acc.util.AccException
 import java.time.LocalDate
-import kotlin.streams.toList
 
 object Facade {
 
@@ -59,7 +58,7 @@ object Facade {
 
 
     @Throws(AccException::class)
-    fun transactionsByFilter(tf: TransactionFilter): List<Transaction> {
+    fun transactionsByFilter(tf: TransactionFilter?): List<Transaction> {
         return TransactionDAO.getTrans(tf)
     }
 
@@ -89,11 +88,12 @@ object Facade {
     val unpaidInvoices: List<Document>
         @Throws(AccException::class)
         get() {
-            val paidInvoices = allTransactions.stream()
-                    .map { it -> it.relatedDocId }
-                    .filter { it != null }
-            (allInvoices as MutableList).removeAll(paidInvoices.toList())
-            return allInvoices
+            val paidInvoices = allTransactions//.stream()
+                    .map { it -> it.relatedDoc }
+                    .filterNotNull()
+            val ui = allInvoices as MutableList
+            ui.removeAll(paidInvoices)
+            return ui
         }
 
     fun documentById(docId: DocId): Document? {
@@ -101,8 +101,11 @@ object Facade {
     }
 
     @Throws(AccException::class)
-    fun documentsByFilter(docFilter: DocFilter): List<Document> {
-        return DocumentDAO.docsByFilter(docFilter) //as MutableList<Document>
+    fun documentsByFilter(docFilter: DocFilter?): List<Document> {
+        return if (docFilter == UnpaidInvoicesFilter)
+            unpaidInvoices
+        else
+            DocumentDAO.docsByFilter(docFilter) //as MutableList<Document>
     }
 
     fun createDocument(type: DocType, number: Int, date: LocalDate, description: String) {

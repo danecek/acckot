@@ -41,7 +41,7 @@ class Balance {
 
     fun addInit(acc: AnalAcc) {
         val item = bitems[acc]!!
-        println(acc.initAmount)
+      //  println(acc.initAmount)
         if (acc.isActive) {
             item.addInitAssets(acc.initAmount)
             item.addFinalAssets(acc.initAmount)

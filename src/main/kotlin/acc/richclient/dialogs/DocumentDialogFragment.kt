@@ -1,14 +1,17 @@
 package acc.richclient.dialogs
 
+import acc.Options
 import acc.business.Facade
+import acc.model.DocFilter
 import acc.model.DocId
 import acc.model.DocType
 import acc.model.Document
-import acc.util.DayMonthConverter
 import acc.richclient.PaneTabs
-import acc.Options
+import acc.richclient.controller.openTransactionCreateDialog
+import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
+import javafx.scene.control.Alert
 import tornadofx.*
 import java.time.LocalDate
 
@@ -36,7 +39,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
             DialogMode.UPDATE -> title = Messages.Zmen_doklad.cm()
             DialogMode.DELETE -> title = Messages.Zrus_doklad.cm()
         }
-     }
+    }
 
     private fun initDate(): LocalDate {
         val now = LocalDate.now();
@@ -48,7 +51,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
     override val root = form {
         fieldset {
             spacing = Options.fieldsetSpacing
-            prefWidth = Options.fieldsetPrefWidth+200
+            prefWidth = Options.fieldsetPrefWidth + 200
             field(acc.util.Messages.Typ.cm().withColon) {
                 label(docModel.type.value.text)
             }
@@ -67,7 +70,6 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                         else null
                     }
                 }
-
             }
             field(acc.util.Messages.Popis.cm().withColon) {
                 textarea(docModel.description) {
@@ -79,25 +81,39 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
             button(acc.util.Messages.Potvrd.cm()) {
                 enableWhen(docModel.valid)
                 action {
-                    ok()
-                    PaneTabs.refreshDocAndTransPane()
-                    close()
+                    runAsync {
+                        ok()
+                    } fail {
+                        error(it)
+                    } ui {
+                        PaneTabs.refreshDocAndTransPane()
+                        close()
+                    }
                 }
 
             }
-            button(acc.util.Messages.Potvrd_a_zauctuj.cm()) {
-                enableWhen(docModel.valid)
-                action {
-                    ok()
-                    PaneTabs.refreshDocAndTransPane()
-                    close()
-                    val docId = DocId(docModel.type.value, docModel.number.value)
-                    val doc = Facade.documentById(docId)
-                    find<TransactionCreateDialog>(
-                            params = mapOf("doc" to doc)).openModal()
-                }
+            if (mode == DialogMode.CREATE)
+                button(acc.util.Messages.Potvrd_a_zauctuj.cm()) {
+                    enableWhen(docModel.valid)
+                    action {
+                        runAsync {
+                            ok()
+                            val docId = DocId(docModel.type.value, docModel.number.value)
+                            Facade.documentById(docId)
+                        } fail {
+                            error(it)
+                        } ui {
+                            if (it!=null) {
+                                PaneTabs.refreshDocAndTransPane()
+                                openTransactionCreateDialog(it)
+                            }
+                            close()
+                        }
 
-            }
+
+                    }
+
+                }
             button(acc.util.Messages.Zrus.cm()) {
                 action {
                     close()

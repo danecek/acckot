@@ -19,6 +19,12 @@ class Styles : Stylesheet() {
     }
 
     init {
+        default {
+            fontSize = 30.px
+        }
+        textInput {
+
+        }
         tableView {
             prefWidth = 2000.px
         }

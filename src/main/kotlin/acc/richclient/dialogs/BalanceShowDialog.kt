@@ -1,6 +1,6 @@
 package acc.richclient.dialogs
 
-import acc.richclient.panes.BalanceView
+import acc.richclient.panes.BalancePaneView
 import acc.richclient.PaneTabs
 import acc.util.monthFrm
 import acc.Options
@@ -46,7 +46,7 @@ class BalanceShowDialog : Fragment() {
                     button(Messages.Potvrd.cm()) {
                         action {
                             PaneTabs.addTab(Messages.Rozvaha.cm(),
-                                    find<BalanceView>(mapOf("month" to month)).root)
+                                    find<BalancePaneView>(mapOf("month" to month)).root)
                             close()
                         }
 

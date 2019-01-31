@@ -5,8 +5,8 @@ import acc.util.Messages
 import acc.util.withColon
 import java.time.LocalDate
 
-class DocFilter(
-        val types: Set<String>,
+open class DocFilter(
+        val types: Set<String> = emptySet(),
         from: LocalDate? = null, tto: LocalDate? = null) : AbstrFilter(from, tto) {
 
     fun matchDoc(doc: Document): Boolean {
@@ -23,6 +23,13 @@ class DocFilter(
             els.add(Messages.Typy.cm().withColon.plus(types))
         els.addAll(super.elems())
         return els.joinToString(separator = COMMA_DEL)
+    }
+
+}
+
+object UnpaidInvoicesFilter : DocFilter() {
+    override fun toString(): String {
+        return Messages.Nezaplacene_faktury.cm()
     }
 
 }

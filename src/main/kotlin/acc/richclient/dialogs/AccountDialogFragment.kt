@@ -1,14 +1,16 @@
 package acc.richclient.dialogs
 
+import acc.Options
 import acc.model.AccGroup
 import acc.model.AnalAcc
 import acc.model.Osnova
+import acc.richclient.PaneTabs
 import acc.util.Messages
+import acc.util.accError
 import acc.util.withColon
+import javafx.scene.control.Alert
 import tornadofx.*
 import java.util.regex.Pattern
-import acc.Options
-import acc.richclient.PaneTabs
 
 class AccountDialogModel(acc: AnalAcc?) : ItemViewModel<AnalAcc>(acc) {
     val group = bind(AnalAcc::syntAccount)
@@ -19,7 +21,7 @@ class AccountDialogModel(acc: AnalAcc?) : ItemViewModel<AnalAcc>(acc) {
 
 abstract class AccountDialogFragment(val mode: DialogMode) : Fragment() {
 
-    val acc: AnalAcc? = params["acc"] as? AnalAcc
+    val acc: AnalAcc? = params[AnalAcc::class.simpleName] as? AnalAcc
     val accModel = AccountDialogModel(acc)
 
     init {
@@ -77,8 +79,13 @@ abstract class AccountDialogFragment(val mode: DialogMode) : Fragment() {
             button(Messages.Potvrd.cm()) {
                 enableWhen(accModel.valid)
                 action {
-                    ok()
-                    PaneTabs.refreshAccountPane()
+                    runAsync {
+                        ok()
+                    } fail {
+                        accError(it)
+                    } ui {
+                        PaneTabs.refreshAccountPane()
+                    }
                     close()
                 }
 

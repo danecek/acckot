@@ -14,9 +14,9 @@ import javafx.beans.property.SimpleStringProperty
 import javafx.scene.control.Alert
 import tornadofx.*
 
-class DocumentFragment : Fragment() {
+open class DocumentPaneFragment : Fragment() {
 
-    val df = params[DocFilter::class.simpleName] as DocFilter
+    val df = params[DocFilter::class.simpleName] as? DocFilter
 
     val tw = tableview(Facade.documentsByFilter(df).observable()) {
         prefHeight = Options.prefTableHeight
@@ -36,7 +36,7 @@ class DocumentFragment : Fragment() {
                 action {
                     if (Facade.transactionsByFilter(TransactionFilter(doc = selectedItem)).isEmpty())
                         find<DocumentDeleteDialog>(params = mapOf("doc" to selectedItem)).openModal()
-                    else alert(Alert.AlertType.ERROR, Messages.Doklad_je_pouzit_v_transakci.cm())
+                    else error(Messages.Doklad_je_pouzit_v_transakci.cm())
                 }
             }
             item(Messages.Zauctuj_doklad.cm()) {
@@ -48,7 +48,7 @@ class DocumentFragment : Fragment() {
                 action {
 
                     PaneTabs.addTab(Messages.Transakce.cm(),
-                            find<TransactionsFragment>(
+                            find<TransactionsPaneFragment>(
                                     mapOf("tf" to TransactionFilter(doc = selectedItem))).root)
 
                 }
@@ -57,6 +57,6 @@ class DocumentFragment : Fragment() {
         smartResize()
     }
 
-    override val root = DocumentPane(tw, df)
+    override val root = DocumentPane(df, tw)
 
 }

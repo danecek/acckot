@@ -13,7 +13,7 @@ interface DocumentDAOInterface {
                   description: String)
 
     @Throws(AccException::class)
-    fun docsByFilter(docFilter: DocFilter): List<Document>
+    fun docsByFilter(docFilter: DocFilter?): List<Document>
 
     @Throws(AccException::class)
     fun docById(id: DocId): Document?

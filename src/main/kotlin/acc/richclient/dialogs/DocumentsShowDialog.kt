@@ -4,7 +4,6 @@ import acc.model.DocFilter
 import acc.model.DocType
 import acc.util.DayMonthConverter
 import acc.richclient.PaneTabs
-import acc.richclient.panes.DocumentFragment
 import acc.Options
 import acc.util.Messages
 import acc.util.withColon
@@ -69,8 +68,10 @@ class DocumentsShowDialog : Fragment() {
                             val df = DocFilter(ms,
                                     docFilterModel.from.value,
                                     docFilterModel.tto.value)
-                            PaneTabs.addTab(Messages.Doklady.cm(),
-                                    find<DocumentFragment>(mapOf(df::class.simpleName to df)).root)
+                            PaneTabs.showDocumentPane(df)
+/*                                    addTab(Messages.Doklady.cm(),
+                                    find<DocumentPaneFragment>(mapOf(DocFilter::class.simpleName
+                                            to df)).root)*/
                             close()
                         }
 

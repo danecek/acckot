@@ -13,7 +13,7 @@ interface TransactionDAOInterface {
     val allTransaction: List<Transaction>
 
     @Throws(AccException::class)
-    fun getTrans(tf: TransactionFilter): List<Transaction>
+    fun getTrans(tf: TransactionFilter?): List<Transaction>
 
     @Throws(AccException::class)
     fun deleteTrans(id: TransactionId)

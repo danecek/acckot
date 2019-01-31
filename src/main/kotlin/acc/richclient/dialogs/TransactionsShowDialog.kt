@@ -9,7 +9,6 @@ import acc.business.Facade
 import acc.model.TransactionFilter
 import acc.util.DayMonthConverter
 import acc.richclient.PaneTabs
-import acc.richclient.panes.TransactionsFragment
 import acc.Options
 import acc.util.Messages
 import acc.util.withColon
@@ -63,8 +62,7 @@ class TransactionsShowDialog : Fragment() {
                         action {
                             val tf = TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
                                     transFilterModel.acc.value, transFilterModel.doc.value)
-                            PaneTabs.addTab(Messages.Transakce.cm(),
-                                    find<TransactionsFragment>(mapOf("tf" to tf)).root)
+                            PaneTabs.showTransactionPane(tf)
                             close()
                         }
 

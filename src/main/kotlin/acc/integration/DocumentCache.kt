@@ -28,9 +28,9 @@ object DocumentCache : DocumentDAOInterface {
         get() = documentMapByID.values.toList()
 
     @Throws(AccException::class)
-    override fun docsByFilter(docFilter: DocFilter): MutableList<Document> {
+    override fun docsByFilter(docFilter: DocFilter?): MutableList<Document> {
         return documentMapByID.values
-                .filter { d -> docFilter.matchDoc(d) }
+                .filter { d -> docFilter?.matchDoc(d)?:true }
                 .toMutableList()
     }
 

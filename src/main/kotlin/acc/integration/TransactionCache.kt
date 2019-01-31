@@ -39,20 +39,13 @@ object TransactionCache : TransactionDAOInterface {
 
     override val allTransaction: List<Transaction>
         @Throws(AccException::class)
-        get() = transactionMap.values.stream()
-                .filter { it is Transaction }
-                .map { it as Transaction }
-                .toList()
+        get() = transactionMap.values.toList()
 
 
     @Throws(AccException::class)
-    override fun getTrans(tf: TransactionFilter): List<Transaction> {
+    override fun getTrans(tf: TransactionFilter?): List<Transaction> {
         return transactionMap.values
-                .stream()
-                .filter { it is Transaction }
-                .map { it as Transaction }
-                .filter { tf.match(it) }
-                .toList()
+                .filter { tf?.match(it)?:true }
     }
 
     @Throws(AccException::class)

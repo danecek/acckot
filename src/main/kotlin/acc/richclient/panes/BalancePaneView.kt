@@ -12,10 +12,13 @@ import javafx.scene.Parent
 import tornadofx.*
 import java.time.Month
 
-class BalanceView() : Fragment() {
+class BalancePaneView() : Fragment() {
 
     val month: Property<Month> by params
-    val p = 8.0
+    val syntaw =10
+    val analw =10
+    val amountw = 8.0
+
 
     val tw = tableview<BalanceItem>(Balance().createBalance(month.value)
             .observable()) {
@@ -27,39 +30,39 @@ class BalanceView() : Fragment() {
                         if (it.value.group is AnalAcc) ""
                         else it.value.group?.toString()
                 )
-            }.pctWidth(10)
+            }.weightedWidth(syntaw)
             column<BalanceItem, String>(Messages.Analytika.cm()) {
                 SimpleStringProperty(
                         if (it.value.group is AnalAcc) (it.value.group as? AnalAcc)?.number
                         else ""
                 )
-            }.pctWidth(10)
+            }.weightedWidth(analw)
             readonlyColumn(Messages.Jmeno.cm(), BalanceItem::name).remainingWidth()
         }
         nestedColumn(Messages.Pocatecni.cm()) {
-            readonlyColumn(Messages.Aktiva.cm(), BalanceItem::initAssets).pctWidth(p)
+            readonlyColumn(Messages.Aktiva.cm(), BalanceItem::initAssets).weightedWidth(amountw)
             column<BalanceItem, Long>(Messages.Pasiva.cm()) { t ->
                 SimpleObjectProperty(-t.value.initLiabilities)
-            }.pctWidth(p)
+            }.weightedWidth(amountw)
         }
         nestedColumn(Messages.Obrat.cm()) {
-            readonlyColumn(Messages.Ma_dati.cm(), BalanceItem::periodAssets).pctWidth(p)
+            readonlyColumn(Messages.Ma_dati.cm(), BalanceItem::periodAssets).weightedWidth(amountw)
             column<BalanceItem, Long>(Messages.Dal.cm()) { t ->
                 SimpleObjectProperty(-t.value.periodLiabilities)
-            }.pctWidth(p)
+            }.weightedWidth(amountw)
         }
         nestedColumn(Messages.Obrat_nacitany.cm()) {
-            readonlyColumn(Messages.Ma_dati.cm(), BalanceItem::sumAssets).pctWidth(p)
+            readonlyColumn(Messages.Ma_dati.cm(), BalanceItem::sumAssets).weightedWidth(amountw)
             column<BalanceItem, Long>(Messages.Dal.cm()) { t ->
                 SimpleObjectProperty(-t.value.sumLiabilities)
-            }.pctWidth(p)
+            }.weightedWidth(amountw)
 
         }
         nestedColumn(Messages.Konecna.cm()) {
-            readonlyColumn(Messages.Aktiva.cm(), BalanceItem::finalAssets).pctWidth(p)
+            readonlyColumn(Messages.Aktiva.cm(), BalanceItem::finalAssets).weightedWidth(amountw)
             column<BalanceItem, Long>(Messages.Pasiva.cm()) { t ->
                 SimpleObjectProperty(-t.value.finalLiabilities)
-            }.pctWidth(p)
+            }.weightedWidth(amountw)
         }
         smartResize()
     }
