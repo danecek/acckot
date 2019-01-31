@@ -2,7 +2,6 @@ package acc.richclient.dialogs
 
 import acc.Options
 import acc.business.Facade
-import acc.model.DocFilter
 import acc.model.DocId
 import acc.model.DocType
 import acc.model.Document
@@ -11,7 +10,6 @@ import acc.richclient.controller.openTransactionCreateDialog
 import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
-import javafx.scene.control.Alert
 import tornadofx.*
 import java.time.LocalDate
 
@@ -42,7 +40,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
     }
 
     private fun initDate(): LocalDate {
-        val now = LocalDate.now();
+        val now = LocalDate.now()
         return if (now.year == Options.year) now
         else LocalDate.of(Options.year, 1, 1)
     }
@@ -50,8 +48,6 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
 
     override val root = form {
         fieldset {
-            spacing = Options.fieldsetSpacing
-            prefWidth = Options.fieldsetPrefWidth + 200
             field(acc.util.Messages.Typ.cm().withColon) {
                 label(docModel.type.value.text)
             }

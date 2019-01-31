@@ -1,8 +1,8 @@
 package acc.richclient.dialogs
 
+import acc.Options
 import acc.integration.AccDAOH2
 import acc.richclient.MainView
-import acc.Options
 import acc.util.Messages
 import acc.util.withColon
 import javafx.beans.property.SimpleStringProperty
@@ -12,19 +12,21 @@ import java.time.Year
 
 class ConfigInitDialog : View() {
 
-    val rok = SimpleStringProperty(this, "rok", config.string("rok"))
-    val vm = ViewModel()
+    private val rok = SimpleStringProperty(this, "rok", config.string("rok"))
+    private val accFont = SimpleStringProperty(this, "rok", config.string("font"))
+    private val vm = ViewModel()
 
     init {
         title = Messages.Nastaveni.cm()
         if (rok.value.isNullOrBlank())
             rok.value = LocalDate.now().year.toString()
+        if (accFont.value.isNullOrBlank())
+            accFont.value = "15"
     }
 
     override val root = form {
         fieldset {
-            spacing = Options.fieldsetSpacing
-            prefWidth = Options.fieldsetPrefWidth
+
             field(Messages.Rok.cm().withColon) {
                 val tf = textfield(rok)
                 vm.addValidator(tf, rok) {
@@ -36,6 +38,16 @@ class ConfigInitDialog : View() {
                     }
                 }
             }
+            field(Messages.Velikost_pisma.cm()) {
+                vm.addValidator(textfield(accFont), accFont) {
+                    try {
+                        Options.fontSize = accFont.value.toUInt().toInt()
+                        null
+                    } catch (ex: Exception) {
+                        error(Messages.Neplatna_velikost.cm())
+                    }
+                }
+            }
 
             buttonbar {
                 button(Messages.Potvrd.cm()) {
@@ -43,14 +55,15 @@ class ConfigInitDialog : View() {
                     action {
                         with(config) {
                             set("rok" to rok.value)
+                            set("font" to accFont.value)
+
                             save()
                         }
                         if (!Options.dataFolder.exists())
                             Options.dataFolder.mkdir()
                         AccDAOH2.dataInit()
-                        primaryStage.isResizable = true
-                        primaryStage.height = Options.primaryStageHeight
-                        primaryStage.width = Options.primaryStageWidth
+                        //    primaryStage.isResizable = true
+                        primaryStage.isMaximized = true
                         primaryStage.centerOnScreen()
                         replaceWith<MainView>()
                     }

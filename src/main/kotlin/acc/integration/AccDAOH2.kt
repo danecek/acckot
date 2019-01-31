@@ -13,10 +13,9 @@ import java.time.LocalDate
  * Convert [java.time.LocalDate] to [org.joda.time.DateTime]
  */
 fun toDateTime(localDate: LocalDate): DateTime {
-    val dt = DateTime(DateTimeZone.UTC).withDate(
-            localDate.getYear(), localDate.getMonthValue(), localDate.getDayOfMonth()
+    return DateTime(DateTimeZone.UTC).withDate(
+            localDate.year, localDate.monthValue, localDate.dayOfMonth
     ).withTime(1, 1, 1, 1)
-    return dt
 }
 
 /**
@@ -24,8 +23,7 @@ fun toDateTime(localDate: LocalDate): DateTime {
  */
 fun toLocalDate(dateTime: DateTime): LocalDate {
     val dateTimeUtc = dateTime.withZone(DateTimeZone.UTC)
-    val lc = LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
-    return lc
+    return LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
 }
 
 object AccDAOH2 : DocumentDAOInterface by DocumentCache,
@@ -35,7 +33,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
         AccountCache.load()
         DocumentCache.dataInit()
         TransactionCache.dataInit()
-        Database.connect(url = "jdbc:h2:/" +Options.h2File,
+        Database.connect(url = "jdbc:h2:/" + Options.h2File,
                 driver = "org.h2.Driver")
         transaction {
             //      addLogger(StdOutSqlLogger)
@@ -81,8 +79,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
 
     private fun findRelatedDoc(it: ResultRow): Document? {
         val docTypeName = it[TransactionTable.relatedDocumentType]
-        return if (docTypeName.isNullOrBlank()) null
-        else DocumentCache.docById(
+        return DocumentCache.docById(
                 DocId(DocType.valueOf(docTypeName), it[TransactionTable.relatedDocumentNumber]))
     }
 

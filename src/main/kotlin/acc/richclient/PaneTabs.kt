@@ -28,7 +28,7 @@ class PaneTabs : View() {
         }
 
         // transactions
-        val transactionPanes: Stream<TransactionPane>
+        private val transactionPanes: Stream<TransactionPane>
             get() = tabs().stream()
                     .filter { it.content is TransactionPane }
                     .map { it.content as TransactionPane }

@@ -9,7 +9,7 @@ import java.time.LocalDate
 
 object DocumentCache : DocumentDAOInterface {
 
-    val documentMapByID =
+    private val documentMapByID =
             mutableMapOf<DocId, Document>()//TreeMap<DocId, acc.docModel.Document>()
 
     fun dataInit() {
@@ -55,7 +55,7 @@ object DocumentCache : DocumentDAOInterface {
     override fun findFreeDocId(docType: DocType): Int {
         return allDocs.stream()
                 .filter { it.type == docType }
-                .mapToInt { it -> it.number }
+                .mapToInt { it.number }
                 .max().orElse(0) + 1
     }
 

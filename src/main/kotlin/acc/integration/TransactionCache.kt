@@ -3,12 +3,11 @@ package acc.integration
 import acc.model.*
 import acc.util.AccException
 import java.util.*
-import kotlin.streams.toList
 
 
 object TransactionCache : TransactionDAOInterface {
 
-    val transactionMap = TreeMap<TransactionId, Transaction>()
+    private val transactionMap = TreeMap<TransactionId, Transaction>()
 
     fun dataInit() {
         transactionMap.clear()

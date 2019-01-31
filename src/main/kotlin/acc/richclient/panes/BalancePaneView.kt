@@ -12,12 +12,12 @@ import javafx.scene.Parent
 import tornadofx.*
 import java.time.Month
 
-class BalancePaneView() : Fragment() {
+class BalancePaneView : Fragment() {
 
-    val month: Property<Month> by params
-    val syntaw =10
-    val analw =10
-    val amountw = 8.0
+    private val month: Property<Month> by params
+    private val syntaw = 10
+    private val analw = 10
+    private val amountw = 8.0
 
 
     val tw = tableview<BalanceItem>(Balance().createBalance(month.value)

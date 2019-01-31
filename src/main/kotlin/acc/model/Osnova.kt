@@ -15,15 +15,15 @@ object Osnova {
 
     private val accGroupsByNumber = TreeMap<String, AccGroup>()
 
-    val Software = "013"
-    val Pokladna = "211"
+    const val Software = "013"
+    const val Pokladna = "211"
     val Bankovni_ucty = "221"
-    val Penize_na_cestě = "261"
-    val Odberatele = "311"
-    val Dodavatele = "321"
-    val Spotreba_materialu = "501"
-    val Pocatecni_ucet_rozvazny = "961"
-    val Konecny_ucet_rozvazny = "962"
+    const val Penize_na_ceste = "261"
+    const val Odberatele = "311"
+    const  val Dodavatele = "321"
+    const val Spotreba_materialu = "501"
+    const val Pocatecni_ucet_rozvazny = "961"
+    const val Konecny_ucet_rozvazny = "962"
 
     val tridaZuctovaciVztahy: AccGroup
         get() = (accGroupsByNumber["3"])!!

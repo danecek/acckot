@@ -2,47 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f132e48-82dd-4612-81f7-fa86d2beeaa4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/Actions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsPaneFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/Options.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/Options.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccDAOH2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccDAOH2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountCache.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentCache.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentDAOInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentDAOInterface.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentTable.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAOInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAOInterface.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrGroup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrGroup.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrTransaction.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/AccGroup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/AccGroup.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/DocFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/Transaction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Transaction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/AccMenuBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/AccMenuBar.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/PaneTabs.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/PaneTabs.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/AbstrAction.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/BalanceActions.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AmountConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AmountConverter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/BalanceShowDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/BalanceShowDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/ConfigInitDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/ConfigInitDialog.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalanceView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionPane.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsPaneFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsPaneFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/acc/util/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/acc/util/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/acc/util/messages_cs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/acc/util/messages_cs.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,106 +51,91 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="acckot" />
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2970">
-              <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
+            <state relative-caret-position="315">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../.sdkman/candidates/java/8.0.191-oracle/src.zip!/java/time/temporal/ValueRange.java">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7590">
-              <caret line="310" selection-start-line="310" selection-end-line="310" />
+            <state relative-caret-position="135">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/AccDAOH2.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Options.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+            <state relative-caret-position="150">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/ConfigInitDialog.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="43" column="73" selection-start-line="43" selection-start-column="73" selection-end-line="43" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding>
-                <element signature="e#25#275#0" expanded="true" />
+                <element signature="e#32#374#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionTable.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="181">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentTable.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#25#133#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="189">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAO.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2442">
-              <caret line="84" column="30" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-              <folding>
-                <element signature="e#18#70#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="263">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -178,6 +163,7 @@
       <find>;</find>
       <find>Konecna_aktiva</find>
       <find>println</find>
+      <find>prefW</find>
     </findStrings>
     <replaceStrings>
       <replace>acc</replace>
@@ -200,57 +186,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/AcountConverter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/views/AccountConverter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountConverter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Global.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountCache.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Options.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/ConfigInitDialog.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/BalanceActions.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/AbstrAction.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentDAOInterface.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAOInterface.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionPane.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalanceView.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountView.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/UnpaidInvoicesPane.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AbstrDocumentPane.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentAbstrPane.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/DocFilter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/PaneTabs.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentCache.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/Transaction.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/AccMenuBar.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/Actions.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionsPaneFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/util/AccException.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentTable.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentCache.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentDAOInterface.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/DocFilter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccDAOH2.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AmountConverter.kt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrFilter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrGroup.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountCache.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/AccGroup.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/PaneTabs.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/BalanceShowDialog.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Options.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/ConfigInitDialog.kt" />
       </list>
     </option>
   </component>
@@ -278,10 +264,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="345" />
-    <option name="y" value="519" />
-    <option name="width" value="1380" />
-    <option name="height" value="1057" />
+    <option name="x" value="260" />
+    <option name="y" value="113" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -289,6 +275,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="acckot" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -330,26 +327,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
               <item name="acc" type="462c0819:PsiDirectoryNode" />
-              <item name="integration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acckot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="acc" type="462c0819:PsiDirectoryNode" />
               <item name="richclient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acckot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="acc" type="462c0819:PsiDirectoryNode" />
-              <item name="richclient" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
@@ -360,16 +338,6 @@
               <item name="acc" type="462c0819:PsiDirectoryNode" />
               <item name="richclient" type="462c0819:PsiDirectoryNode" />
               <item name="dialogs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acckot" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="acc" type="462c0819:PsiDirectoryNode" />
-              <item name="richclient" type="462c0819:PsiDirectoryNode" />
-              <item name="panes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
@@ -402,17 +370,49 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="acc" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="acckot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="acc" type="462c0819:PsiDirectoryNode" />
               <item name="richclient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="acckot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="acc" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="acckot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="acc" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="Resource Bundle 'messages'" type="a6c14932:ResourceBundleNode" />
+            </path>
+            <path>
+              <item name="acckot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="acckot" type="462c0819:PsiDirectoryNode" />
+              <item name="ucetnictvi" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548929985992" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548950700546" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -651,9 +651,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="54" width="2736" height="1768" extended-state="6" />
+    <frame x="0" y="24" width="1920" height="1175" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.62849534" visible="true" weight="0.23866959" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62849534" visible="true" weight="0.2113127" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -661,17 +662,17 @@
       <window_info id="Structure" order="5" sideWeight="0.15" side_tool="true" weight="0.26914328" />
       <window_info id="Favorites" order="6" sideWeight="0.37150466" side_tool="true" weight="0.30742988" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.50548035" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924186" weight="0.44616377" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.5052331" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924186" weight="0.4452902" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39946738" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956058" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32956058" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5007582" side_tool="true" weight="0.3668442" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.43326885" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32946485" />
-      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.3801598" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.43292102" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32921028" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.46812558" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Maven" order="1" weight="0.14746019" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -755,229 +756,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../.sdkman/candidates/java/8.0.191-oracle/javafx-src.zip!/javafx/scene/control/Dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="260" column="7" lean-forward="true" selection-start-line="260" selection-start-column="7" selection-end-line="260" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../.sdkman/candidates/java/8.0.191-oracle/javafx-src.zip!/javafx/scene/control/HeavyweightDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="e#1129#1466#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDeleteDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="71" column="57" lean-forward="true" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="65" column="51" lean-forward="true" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountUpdateDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAOInterface.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/TransactionPane.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="14" column="74" lean-forward="true" selection-start-line="14" selection-start-column="74" selection-end-line="14" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/AccApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentAbstrPane.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDeleteDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/DocFilter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1142">
-          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/UnpaidInvoicesPane.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentDAOInterface.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentCache.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="30" column="77" lean-forward="true" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDeleteDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/AccMenuBar.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="68" column="24" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/PaneTabs.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="69" column="22" lean-forward="true" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="88" column="43" lean-forward="true" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentCreateDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/Printing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/Transaction.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionCreateDialog.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/business/balance/Balance.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountCache.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/Actions.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -995,58 +773,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="60" column="38" lean-forward="true" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="44" />
-          <folding>
-            <element signature="e#30#290#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="43" column="49" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.20/kotlin-stdlib-common-1.3.20-sources.jar!/kotlin/util/Preconditions.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2970">
-          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.20/kotlin-stdlib-common-1.3.20-sources.jar!/kotlin/util/Preconditions.kt" />
     <entry file="jar://$PROJECT_DIR$/../.sdkman/candidates/java/8.0.191-oracle/src.zip!/java/time/temporal/ValueRange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7590">
@@ -1071,31 +798,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionDAO.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2442">
-          <caret line="84" column="30" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1109,13 +815,327 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentCache.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/DocumentDAOInterface.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/DocFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountCreateDialog.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/controller/TransactionActions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/TransactionCache.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#25#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/TransactionFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#19#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/business/Facade.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="91" column="47" lean-forward="true" selection-start-line="91" selection-start-column="47" selection-end-line="91" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrTransaction.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/DateConverters.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/AccDAOH2.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+        <state relative-caret-position="114">
+          <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
           <folding>
             <element signature="e#25#275#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AmountConverter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/acc.richclient.dialogs.ConfigInitDialog.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ucetnictvi/ucty2019.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/AccMenuBar.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/business/balance/BalanceItem.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePane.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="e#30#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/AbstrGroup.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPaneView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/integration/AccountCache.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="e#25#429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/AccountPane.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/AccGroup.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="24" column="38" lean-forward="true" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/BalancePaneView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPaneFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="e#30#441#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/model/Osnova.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/PaneTabs.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="69" column="23" lean-forward="true" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/panes/DocumentPane.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding>
+            <element signature="e#30#230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/acc/richclient/css.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/AccountDialogFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="e#32#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/BalanceShowDialog.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentDialogFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+          <folding>
+            <element signature="e#32#374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/DocumentsShowDialog.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionDialogFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/TransactionsShowDialog.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Styles.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/MainView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17.jar!/tornadofx/Component.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/util/Messages.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../.sdkman/candidates/java/8.0.191-oracle/javafx-src.zip!/javafx/scene/control/Labeled.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="386" column="22" selection-start-line="386" selection-start-column="22" selection-end-line="386" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/richclient/dialogs/ConfigInitDialog.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="43" column="73" selection-start-line="43" selection-start-column="73" selection-end-line="43" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/acc/Options.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>

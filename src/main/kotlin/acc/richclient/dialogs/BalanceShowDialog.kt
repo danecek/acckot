@@ -1,29 +1,26 @@
 package acc.richclient.dialogs
 
-import acc.richclient.panes.BalancePaneView
 import acc.richclient.PaneTabs
-import acc.util.monthFrm
-import acc.Options
+import acc.richclient.panes.BalancePaneView
 import acc.util.Messages
+import acc.util.monthFrm
 import acc.util.withColon
 import javafx.beans.property.SimpleObjectProperty
 import javafx.util.StringConverter
 import tornadofx.*
-import java.lang.UnsupportedOperationException
 import java.time.Month
 
 
 class BalanceShowDialog : Fragment() {
 
 
-    val month = SimpleObjectProperty<Month>()
+    private val month = SimpleObjectProperty<Month>()
 
     override val root =
             form {
                 title = Messages.Rozvaha.cm()
                 fieldset {
-                    spacing = Options.fieldsetSpacing
-                    prefWidth = Options.fieldsetPrefWidth
+
                     field(Messages.Mesice.cm().withColon) {
                         combobox(month, Month.values().toList()) {
                             value = Month.DECEMBER

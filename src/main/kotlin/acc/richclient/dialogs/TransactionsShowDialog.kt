@@ -7,9 +7,8 @@ package acc.richclient.dialogs
 
 import acc.business.Facade
 import acc.model.TransactionFilter
-import acc.util.DayMonthConverter
 import acc.richclient.PaneTabs
-import acc.Options
+import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
 import tornadofx.*
@@ -24,15 +23,14 @@ class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
 class TransactionsShowDialog : Fragment() {
 
 
-    val transFilterModel = TransactionFilterModel()
+    private val transFilterModel = TransactionFilterModel()
 
     override val root =
             form {
                 title = Messages.Zobraz_transakce.cm()
                 fieldset {
-                    spacing = Options.fieldsetSpacing
-                    prefWidth = Options.fieldsetPrefWidth
-                    field(Messages.Od.cm().withColon) {
+
+                   field(Messages.Od.cm().withColon) {
                         datepicker(transFilterModel.from) {
                             prefHeight = 50.0
                             converter = DayMonthConverter

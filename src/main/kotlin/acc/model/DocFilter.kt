@@ -6,11 +6,11 @@ import acc.util.withColon
 import java.time.LocalDate
 
 open class DocFilter(
-        val types: Set<String> = emptySet(),
+        private val types: Set<String> = emptySet(),
         from: LocalDate? = null, tto: LocalDate? = null) : AbstrFilter(from, tto) {
 
     fun matchDoc(doc: Document): Boolean {
-        if (!matchDate(doc.date)) return false;
+        if (!matchDate(doc.date)) return false
         if (!types.contains(doc.type.abbr)) return false
         return true
     }

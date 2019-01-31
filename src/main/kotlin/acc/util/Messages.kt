@@ -25,6 +25,7 @@ enum class Messages {
     File,
     Id,
     Jmeno,
+    Neplatna_velikost,
     Konec,
     Konecna,
     Nastaveni,
@@ -69,6 +70,7 @@ enum class Messages {
     Ucet_jiz_existuje,
     Ucty,
     UU,
+    Velikost_pisma,
     Vsechny_typy,
     Vsechny,
     Vydajovy_doklad,
@@ -103,11 +105,11 @@ enum class Messages {
     ;
 
     fun cm(vararg args: Any): String {
-        try {
-            return MessageFormat.format(rb.getString(this.name), *args)
+        return try {
+            MessageFormat.format(rb.getString(this.name), *args)
         } catch (mre: MissingResourceException) {
             // LOG.warning(mre.toString());
-            return name.replace("_", " ")
+            name.replace("_", " ")
         }
 
     }
@@ -119,6 +121,6 @@ enum class Messages {
 
 }
 
-val COLDEL = ": "
+const val COLDEL = ": "
 val String.withColon
     get() = this + COLDEL

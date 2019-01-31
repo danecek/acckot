@@ -1,6 +1,5 @@
 package acc.richclient.dialogs
 
-import acc.Options
 import acc.business.Facade
 import acc.model.AnalAcc
 import acc.model.DocType
@@ -24,7 +23,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
         val relatedDocument = bind(Transaction::relatedDoc)
     }
 
-    val tr = params["tr"] as Transaction?
+    private val tr = params["tr"] as Transaction?
     val transModel = TransactionDialogModel(tr)
     val doc: Document? = params["doc"] as? Document
     val dal = params["dalAnal"] as? AnalAcc
@@ -34,10 +33,11 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
     }
 
     val transType =
-            if (doc == null) TransType.COMMON_TRANSACTION
-            else if (doc.type == DocType.BANK_STATEMENT)
-                TransType.TRANSACTION_FOR_STATM
-            else TransType.TRANSACTION_FOR_DOC
+            when {
+                doc == null -> TransType.COMMON_TRANSACTION
+                doc.type == DocType.BANK_STATEMENT -> TransType.TRANSACTION_FOR_STATM
+                else -> TransType.TRANSACTION_FOR_DOC
+            }
 
     init {
         when (mode) {
@@ -87,8 +87,6 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
 
     override val root = form {
         fieldset {
-            spacing = Options.fieldsetSpacing
-            prefWidth = Options.fieldsetPrefWidth + 200
             prefHeight = 350.0
             field(Messages.Doklad.cm().withColon) {
                 if (transModel.document.value == null) {
@@ -98,7 +96,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                             if (it == null) error() else null
                         }
                     }
-                    cb.valueProperty().addListener { _ ->
+                    cb.valueProperty().addListener {_->
                         f!!.isDisable = cb.value.type != DocType.BANK_STATEMENT
                     }
                 } else
@@ -110,7 +108,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     prefHeight = 50.0
                     isDisable = mode == DialogMode.DELETE
                     validator {
-                        if (it?.isLong() ?: false) null else error(Messages.Neplatna_castka.cm())
+                        if (it?.isLong() == true) null else error(Messages.Neplatna_castka.cm())
                     }
                 }
 
@@ -120,7 +118,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     maDati()
                 } fail {
                     accError(it)
-                } ui {
+                } ui { it ->
                     combobox(transModel.maDati, it) {
                         prefHeight = 50.0
                         converter = AccountConverter
@@ -136,7 +134,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     dal()
                 } fail {
                     error(it)
-                } ui {
+                } ui { it ->
                     combobox(transModel.dal, it) {
                         prefHeight = 50.0
                         converter = AccountConverter

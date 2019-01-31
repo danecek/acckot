@@ -80,7 +80,7 @@ object Facade {
         @Throws(AccException::class)
         get() = DocumentDAO.allDocs
 
-    val allInvoices: List<Document>
+    private val allInvoices: List<Document>
         @Throws(AccException::class)
         get() = DocumentDAO.allDocs
                 .filter { it.type == DocType.INVOICE }
@@ -88,9 +88,7 @@ object Facade {
     val unpaidInvoices: List<Document>
         @Throws(AccException::class)
         get() {
-            val paidInvoices = allTransactions//.stream()
-                    .map { it -> it.relatedDoc }
-                    .filterNotNull()
+            val paidInvoices = allTransactions.mapNotNull { it.relatedDoc }
             val ui = allInvoices as MutableList
             ui.removeAll(paidInvoices)
             return ui

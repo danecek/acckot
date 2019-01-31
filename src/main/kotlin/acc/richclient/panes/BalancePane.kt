@@ -2,12 +2,11 @@ package acc.richclient.panes
 
 import acc.business.balance.Balance
 import acc.business.balance.BalanceItem
-import acc.util.monthFrm
 import acc.util.Messages
+import acc.util.monthFrm
 import acc.util.withColon
 import javafx.scene.control.TableView
 import javafx.scene.control.TitledPane
-import tornadofx.*
 import java.time.Month
 
 class BalancePane(private val month: Month, private val content: TableView<BalanceItem>) :

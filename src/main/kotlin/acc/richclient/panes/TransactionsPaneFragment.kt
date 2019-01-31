@@ -17,7 +17,7 @@ class TransactionsPaneFragment : Fragment() {
     val tf = params[TransactionFilter::class.simpleName] as? TransactionFilter
 
     val idw = 5
-    val amw = 10
+    private val amw = 10
     val datew = 10
     val numberw = 10
     val namew = 10

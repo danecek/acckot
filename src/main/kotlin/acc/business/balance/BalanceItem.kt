@@ -24,7 +24,7 @@ class BalanceItem(val group: AbstrGroup? = null) {
         get() = group?.number ?: ""
 
 
-    internal fun print(intnd: Int) {
+    private fun print(intnd: Int) {
         if (intnd == 0) {
             println("********************************")
         }
@@ -89,7 +89,7 @@ class BalanceItem(val group: AbstrGroup? = null) {
     }
 
     override fun toString(): String {
-        return "BalanceItem{" + "group=" + group + ", periodAssets=" + periodAssets + ", periodLiabilities=" + periodLiabilities + ", sumAssets=" + sumAssets + ", sumLiabilities=" + sumLiabilities + '}'.toString()
+        return "BalanceItem{group=$group, periodAssets=$periodAssets, periodLiabilities=$periodLiabilities, sumAssets=$sumAssets, sumLiabilities=$sumLiabilities}"
     }
 
     companion object {

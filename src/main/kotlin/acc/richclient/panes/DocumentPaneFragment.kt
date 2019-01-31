@@ -5,22 +5,21 @@ import acc.business.Facade
 import acc.model.DocFilter
 import acc.model.Document
 import acc.model.TransactionFilter
-import acc.util.dayMonthFrm
 import acc.richclient.dialogs.DocumentDeleteDialog
 import acc.richclient.dialogs.DocumentUpdateDialog
 import acc.richclient.dialogs.TransactionCreateDialog
 import acc.util.Messages
+import acc.util.dayMonthFrm
 import javafx.beans.property.SimpleStringProperty
-import javafx.scene.control.Alert
 import tornadofx.*
 
 open class DocumentPaneFragment : Fragment() {
 
-    val df = params[DocFilter::class.simpleName] as? DocFilter
+    private val df = params[DocFilter::class.simpleName] as? DocFilter
 
-    val tw = tableview(Facade.documentsByFilter(df).observable()) {
+    private val tw = tableview(Facade.documentsByFilter(df).observable()) {
         prefHeight = Options.prefTableHeight
-        column<Document, String>(Messages.Typ.cm()) { it ->
+        column<Document, String>(Messages.Typ.cm()) {
             SimpleStringProperty(it.value.type.abbr)
         }
         readonlyColumn(Messages.Cislo.cm(), Document::number)

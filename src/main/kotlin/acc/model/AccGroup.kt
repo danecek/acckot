@@ -11,9 +11,9 @@ class AccGroup(
     override val isActive: Boolean
         get() {
             if (groupType === GroupEnum.CLASS) {
-                when (number) {
-                    "2" -> return true
-                    else -> return false
+                return when (number) {
+                    "2" -> true
+                    else -> false
                 }
             }
             return parent!!.isActive
@@ -22,10 +22,10 @@ class AccGroup(
     override val isPassive: Boolean
         get() {
             if (groupType === GroupEnum.CLASS) {
-                when (number) {
+                return when (number) {
                     "3",
-                    "9" -> return true
-                    else -> return false
+                    "9" -> true
+                    else -> false
                 }
             }
             return parent!!.isPassive

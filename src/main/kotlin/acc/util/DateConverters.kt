@@ -16,7 +16,7 @@ val monthFrm:DateTimeFormatter = DateTimeFormatter
 fun LocalDate.dateFormat():String = dayMonthFrm.format(this)
 
 fun initDate(): LocalDate {
-    val now = LocalDate.now();
+    val now = LocalDate.now()
     return if (now.year == Options.year) now
     else LocalDate.of(Options.year, 1, 1)
 }

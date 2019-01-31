@@ -6,7 +6,7 @@ import javafx.scene.control.TableView
 import javafx.scene.layout.StackPane
 import tornadofx.*
 
-class AccountPane(val content: TableView<AnalAcc>) : StackPane(content) {
+ class AccountPane(private val content: TableView<AnalAcc>) : StackPane(content) {
 
     fun refresh() {
         runAsync {
@@ -15,6 +15,10 @@ class AccountPane(val content: TableView<AnalAcc>) : StackPane(content) {
             content.items.setAll(it)
         }
 
+    }
+
+    init {
+        refresh()
     }
 
 }

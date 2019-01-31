@@ -9,7 +9,7 @@ abstract class AbstrGroup(
         var name: String
 ) : Comparable<AbstrGroup> {
 
-    val cropName: String
+    private val cropName: String
         get() = name.take(Options.nameCrop)
     val numberName = "$number - $cropName"
     abstract val isActive: Boolean

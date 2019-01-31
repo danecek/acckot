@@ -1,6 +1,5 @@
 package acc.model
 
-import acc.business.Facade
 import acc.util.Messages
 import acc.util.withColon
 import java.time.LocalDate

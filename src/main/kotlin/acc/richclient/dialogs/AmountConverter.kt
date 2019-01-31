@@ -8,10 +8,10 @@ object AmountConverter : StringConverter<Long>() {
     }
 
     override fun fromString(string: String?): Long {
-        try {
-            return string?.toLong() ?: 0
+        return try {
+            string?.toLong() ?: 0
         } catch (ex: Exception) {
-            return 0;
+            0
         }
 
     }

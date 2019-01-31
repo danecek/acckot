@@ -2,9 +2,8 @@ package acc.richclient.dialogs
 
 import acc.model.DocFilter
 import acc.model.DocType
-import acc.util.DayMonthConverter
 import acc.richclient.PaneTabs
-import acc.Options
+import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
 import javafx.beans.property.SimpleBooleanProperty
@@ -14,12 +13,11 @@ import tornadofx.*
 class DocumentsShowDialog : Fragment() {
 
     class DocFilterModel : ItemViewModel<DocFilter>() {
-        val types = bind(DocFilter::types)
         val from = bind(DocFilter::from)
         val tto = bind(DocFilter::tto)
     }
 
-    val a: Array<SimpleBooleanProperty> =
+    private val a: Array<SimpleBooleanProperty> =
             Array(DocType.values().size, init = { SimpleBooleanProperty(false) })
 
     val docFilterModel = DocFilterModel()
@@ -33,9 +31,6 @@ class DocumentsShowDialog : Fragment() {
             form {
                 title = Messages.Zobraz_doklady.cm()
                 fieldset {
-                    spacing = Options.fieldsetSpacing
-                    prefWidth = Options.fieldsetPrefWidth
-
                     DocType.values().forEach {
                         checkbox(it.text, a[it.ordinal])
                     }
@@ -69,9 +64,6 @@ class DocumentsShowDialog : Fragment() {
                                     docFilterModel.from.value,
                                     docFilterModel.tto.value)
                             PaneTabs.showDocumentPane(df)
-/*                                    addTab(Messages.Doklady.cm(),
-                                    find<DocumentPaneFragment>(mapOf(DocFilter::class.simpleName
-                                            to df)).root)*/
                             close()
                         }
 

@@ -11,10 +11,10 @@ import tornadofx.*
 
 open class AccountPaneView : View() {
 
-    val saccw = 5
-    val analw = 5
-    val namew = 30
-    val madatidalw = 10
+    private val saccw = 5
+    private val analw = 5
+    private val namew = 30
+    private val madatidalw = 10
 
     fun maDati(acc: AnalAcc) =
             if (acc.balanced && acc.initAmount >= 0) acc.initAmount.toString()
@@ -24,7 +24,7 @@ open class AccountPaneView : View() {
             if (acc.balanced && acc.initAmount < 0) (-acc.initAmount).toString()
             else ""
 
-    val tw: TableView<AnalAcc> = tableview(mutableListOf<AnalAcc>().observable()) {
+    private val tw: TableView<AnalAcc> = tableview(mutableListOf<AnalAcc>().observable()) {
         column<AnalAcc, String>(Messages.Synteticky_ucet.cm()) {
             ReadOnlyObjectWrapper(it.value.syntAccount.number)
         }.weightedWidth(saccw)
@@ -75,6 +75,7 @@ open class AccountPaneView : View() {
         smartResize()
     }
     override val root = AccountPane(tw)
+
 
     init {
         root.refresh()

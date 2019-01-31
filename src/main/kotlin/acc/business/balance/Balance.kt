@@ -39,7 +39,7 @@ class Balance {
         return newItem
     }
 
-    fun addInit(acc: AnalAcc) {
+    private fun addInit(acc: AnalAcc) {
         val item = bitems[acc]!!
       //  println(acc.initAmount)
         if (acc.isActive) {

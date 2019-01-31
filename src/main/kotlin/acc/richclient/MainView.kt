@@ -12,12 +12,10 @@ class MainView : View(Messages.Ucetnictvi.cm().plus(" ").plus(Options.year)) {
 
     override val root = borderpane {
 
-        prefWidth = 2000.0
-
         top<AccMenuBar>()
         center<PaneTabs>()
         bottom {
-            toolbar() {
+            toolbar {
                 button(ShowDocumentsAction.name) {
                     enableWhen(ShowDocumentsAction)
                     action {

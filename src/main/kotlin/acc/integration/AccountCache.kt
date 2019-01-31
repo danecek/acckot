@@ -1,16 +1,15 @@
 package acc.integration
 
+import acc.Options
 import acc.model.AccGroup
 import acc.model.AnalAcc
+import acc.model.AnalId
 import acc.model.Osnova
 import acc.util.AccException
-import acc.Options
-import acc.model.AnalId
 import acc.util.Messages
 import com.beust.klaxon.Klaxon
 import com.beust.klaxon.KlaxonException
 import javafx.scene.control.Alert
-import java.io.File
 import java.io.FileWriter
 import java.io.PrintWriter
 import java.nio.file.Files
@@ -29,7 +28,7 @@ object AccountCache {
     private val accountById = TreeMap<AnalId, AnalAcc>()
     private val klaxon = Klaxon()
 
-    fun save() {
+    private  fun save() {
         val fw = PrintWriter(FileWriter(Options.accountFile))
         accountById.values.forEach {
             fw.println(klaxon.toJsonString(AnalAccDTO(
@@ -82,11 +81,6 @@ object AccountCache {
         get() = accountById.values.stream()
                 .filter { it.syntAccount == Osnova.pokladna }
                 .toList()
-
-    val pocatecniUcetRozvazny: AnalAcc
-        @Throws(AccException::class)
-        get() = accountById[AnalId(Osnova.pocatecniUcetRozvazny, "101")]!!
-
 
     @Throws(AccException::class)
     fun createAcc(group: AccGroup, anal: String, name: String, initAmount: Long) {

@@ -8,7 +8,7 @@ import javafx.scene.control.TableView
 import javafx.scene.control.TitledPane
 import tornadofx.*
 
-class TransactionPane(val content: TableView<Transaction>, val tf : TransactionFilter?)
+class TransactionPane(private val content: TableView<Transaction>, val tf : TransactionFilter?)
     : TitledPane(tf?.toString()?: Messages.Vsechny.cm(), content) {
 
     fun refresh() {

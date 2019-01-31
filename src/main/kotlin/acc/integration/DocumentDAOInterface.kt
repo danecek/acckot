@@ -8,7 +8,7 @@ import acc.util.AccException
 import java.time.LocalDate
 
 interface DocumentDAOInterface {
-    abstract val allDocs: List<Document>
+    val allDocs: List<Document>
     fun createDoc(type: DocType, number: Int, date: LocalDate,
                   description: String)
 
