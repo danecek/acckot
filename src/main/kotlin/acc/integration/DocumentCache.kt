@@ -1,3 +1,4 @@
+/*
 package acc.integration
 
 import acc.model.DocFilter
@@ -7,7 +8,7 @@ import acc.model.DocType
 import acc.util.AccException
 import java.time.LocalDate
 
-object DocumentCache : DocumentDAOInterface {
+object DocumentCachex : DocumentDAOInterface {
 
     private val documentMapByID =
             mutableMapOf<DocId, Document>()//TreeMap<DocId, acc.docModel.Document>()
@@ -62,3 +63,4 @@ object DocumentCache : DocumentDAOInterface {
 
 }
 
+*/

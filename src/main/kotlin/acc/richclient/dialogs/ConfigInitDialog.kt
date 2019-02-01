@@ -1,7 +1,6 @@
 package acc.richclient.dialogs
 
 import acc.Options
-import acc.integration.AccDAOH2
 import acc.richclient.MainView
 import acc.util.Messages
 import acc.util.withColon
@@ -61,7 +60,7 @@ class ConfigInitDialog : View() {
                         }
                         if (!Options.dataFolder.exists())
                             Options.dataFolder.mkdir()
-                        AccDAOH2.dataInit()
+                      //  AccDAOH2.dataInit()
                         //    primaryStage.isResizable = true
                         primaryStage.isMaximized = true
                         primaryStage.centerOnScreen()

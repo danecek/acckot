@@ -2,8 +2,8 @@ package acc.model
 
 data class Transaction(
         val id: TransactionId,
-        val amount: Long,
-        val maDati: AnalAcc,
-        val dal: AnalAcc,
-        val doc: Document,
-        val relatedDoc: Document? = null)
+        var amount: Long,
+        var maDati: AnalAcc,
+        var dal: AnalAcc,
+        var doc: Document,
+        var relatedDoc: Document? = null)

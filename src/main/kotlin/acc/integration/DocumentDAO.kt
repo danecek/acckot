@@ -1,3 +1,3 @@
 package acc.integration
 
-object DocumentDAO : DocumentDAOInterface by AccDAOH2// DocumentCache
+object DocumentDAO : DocumentDAOInterface by AccCachedDAOH2// DocumentCache

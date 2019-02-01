@@ -56,7 +56,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                         transModel.dal.value = dal
                     }
                 }
-            DialogMode.UPDATE -> title = Messages.Vytvor_transakci.cm()
+            DialogMode.UPDATE -> title = Messages.Zmen_transakci.cm()
             DialogMode.DELETE -> title = Messages.Zrus_transakci.cm()
         }
 

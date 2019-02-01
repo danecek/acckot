@@ -2,32 +2,38 @@ package acc.integration
 
 import acc.Options
 import acc.model.*
+import acc.model.Transaction
 import acc.util.AccException
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import java.time.LocalDate
+import com.google.common.cache.CacheLoader
+import java.util.concurrent.TimeUnit
+import com.google.common.cache.CacheBuilder
+
 
 /**
  * Convert [java.time.LocalDate] to [org.joda.time.DateTime]
  */
-fun toDateTime(localDate: LocalDate): DateTime {
+/*fun toDateTime(localDate: LocalDate): DateTime {
     return DateTime(DateTimeZone.UTC).withDate(
             localDate.year, localDate.monthValue, localDate.dayOfMonth
     ).withTime(1, 1, 1, 1)
 }
 
-/**
+*//**
  * Convert [org.joda.time.DateTime] to [java.time.LocalDate]
- */
+ *//*
 fun toLocalDate(dateTime: DateTime): LocalDate {
     val dateTimeUtc = dateTime.withZone(DateTimeZone.UTC)
     return LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
-}
+}*/
 
+/*
 object AccDAOH2 : DocumentDAOInterface by DocumentCache,
-        TransactionDAOInterface by TransactionCache {
+        TransDAOInterface by TransactionCache {
 
     fun dataInit() {
         AccountCache.load()
@@ -41,7 +47,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
             DocumentTable.selectAll()
                     .forEach {
                         DocumentCache.createDoc(
-                                DocType.valueOf(it[DocumentTable.type]),
+                                DocType.valueOf(it[DocumentTable.typeName]),
                                 it[DocumentTable.number],
                                 toLocalDate(it[DocumentTable.date]),
                                 it[DocumentTable.description])
@@ -50,7 +56,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
 
             TransactionTable.selectAll()
                     .forEach {
-                        TransactionCache.createTransaction(
+                        TransactionCache.createTrans(
                                 TransactionId(it[TransactionTable.id]),
                                 it[TransactionTable.amount],
                                 AccountCache.accById(
@@ -79,13 +85,14 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
 
     private fun findRelatedDoc(it: ResultRow): Document? {
         val docTypeName = it[TransactionTable.relatedDocumentType]
-        return DocumentCache.docById(
+        return if (docTypeName.isNullOrBlank()) null
+        else DocumentCache.docById(
                 DocId(DocType.valueOf(docTypeName), it[TransactionTable.relatedDocumentNumber]))
     }
 
     // Transakce ***************************************************************************
     @Throws(AccException::class)
-    override fun createTransaction(id: TransactionId?, amount: Long, maDati: AnalAcc,
+    override fun createTrans(id: TransactionId?, amount: Long, maDati: AnalAcc,
                                    dal: AnalAcc, document: Document, relatedDocument: Document?) {
         assert(id == null)
         transaction {
@@ -100,7 +107,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
                 it[this.relatedDocumentType] = relatedDocument?.id?.type?.name ?: ""
                 it[this.relatedDocumentNumber] = relatedDocument?.id?.number ?: 0
             }.generatedKey
-            TransactionCache.createTransaction(TransactionId(genId!!.toInt()),
+            TransactionCache.createTrans(TransactionId(genId!!.toInt()),
                     amount, maDati, dal, document, relatedDocument)
         }
 
@@ -152,7 +159,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
         DocumentCache.createDoc(type, number, date, description)
         transaction {
             DocumentTable.insert {
-                it[this.type] = type.name
+                it[this.typeName] = type.name
                 it[this.number] = number
                 it[this.date] = toDateTime(date)
                 it[this.description] = description
@@ -164,7 +171,7 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
                            description: String) {
         transaction {
             DocumentTable.update({
-                (DocumentTable.type eq id.type.name) and (DocumentTable.number eq id.number)
+                (DocumentTable.typeName eq id.type.name) and (DocumentTable.number eq id.number)
             })
             {
                 it[this.date] = toDateTime(date)
@@ -178,11 +185,11 @@ object AccDAOH2 : DocumentDAOInterface by DocumentCache,
     override fun deleteDoc(id: DocId) {
         transaction {
             DocumentTable.deleteWhere {
-                (DocumentTable.type eq id.type.name) and (DocumentTable.number eq id.number)
+                (DocumentTable.typeName eq id.type.name) and (DocumentTable.number eq id.number)
             }
             DocumentCache.deleteDoc(id)
         }
 
     }
 
-}
+}*/

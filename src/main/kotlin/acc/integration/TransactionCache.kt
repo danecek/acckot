@@ -1,3 +1,4 @@
+/*
 package acc.integration
 
 import acc.model.*
@@ -5,7 +6,7 @@ import acc.util.AccException
 import java.util.*
 
 
-object TransactionCache : TransactionDAOInterface {
+object TransactionCachex : TransDAOInterface {
 
     private val transactionMap = TreeMap<TransactionId, Transaction>()
 
@@ -14,6 +15,7 @@ object TransactionCache : TransactionDAOInterface {
     }
 
     init {
+*/
 /*        val dodavatele = AccountCache.accById(AnalId(Osnova.dodavatele, "001"))!!
         val fio = AccountCache.accById(AnalId(Osnova.banka, "001"))!!
         val material = AccountCache.accById(AnalId(Osnova.material, "001"))!!
@@ -23,20 +25,21 @@ object TransactionCache : TransactionDAOInterface {
         // initAmount
         createInit(100L, AccountCache.pocatecniUcetRozvazny, dodavatele)
         createInit(500L, fio, AccountCache.pocatecniUcetRozvazny)
-        createTransaction(TransactionId(1),100L, material, dodavatele, f1, null)
-        createTransaction(TransactionId(2),100L, dodavatele, fio, v1, f1)*/
+        createTrans(TransactionId(1),100L, material, dodavatele, f1, null)
+        createTrans(TransactionId(2),100L, dodavatele, fio, v1, f1)*//*
+
     }
 
 
     @Throws(AccException::class)
-    override fun createTransaction(id: TransactionId?, amount: Long, maDati: AnalAcc,
+    override fun createTrans(id: TransactionId?, amount: Long, maDati: AnalAcc,
                                    dal: AnalAcc, document: Document, relatedDocument: Document?) {
         val r = Transaction(id!!, amount,
                 maDati, dal, document, relatedDocument)
         transactionMap[r.id] = r
     }
 
-    override val allTransaction: List<Transaction>
+    override val allTrans: List<Transaction>
         @Throws(AccException::class)
         get() = transactionMap.values.toList()
 
@@ -62,3 +65,4 @@ object TransactionCache : TransactionDAOInterface {
     }
 
 }
+*/

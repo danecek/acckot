@@ -3,17 +3,17 @@ package acc.integration
 import acc.model.*
 import acc.util.AccException
 
-interface TransactionDAOInterface {
+interface TransDAOInterface {
 
 
     @Throws(AccException::class)
-    fun createTransaction(id: TransactionId?, amount: Long, maDati: AnalAcc,
-                          dal: AnalAcc, document: Document, relatedDocument: Document?)
+    fun createTrans(id: TransactionId?, amount: Long, maDati: AnalAcc,
+                    dal: AnalAcc, document: Document, relatedDocument: Document?)
 
-    val allTransaction: List<Transaction>
+    val allTrans: List<Transaction>
 
     @Throws(AccException::class)
-    fun getTrans(tf: TransactionFilter?): List<Transaction>
+    fun transByFilter(tf: TransactionFilter?): List<Transaction>
 
     @Throws(AccException::class)
     fun deleteTrans(id: TransactionId)

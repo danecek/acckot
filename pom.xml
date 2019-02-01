@@ -56,6 +56,11 @@
             <artifactId>h2</artifactId>
             <version>1.4.197</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version> <!-- or 23.5-android for the Android flavor -->
+        </dependency>
         <!-- dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>

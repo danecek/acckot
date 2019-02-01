@@ -2,18 +2,20 @@ package acc.util
 
 import acc.Options
 import javafx.util.StringConverter
+import org.joda.time.DateTime
+import org.joda.time.DateTimeZone
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-val dayMonthFrm:DateTimeFormatter = DateTimeFormatter//.ofLocalizedDate(FormatStyle.MEDIUM)
+val dayMonthFrm: DateTimeFormatter = DateTimeFormatter//.ofLocalizedDate(FormatStyle.MEDIUM)
         .ofPattern("d.M.")
         .withLocale(Options.locale)
 
-val monthFrm:DateTimeFormatter = DateTimeFormatter
+val monthFrm: DateTimeFormatter = DateTimeFormatter
         .ofPattern("MMMM")
         .withLocale(Options.locale)
 
-fun LocalDate.dateFormat():String = dayMonthFrm.format(this)
+fun LocalDate.dateFormat(): String = dayMonthFrm.format(this)
 
 fun initDate(): LocalDate {
     val now = LocalDate.now()
@@ -37,4 +39,21 @@ object DayMonthConverter : StringConverter<LocalDate>() {
             null
         }
     }
+}
+
+/**
+ * Convert [java.time.LocalDate] to [org.joda.time.DateTime]
+ */
+fun toDateTime(localDate: LocalDate): DateTime {
+    return DateTime(DateTimeZone.UTC).withDate(
+            localDate.year, localDate.monthValue, localDate.dayOfMonth
+    ).withTime(1, 1, 1, 1)
+}
+
+/**
+ * Convert [org.joda.time.DateTime] to [java.time.LocalDate]
+ */
+fun toLocalDate(dateTime: DateTime): LocalDate {
+    val dateTimeUtc = dateTime.withZone(DateTimeZone.UTC)
+    return LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
 }

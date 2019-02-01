@@ -2,7 +2,7 @@ package acc.business
 
 import acc.integration.AccountCache
 import acc.integration.DocumentDAO
-import acc.integration.TransactionDAO
+import acc.integration.TransDAO
 import acc.model.*
 import acc.util.AccException
 import java.time.LocalDate
@@ -47,32 +47,32 @@ object Facade {
     // Transakce ***************************************************************
     val allTransactions: List<Transaction>
         @Throws(AccException::class)
-        get() = TransactionDAO.allTransaction
+        get() = TransDAO.allTrans
 
     @Throws(AccException::class)
     fun createTransaction(amount: Long, madati: AnalAcc, dal: AnalAcc,
                           document: Document, relatedDocument: Document?) {
-        TransactionDAO.createTransaction(null, amount, madati,
+        TransDAO.createTrans(null, amount, madati,
                 dal, document, relatedDocument)
     }
 
 
     @Throws(AccException::class)
     fun transactionsByFilter(tf: TransactionFilter?): List<Transaction> {
-        return TransactionDAO.getTrans(tf)
+        return TransDAO.transByFilter(tf)
     }
 
     @Throws(AccException::class)
     fun updateTransaction(id: TransactionId, amount: Long,
                           madati: AnalAcc, dal: AnalAcc, document: Document,
                           relatedDocument: Document?) {
-        TransactionDAO.updateTrans(id, amount, madati, dal,
+        TransDAO.updateTrans(id, amount, madati, dal,
                 document, relatedDocument)
     }
 
     @Throws(AccException::class)
     fun deleteTransaction(id: TransactionId) {
-        TransactionDAO.deleteTrans(id)
+        TransDAO.deleteTrans(id)
     }
 
     // Doklady  ***************************************************************
@@ -123,6 +123,5 @@ object Facade {
     fun genDocumentId(docType: DocType): Int {
         return DocumentDAO.findFreeDocId(docType)
     }
-
 
 }
