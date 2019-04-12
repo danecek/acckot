@@ -16,6 +16,9 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
     init {
         Database.connect(url = "jdbc:h2:/" + Options.h2File,
                 driver = "org.h2.Driver")
+        transaction {
+            SchemaUtils.create(TransactionTable, DocumentTable)
+        }
 
     }
 

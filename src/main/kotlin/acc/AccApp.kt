@@ -10,6 +10,8 @@ class AccApp: App(ConfigInitDialog::class, Styles::class) {
     }
 }
 
+fun x() {}
+
 fun main(args: Array<String>) {
     Application.launch(AccApp::class.java, *args)
 }
