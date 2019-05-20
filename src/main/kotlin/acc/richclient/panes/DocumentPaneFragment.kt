@@ -47,7 +47,7 @@ open class DocumentPaneFragment : Fragment() {
                 action {
 
                     PaneTabs.addTab(Messages.Transakce.cm(),
-                            find<TransactionsPaneFragment>(
+                            find<TransactionsView>(
                                     mapOf("tf" to TransactionFilter(doc = selectedItem))).root)
 
                 }

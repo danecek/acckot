@@ -13,7 +13,17 @@ import java.util.stream.Stream
 
 class PaneTabs : View() {
 
-    override val root = tabpane()
+    override val root = tabpane() {
+        tab<TransactionsView> {
+            this.content.contextmenu {
+                item("xxx") {
+
+                }
+            }
+
+        }
+
+    }
 
     companion object {
 
@@ -28,23 +38,25 @@ class PaneTabs : View() {
         }
 
         // transactions
-        private val transactionPanes: Stream<TransactionPane>
+/*        private val transactionPanes: Stream<TransactionPane>
             get() = tabs().stream()
                     .filter { it.content is TransactionPane }
-                    .map { it.content as TransactionPane }
+                    .map { it.content as TransactionPane }*/
 
         fun showTransactionPane(tf: TransactionFilter? = null) {
-            PaneTabs.addTab(Messages.Transakce.cm(),
-                    find<TransactionsPaneFragment>(params =
-                    mapOf(TransactionFilter::class.simpleName to tf)).root)
+            //    PaneTabs.addTab(Messages.Transakce.cm(),
+            val tpf = find<TransactionsView>()
+            //     params =               mapOf(TransactionFilter::class.simpleName to tf)).root
+          //  tpf.tf = tf
+            tpf.refresh(tf)
         }
 
-        fun refreshTransactionPanes() {
+/*        fun refreshTransactionPanes() {
             transactionPanes
                     .forEach {
                         it.refresh()
                     }
-        }
+        }*/
 
         // documents
         val documentPanes: Stream<DocumentPane>
@@ -73,7 +85,7 @@ class PaneTabs : View() {
 
         fun refreshDocAndTransPane() {
             refreshDocumentPanes()
-            refreshTransactionPanes()
+         //   refreshTransactionPanes()
         }
 
         // accounts

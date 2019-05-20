@@ -8,6 +8,7 @@ package acc.richclient.dialogs
 import acc.business.Facade
 import acc.model.TransactionFilter
 import acc.richclient.PaneTabs
+import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
@@ -60,7 +61,12 @@ class TransactionsShowDialog : Fragment() {
                         action {
                             val tf = TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
                                     transFilterModel.acc.value, transFilterModel.doc.value)
-                            PaneTabs.showTransactionPane(tf)
+                            //    PaneTabs.addTab(Messages.Transakce.cm(),
+                            val tpf = tornadofx.find<TransactionsView>()
+                            //     params =               mapOf(TransactionFilter::class.simpleName to tf)).root
+                          //  tpf.tf = tf
+                            tpf.refresh(tf)
+                        //    PaneTabs.showTransactionPane(tf)
                             close()
                         }
 

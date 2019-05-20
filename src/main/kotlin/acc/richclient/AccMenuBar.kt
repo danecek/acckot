@@ -15,6 +15,7 @@ import javafx.scene.control.MenuItem
 import tornadofx.*
 
 
+
 class AccMenuBar : View() {
     private fun Menu.add(a: AbstrAction) {
         val mi = MenuItem(a.name)

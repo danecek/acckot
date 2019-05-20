@@ -50,6 +50,11 @@ object Facade {
         get() = TransDAO.allTrans
 
     @Throws(AccException::class)
+    fun limitTrans(n: Int, offset: Int): List<Transaction> {
+        return TransDAO.limitTrans(n, offset)
+    }
+
+    @Throws(AccException::class)
     fun createTransaction(amount: Long, madati: AnalAcc, dal: AnalAcc,
                           document: Document, relatedDocument: Document?) {
         TransDAO.createTrans(null, amount, madati,

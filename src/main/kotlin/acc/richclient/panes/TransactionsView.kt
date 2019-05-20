@@ -4,17 +4,27 @@ import acc.Options
 import acc.business.Facade
 import acc.model.Transaction
 import acc.model.TransactionFilter
-import acc.richclient.PaneTabs
+import acc.richclient.controller.AbstrAction
+import acc.richclient.controller.ShowAllTransactionsAction
+import acc.richclient.controller.ShowTransactionsAction
 import acc.richclient.dialogs.TransactionDeleteDialog
 import acc.richclient.dialogs.TransactionUpdateDialog
 import acc.util.Messages
 import acc.util.dayMonthFrm
+import javafx.beans.binding.BooleanExpression
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
+import javafx.event.EventHandler
+import javafx.scene.control.ContextMenu
+import javafx.scene.control.MenuItem
 import tornadofx.*
 
-class TransactionsPaneFragment : Fragment() {
+class TransactionsView : View(Messages.Transakce.cm()) {
 
-    val tf = params[TransactionFilter::class.simpleName] as? TransactionFilter
+    override val closeable: BooleanExpression
+        get() = SimpleBooleanProperty(false)
+
+    var tf = params[TransactionFilter::class.simpleName] as? TransactionFilter
 
     val idw = 5
     private val amw = 10
@@ -72,17 +82,41 @@ class TransactionsPaneFragment : Fragment() {
             item(Messages.Zmen_transakci.cm()).action {
                 tornadofx.find<TransactionUpdateDialog>(
                         params = mapOf("tr" to selectedItem)).openModal()
-                PaneTabs.refreshTransactionPanes()
+                //   PaneTabs.refreshTransactionPanes()
             }
             item(Messages.Zrus_transakci.cm()).action {
                 tornadofx.find<TransactionDeleteDialog>(
                         params = mapOf("tr" to selectedItem)).openModal()
-                PaneTabs.refreshTransactionPanes()
+                //   PaneTabs.refreshTransactionPanes()
             }
         }
         smartResize()
     }
 
-    override val root = TransactionPane(tw, tf)
+    override val root =  borderpane(){
+        top= hbox(5) {
+            label(tf?.toString()?: Messages.Vsechny.cm())
+            button("first") {  }
+        }
+        center=tw
+    }
 
+    init {
+        root.contextmenu {
+            add(ShowAllTransactionsAction)
+            add(ShowTransactionsAction)
+        }
+    }
+
+    fun refresh(tf: TransactionFilter?) {
+        // tp.text = tf.toString()
+        tw.items.setAll(Facade.transactionsByFilter(tf))
+    }
+}
+
+
+fun ContextMenu.add(a: AbstrAction) {
+    val mi = MenuItem(a.name)
+    mi.onAction = EventHandler(a)
+    items.add(mi)
 }
