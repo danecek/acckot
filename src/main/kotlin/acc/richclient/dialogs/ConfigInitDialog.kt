@@ -40,7 +40,7 @@ class ConfigInitDialog : View() {
             field(Messages.Velikost_pisma.cm()) {
                 vm.addValidator(textfield(accFont), accFont) {
                     try {
-                        Options.fontSize = accFont.value.toUInt().toInt()
+                        Options.fontSize = accFont.value.toInt()
                         null
                     } catch (ex: Exception) {
                         error(Messages.Neplatna_velikost.cm())
