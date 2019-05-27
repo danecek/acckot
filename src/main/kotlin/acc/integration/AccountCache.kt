@@ -28,19 +28,26 @@ object AccountCache {
     private val accountById = TreeMap<AnalId, AnalAcc>()
     private val klaxon = Klaxon()
 
-    private  fun save() {
+    private fun save() {
+        //  println("$accountById")
         val fw = PrintWriter(FileWriter(Options.accountFile))
-        accountById.values.forEach {
-            fw.println(klaxon.toJsonString(AnalAccDTO(
-                    groupn = it.id.group.number,
-                    anal = it.anal,
-                    name = it.name,
-                    initAmount = it.initAmount)))
+        fw.use {
+            accountById.values.forEach {
+                //      println(it)
+                //     println(it.name)
+                val line = klaxon.toJsonString(AnalAccDTO(
+                        groupn = it.id.group.number,
+                        anal = it.anal,
+                        name = it.name,
+                        initAmount = it.initAmount))
+                //   println(line)
+                fw.println(line)
+            }
         }
-        fw.close()
+
     }
 
-    fun load() {
+    private fun load() {
         try {
             if (Options.accountFile.exists())
                 Files.lines(Options.accountFile.toPath())
@@ -58,7 +65,6 @@ object AccountCache {
         }
     }
 
-
     init {
         load()
     }
@@ -70,7 +76,12 @@ object AccountCache {
     val balanceAccs: List<AnalAcc>
         @Throws(AccException::class)
         get() = accountById.values.stream()
-                .filter { a: AnalAcc -> a.balanced }.toList()
+                .filter { it.isBalanced }.toList()
+
+    val incomeAccs: List<AnalAcc>
+        @Throws(AccException::class)
+        get() = accountById.values.stream()
+                .filter { it.isIncome }.toList()
 
     val dodavatele: List<AnalAcc>
         get() = accountById.values.stream()
@@ -94,12 +105,14 @@ object AccountCache {
     @Throws(AccException::class)
     fun accById(id: AnalId) = accountById[id]!!
 
-    fun updateAcc(id: AnalId, name: String, initAmount: Long) {
-        with (accById(id)){
-            this.name = name
-            this.initAmount = initAmount
+    fun updateAcc(id: AnalId, _name: String, _initAmount: Long) {
+        with(accById(id)) {
+            name = _name
+            initAmount = _initAmount
         }
+        // println("pr $accountById")
         save()
+        //println("po $accountById")
     }
 
     @Throws(AccException::class)

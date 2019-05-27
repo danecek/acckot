@@ -174,7 +174,7 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
                              maDati: AnalAcc, dal: AnalAcc, document: Document,
                              relatedDocument: Document?) {
         transaction {
-            val n = TransactionTable.update({
+            TransactionTable.update({
                 (TransactionTable.id eq id.id)
             }) {
                 it[this.amount] = amount

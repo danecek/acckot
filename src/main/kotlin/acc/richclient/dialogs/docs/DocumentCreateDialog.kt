@@ -1,6 +1,7 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.docs
 
 import acc.business.Facade
+import acc.richclient.dialogs.DialogMode
 
 class DocumentCreateDialog : DocumentDialogFragment(DialogMode.CREATE) {
 

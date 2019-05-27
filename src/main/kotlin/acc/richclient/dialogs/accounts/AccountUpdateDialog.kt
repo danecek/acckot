@@ -1,7 +1,9 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.accounts
 
 import acc.business.Facade
 import acc.model.AnalId
+import acc.richclient.dialogs.DialogMode
+import acc.richclient.panes.TransactionsView
 
 class AccountUpdateDialog : AccountDialogFragment(DialogMode.UPDATE) {
     
@@ -11,5 +13,6 @@ class AccountUpdateDialog : AccountDialogFragment(DialogMode.UPDATE) {
                 accModel.name.value,
                 accModel.initAmount.value
                 )
+        find<TransactionsView>().update()
     }
 }

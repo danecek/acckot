@@ -52,7 +52,6 @@ object Osnova {
     lateinit var pocUcetRozv: AnalAcc
 
     init {
-
         val gris = AccGroup::class.java.getResourceAsStream("/acc/model/osnova.csv")
         val lines = BufferedReader(InputStreamReader(gris, StandardCharsets.UTF_8)).lines()
         lines.forEach { line ->
@@ -83,10 +82,21 @@ object Osnova {
         return accGroupsByNumber[number]!!
     }
 
-    fun syntAccounts(): List<AccGroup> {
-        return accGroupsByNumber.values.stream()
-                .filter { a -> a.groupType === GroupEnum.SYNT_ACCOUNT }.toList()
+    val syntAccounts: List<AccGroup> by lazy {
+        accGroupsByNumber.values.stream()
+                .filter { a -> a.groupType == GroupEnum.SYNT_ACCOUNT }.toList()
     }
+
+    val mainSyntAccounts: List<AccGroup> by lazy {
+        val msa = AccGroup::class.java.getResourceAsStream("/acc/model/osnovavyber.csv")
+        val lines = BufferedReader(InputStreamReader(msa, StandardCharsets.UTF_8)).lines().toList()
+        syntAccounts.filter {
+            it.name in lines
+        }
+
+    }
+
+
 
 }
 

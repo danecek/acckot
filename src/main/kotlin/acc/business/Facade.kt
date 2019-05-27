@@ -18,6 +18,10 @@ object Facade {
         @Throws(AccException::class)
         get() = AccountCache.balanceAccs
 
+    val incomeAccounts: List<AnalAcc>
+        @Throws(AccException::class)
+        get() = AccountCache.incomeAccs
+
     val dodavatele: List<AnalAcc>  // 321
         get() = AccountCache.dodavatele
 

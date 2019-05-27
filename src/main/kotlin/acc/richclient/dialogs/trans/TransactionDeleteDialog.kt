@@ -1,6 +1,7 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.trans
 
 import acc.business.Facade
+import acc.richclient.dialogs.DialogMode
 
 class TransactionDeleteDialog : TransactionDialogFragment(DialogMode.DELETE) {
 

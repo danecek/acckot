@@ -60,8 +60,6 @@ class ConfigInitDialog : View() {
                         }
                         if (!Options.dataFolder.exists())
                             Options.dataFolder.mkdir()
-                      //  AccDAOH2.dataInit()
-                        //    primaryStage.isResizable = true
                         primaryStage.isMaximized = true
                         primaryStage.centerOnScreen()
                         replaceWith<MainView>()

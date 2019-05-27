@@ -1,4 +1,4 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.docs
 
 import acc.model.Document
 import acc.util.withColon
