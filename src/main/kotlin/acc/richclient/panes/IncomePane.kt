@@ -8,6 +8,6 @@ import javafx.scene.control.TableView
 import javafx.scene.control.TitledPane
 import java.time.Month
 
-class IncomePane(private val month: Month, private val content: TableView<StatItem>) :
+class IncomePane(month: Month, content: TableView<StatItem>) :
         TitledPane(Messages.Rozvaha_pro_mesic.cm().withColon + monthFrm.format(month), content) {
-    }
+}

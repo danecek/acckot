@@ -99,6 +99,12 @@ class AccMenuBar : View() {
         {
             add(BalanceCreateAction)
             add(IncomeCreateAction)
+            item("cc")  {
+                action {
+                    PaneTabs.clearIncomeBalance()
+                }
+
+            }
         //    add(PrintBalanceAction)
 
         }

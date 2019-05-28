@@ -44,11 +44,13 @@ object Facade {
         AccountCache.deleteAcc(id)
     }
 
+    @Throws(AccException::class)
     fun accountIsUsed(acc: AnalAcc?): Boolean {
         return transactionsByFilter(TransactionFilter(acc = acc)).isNotEmpty()
     }
 
     // Transakce ***************************************************************
+    //@Throws(AccException::class)
     val allTransactions: List<Transaction>
         @Throws(AccException::class)
         get() = TransDAO.allTrans
@@ -63,6 +65,7 @@ object Facade {
                           document: Document, relatedDocument: Document?) {
         TransDAO.createTrans(null, amount, madati,
                 dal, document, relatedDocument)
+        throw AccException("ttt")
     }
 
 
@@ -103,6 +106,7 @@ object Facade {
             return ui
         }
 
+    @Throws(AccException::class)
     fun documentById(docId: DocId): Document? {
         return DocumentDAO.docById(docId)
     }
@@ -115,10 +119,12 @@ object Facade {
             DocumentDAO.docsByFilter(docFilter) //as MutableList<Document>
     }
 
+    @Throws(AccException::class)
     fun createDocument(type: DocType, number: Int, date: LocalDate, description: String) {
         DocumentDAO.createDoc(type, number, date, description)
     }
 
+    @Throws(AccException::class)
     fun updateDocument(id: DocId,
                        date: LocalDate, description: String) {
         DocumentDAO.updateDoc(id, date, description)
@@ -129,6 +135,7 @@ object Facade {
         DocumentDAO.deleteDoc(id)
     }
 
+    @Throws(AccException::class)
     fun genDocumentId(docType: DocType): Int {
         return DocumentDAO.findFreeDocId(docType)
     }

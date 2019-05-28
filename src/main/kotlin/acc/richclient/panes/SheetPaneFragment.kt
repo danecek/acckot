@@ -14,7 +14,7 @@ import javafx.scene.Parent
 import tornadofx.*
 import java.time.Month
 
-class SheetPaneFragment : Fragment() {
+open class SheetPaneFragment() : Fragment() {
 
     private val month: Property<Month> by params
     private val includeSyntAccount: Boolean by params

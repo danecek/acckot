@@ -21,11 +21,6 @@ class MainView : View(Messages.Ucetnictvi.cm().plus(" ").plus(Options.year)) {
                         OpenDocFilterDialogAction.execute()
                     }
                 }
-/*                button(ShowAccountsAction.name) {
-                    enableWhen(ShowAccountsAction)
-                    action { ShowAccountsAction.execute() }
-
-                }*/
                 button(OpenTransFilterDialogAction.name) {
                     enableWhen(OpenTransFilterDialogAction)
                     action { OpenTransFilterDialogAction.execute() }

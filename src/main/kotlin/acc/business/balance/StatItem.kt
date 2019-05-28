@@ -18,14 +18,13 @@ class StatItem(val acc: AbstrAcc? = null) {
 
     init {
         if (acc is AnalAcc && acc.isBalanced) {
-            if (acc !!.isActive) {
+            if (acc.isActive) {
                 addInitAssets(acc.initAmount)
                 addFinalAssets(acc.initAmount)
 
             } else {
                 addInitLiabilities(acc.initAmount)
                 addFinalLiabilities(acc.initAmount)
-
             }
         }
     }
