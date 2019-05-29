@@ -1,6 +1,8 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.docs
 
 import acc.business.Facade
+import acc.richclient.dialogs.DialogMode
+import acc.richclient.panes.TransactionsView
 
 class DocumentUpdateDialog : DocumentDialogFragment(DialogMode.UPDATE) {
     override val ok = {
@@ -8,6 +10,7 @@ class DocumentUpdateDialog : DocumentDialogFragment(DialogMode.UPDATE) {
                 docModel.date.value,
                 docModel.description.value
         )
+        find<TransactionsView>().update()
 
     }
 }

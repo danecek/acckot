@@ -1,8 +1,8 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.docs
 
 import acc.model.DocFilter
 import acc.model.DocType
-import acc.richclient.PaneTabs
+import acc.richclient.panes.DocumentsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
@@ -29,7 +29,7 @@ class DocumentsShowDialog : Fragment() {
 
     override val root =
             form {
-                title = Messages.Zobraz_doklady.cm()
+                title = Messages.Filter_dokladu.cm()
                 fieldset {
                     DocType.values().forEach {
                         checkbox(it.text, a[it.ordinal])
@@ -60,10 +60,14 @@ class DocumentsShowDialog : Fragment() {
                                 if (a[it.ordinal].value)
                                     ms.add(it.abbr)
                             }
-                            val df = DocFilter(ms,
-                                    docFilterModel.from.value,
-                                    docFilterModel.tto.value)
-                            PaneTabs.showDocumentPane(df)
+
+                            with (find<DocumentsView>()){
+                                docFilter = DocFilter(ms,
+                                        docFilterModel.from.value,
+                                        docFilterModel.tto.value)
+                                update()
+                            }
+                       //     PaneTabs.showDocumentPane(docFilter)
                             close()
                         }
 

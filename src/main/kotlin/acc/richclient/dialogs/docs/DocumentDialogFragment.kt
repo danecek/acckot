@@ -1,12 +1,14 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.docs
 
 import acc.Options
 import acc.business.Facade
 import acc.model.DocId
 import acc.model.DocType
 import acc.model.Document
-import acc.richclient.PaneTabs
 import acc.richclient.controller.openTransactionCreateDialog
+import acc.richclient.dialogs.DialogMode
+import acc.richclient.panes.DocumentsView
+import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
@@ -70,7 +72,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
             field(acc.util.Messages.Popis.cm().withColon) {
                 textarea(docModel.description) {
                     prefRowCount = 2
-                }.isDisable = mode == acc.richclient.dialogs.DialogMode.DELETE
+                }.isDisable = mode == DialogMode.DELETE
             }
         }
         buttonbar {
@@ -82,7 +84,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                     } fail {
                         error(it)
                     } ui {
-                        PaneTabs.refreshDocAndTransPane()
+                        find<DocumentsView>().update()
                         close()
                     }
                 }
@@ -100,7 +102,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                             error(it)
                         } ui {
                             if (it!=null) {
-                                PaneTabs.refreshDocAndTransPane()
+                                find<TransactionsView>().update()
                                 openTransactionCreateDialog(it)
                             }
                             close()

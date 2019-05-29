@@ -4,17 +4,20 @@ import acc.Options
 import acc.business.Facade
 import acc.model.Transaction
 import acc.model.TransactionFilter
-import acc.richclient.PaneTabs
-import acc.richclient.dialogs.TransactionDeleteDialog
-import acc.richclient.dialogs.TransactionUpdateDialog
+import acc.richclient.controller.ClearTransFilterAction
+import acc.richclient.controller.OpenTransFilterDialogAction
+import acc.richclient.controller.add
+import acc.richclient.dialogs.trans.TransactionDeleteDialog
+import acc.richclient.dialogs.trans.TransactionUpdateDialog
 import acc.util.Messages
 import acc.util.dayMonthFrm
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
 import tornadofx.*
 
-class TransactionsPaneFragment : Fragment() {
+class TransactionsView : View(Messages.Transakce.cm()) {
 
-    val tf = params[TransactionFilter::class.simpleName] as? TransactionFilter
+    override val closeable = SimpleBooleanProperty(false)
 
     val idw = 5
     private val amw = 10
@@ -22,7 +25,7 @@ class TransactionsPaneFragment : Fragment() {
     val numberw = 10
     val namew = 10
 
-    val tw = tableview(Facade.transactionsByFilter(tf).observable()) {
+    val tw = tableview(mutableListOf<Transaction>().observable()) {
         prefHeight = Options.prefTableHeight
         readonlyColumn(Messages.Id.cm(), Transaction::id).weightedWidth(idw)
         column<Transaction, String>(Messages.Datum.cm()) { t ->
@@ -72,17 +75,48 @@ class TransactionsPaneFragment : Fragment() {
             item(Messages.Zmen_transakci.cm()).action {
                 tornadofx.find<TransactionUpdateDialog>(
                         params = mapOf("tr" to selectedItem)).openModal()
-                PaneTabs.refreshTransactionPanes()
+                //   PaneTabs.refreshTransactionPanes()
             }
             item(Messages.Zrus_transakci.cm()).action {
                 tornadofx.find<TransactionDeleteDialog>(
                         params = mapOf("tr" to selectedItem)).openModal()
-                PaneTabs.refreshTransactionPanes()
+                //   PaneTabs.refreshTransactionPanes()
             }
         }
         smartResize()
     }
 
-    override val root = TransactionPane(tw, tf)
+    override val root = titledpane {
+        isCollapsible = false
+        content = tw
+    }
+
+
+    var transFilter: TransactionFilter? = null
+        set(value) {
+            field = value
+            root.text = value?.toString()?:Messages.Vsechny_transakce.cm()
+            update()
+        }
+
+    init {
+        root.contextmenu {
+            add(ClearTransFilterAction)
+            add(OpenTransFilterDialogAction)
+        }
+        transFilter=null
+    }
+
+    fun update() {
+        tornadofx.runAsync {
+            Facade.transactionsByFilter(transFilter)
+        } fail {
+            error(it)
+        } ui {
+            tw.items.setAll(it)
+        }
+    }
 
 }
+
+

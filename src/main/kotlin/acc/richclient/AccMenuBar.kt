@@ -2,13 +2,10 @@ package acc.richclient
 
 import acc.model.DocType
 import acc.richclient.controller.*
-import acc.richclient.dialogs.AccountCreateDialog
 import acc.richclient.dialogs.DialogMode
+import acc.richclient.dialogs.accounts.AccountCreateDialog
 import acc.util.Messages
 import javafx.application.Platform
-import javafx.beans.InvalidationListener
-import javafx.beans.Observable
-import javafx.beans.property.SimpleBooleanProperty
 import javafx.event.EventHandler
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
@@ -22,19 +19,20 @@ class AccMenuBar : View() {
         items.add(mi)
     }
 
-    init {
+/*    init {
         find<PaneTabs>().root.tabs.addListener(
                 ShowAccountsAction
         )
-    }
+    }*/
 
+/*
     object AccountPaneClosed : SimpleBooleanProperty(PaneTabs.accountPane == null),
             InvalidationListener {
         override fun invalidated(observable: Observable?) {
             value = PaneTabs.accountPane == null
         }
     }
-
+*/
 
 
     override val root = menubar {
@@ -46,12 +44,12 @@ class AccMenuBar : View() {
             }
         }
         menu(Messages.Ucty.cm()) {
-            item(Messages.Zobraz_ucty.cm()) {
-                enableWhen(ShowAccountsAction)
-                action {
-                    ShowAccountsAction.execute()
-                }
-            }
+            /*            item(Messages.Zobraz_ucty.cm()) {
+                            enableWhen(ShowAccountsAction)
+                            action {
+                                ShowAccountsAction.execute()
+                            }
+                        }*/
             item(Messages.Vytvor_ucet.cm()) {
                 action {
                     find<AccountCreateDialog>(params = mapOf(
@@ -60,8 +58,8 @@ class AccMenuBar : View() {
             }
         }
         menu(Messages.Doklady.cm()) {
-            add(ShowAllDocumentsAction)
-            add(ShowDocumentsAction)
+            add(ClearDocFilterAction)
+            add(OpenDocFilterDialogAction)
             add(ShowUnpaidInvocesAction)
             menu(Messages.Vytvor.cm()) {
                 item(Messages.Fakturu.cm()) {
@@ -93,14 +91,21 @@ class AccMenuBar : View() {
         }
         menu(Messages.Transakce.cm())
         {
-            add(ShowAllTransactionsAction)
-            add(ShowTransactionsAction)
+            add(ClearTransFilterAction)
+            add(OpenTransFilterDialogAction)
             add(TransactionCreateAction)
         }
-        menu(Messages.Rozvaha.cm())
+        menu(Messages.Vystup.cm())
         {
             add(BalanceCreateAction)
-            add(PrintBalanceAction)
+            add(IncomeCreateAction)
+            item("cc")  {
+                action {
+                    PaneTabs.clearIncomeBalance()
+                }
+
+            }
+        //    add(PrintBalanceAction)
 
         }
     }

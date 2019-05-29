@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package acc.richclient.dialogs
+package acc.richclient.dialogs.trans
 
 import acc.business.Facade
 import acc.model.TransactionFilter
-import acc.richclient.PaneTabs
+import acc.richclient.dialogs.accounts.AccountConverter
+import acc.richclient.dialogs.docs.DocumentConverter
+import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
 import acc.util.withColon
@@ -20,14 +22,14 @@ class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
     val doc = bind(TransactionFilter::doc)
 }
 
-class TransactionsShowDialog : Fragment() {
+class TransactionsFilterDialog : Fragment() {
 
 
     private val transFilterModel = TransactionFilterModel()
 
     override val root =
             form {
-                title = Messages.Zobraz_transakce.cm()
+                title = Messages.Filter_transakci.cm()
                 fieldset {
 
                    field(Messages.Od.cm().withColon) {
@@ -58,9 +60,9 @@ class TransactionsShowDialog : Fragment() {
                     button(Messages.Potvrd.cm()) {
                         enableWhen(transFilterModel.valid)
                         action {
-                            val tf = TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
+                            tornadofx.find<TransactionsView>().transFilter =
+                                    TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
                                     transFilterModel.acc.value, transFilterModel.doc.value)
-                            PaneTabs.showTransactionPane(tf)
                             close()
                         }
 

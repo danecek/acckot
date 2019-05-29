@@ -6,38 +6,43 @@ class AccGroup(
         groupType: GroupEnum,
         number: String,
         name: String
-) : AbstrGroup(null, groupType, number, name) {
+) : AbstrAcc(null, groupType, number, name) {
 
     override val isActive: Boolean
-        get() {
-            if (groupType === GroupEnum.CLASS) {
-                return when (number) {
-                    "2" -> true
-                    else -> false
-                }
-            }
-            return parent!!.isActive
-        }
+        get() =
+            if (parent != null)
+                parent!!.isActive
+            else number == "2"
 
     override val isPassive: Boolean
-        get() {
-            if (groupType === GroupEnum.CLASS) {
-                return when (number) {
-                    "3",
-                    "9" -> true
-                    else -> false
-                }
+        get() =
+            if (parent != null)
+                parent!!.isPassive
+            else when (number) {
+                "3",
+                "9" -> true
+                else -> false
             }
-            return parent!!.isPassive
+
+    override val isLoss: Boolean
+        get() {
+             return if (parent != null)
+                parent!!.isLoss
+            else number == "5"
         }
 
+    override val isProfit: Boolean
+        get() =
+            if (parent != null)
+                parent!!.isProfit
+            else number == "6"
+
     override fun equals(other: Any?): Boolean {
-        if (other == null) {
+        if (this === other)
+            return true
+        if (other !is AccGroup)
             return false
-        }
-        return if (other !is AccGroup) {
-            false
-        } else compareTo((other as AccGroup?)!!) == 0
+        return compareTo(other) == 0
     }
 
     override fun hashCode(): Int {
@@ -46,7 +51,7 @@ class AccGroup(
         return hash
     }
 
-    override fun compareTo(other: AbstrGroup): Int {
+    override fun compareTo(other: AbstrAcc): Int {
         return number.compareTo(other.number)
     }
 

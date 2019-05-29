@@ -1,9 +1,8 @@
 package acc.richclient
 
 import acc.Options
-import acc.richclient.controller.ShowAccountsAction
-import acc.richclient.controller.ShowDocumentsAction
-import acc.richclient.controller.ShowTransactionsAction
+import acc.richclient.controller.OpenDocFilterDialogAction
+import acc.richclient.controller.OpenTransFilterDialogAction
 import acc.util.Messages
 import tornadofx.*
 
@@ -16,20 +15,15 @@ class MainView : View(Messages.Ucetnictvi.cm().plus(" ").plus(Options.year)) {
         center<PaneTabs>()
         bottom {
             toolbar {
-                button(ShowDocumentsAction.name) {
-                    enableWhen(ShowDocumentsAction)
+                button(OpenDocFilterDialogAction.name) {
+                    enableWhen(OpenDocFilterDialogAction)
                     action {
-                        ShowDocumentsAction.execute()
+                        OpenDocFilterDialogAction.execute()
                     }
                 }
-                button(ShowAccountsAction.name) {
-                    enableWhen(ShowAccountsAction)
-                    action { ShowAccountsAction.execute() }
-
-                }
-                button(ShowTransactionsAction.name) {
-                    enableWhen(ShowTransactionsAction)
-                    action { ShowTransactionsAction.execute() }
+                button(OpenTransFilterDialogAction.name) {
+                    enableWhen(OpenTransFilterDialogAction)
+                    action { OpenTransFilterDialogAction.execute() }
 
                 }
             }

@@ -5,13 +5,30 @@ import acc.model.AnalAcc
 import acc.model.DocType
 import acc.model.Document
 import acc.richclient.PaneTabs
-import acc.richclient.dialogs.*
+import acc.richclient.dialogs.BalanceShowDialog
+import acc.richclient.dialogs.accounts.AccountDeleteDialog
+import acc.richclient.dialogs.accounts.AccountUpdateDialog
+import acc.richclient.dialogs.docs.DocumentCreateDialog
+import acc.richclient.dialogs.docs.DocumentsShowDialog
+import acc.richclient.dialogs.trans.TransactionCreateDialog
+import acc.richclient.dialogs.trans.TransactionsFilterDialog
+import acc.richclient.panes.DocumentsView
+import acc.richclient.panes.TransactionsView
 import acc.util.Messages
 import javafx.beans.InvalidationListener
 import javafx.beans.Observable
 import javafx.beans.property.SimpleBooleanProperty
 import javafx.event.ActionEvent
+import javafx.event.EventHandler
+import javafx.scene.control.ContextMenu
+import javafx.scene.control.MenuItem
 import tornadofx.*
+
+fun ContextMenu.add(a: AbstrAction) {
+    val mi = MenuItem(a.name)
+    mi.onAction = EventHandler(a)
+    items.add(mi)
+}
 
 fun openTransactionCreateDialog(doc: Document? = null) {
     find<TransactionCreateDialog>(
@@ -46,31 +63,33 @@ abstract class AbstrAction(name: String) : SimpleBooleanProperty(null, name, tru
     open fun enable(): Boolean = true
 }
 
-object BalanceCreateAction : AbstrAction(Messages.Vytvor_rozvahu.cm()) {
-
+open class SheetAction(val m: Messages) : AbstrAction(m.cm()) {
     override fun execute() {
-        find<BalanceShowDialog>().openModal()
+        find<BalanceShowDialog>(params = mapOf("sheet" to m)).openModal()
     }
-
 }
 
-object ShowUnpaidInvocesAction : AbstrAction(Messages.Zobraz_nezaplacene_faktury.cm()) {
+object BalanceCreateAction : SheetAction(Messages.Rozvaha)
+
+object IncomeCreateAction : SheetAction(Messages.Zisky_a_ztraty)
+
+object ShowUnpaidInvocesAction : AbstrAction(Messages.Nezaplacene_faktury.cm()) {
     override fun execute() {
         PaneTabs.showUnpaidInvoicesPane()
     }
 }
 
-object ShowTransactionsAction : AbstrAction(Messages.Zobraz_transakce.cm()) {
+object OpenTransFilterDialogAction : AbstrAction(Messages.Filter_transakci.cm()) {
 
     override fun execute() {
-        find<TransactionsShowDialog>().openModal()
+        find<TransactionsFilterDialog>().openModal()
     }
 }
 
-object ShowAllTransactionsAction : AbstrAction(Messages.Zobraz_vsechny_transakce.cm()) {
+object ClearTransFilterAction : AbstrAction(Messages.Vsechny_transakce.cm()) {
 
     override fun execute() {
-        PaneTabs.showTransactionPane()
+        find<TransactionsView>().transFilter = null
     }
 }
 
@@ -88,25 +107,17 @@ object PrintBalanceAction : AbstrAction(Messages.Tisk_rozvahy.cm()) {
     }
 }
 
-object ShowAllDocumentsAction : AbstrAction(Messages.Zobraz_vsechny_doklady.cm()) {
+object ClearDocFilterAction : AbstrAction(Messages.Vsechny_doklady.cm()) {
 
     override fun execute() {
-        PaneTabs.showDocumentPane()
+        find<DocumentsView>().docFilter = null
     }
 }
 
-object ShowDocumentsAction : AbstrAction(Messages.Zobraz_doklady.cm()) {
+object OpenDocFilterDialogAction : AbstrAction(Messages.Filter_dokladu.cm()) {
 
     override fun execute() {
         find<DocumentsShowDialog>().openModal()
     }
 }
 
-object ShowAccountsAction : AbstrAction(Messages.Zobraz_ucty.cm()) {
-
-    override fun enable() = PaneTabs.accountPane == null
-
-    override fun execute() {
-        PaneTabs.showAccountPane()
-    }
-}

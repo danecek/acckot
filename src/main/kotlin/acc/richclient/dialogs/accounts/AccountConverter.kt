@@ -1,11 +1,11 @@
-package acc.richclient.dialogs
+package acc.richclient.dialogs.accounts
 
 import acc.model.AnalAcc
 import javafx.util.StringConverter
 
 object AccountConverter : StringConverter<AnalAcc>() {
     override fun toString(acc: AnalAcc?): String {
-        return acc?.numberName ?: ""
+        return acc?.numberName() ?: ""
     }
 
     override fun fromString(string: String?): AnalAcc {
