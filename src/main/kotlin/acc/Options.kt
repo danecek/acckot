@@ -18,7 +18,7 @@ object Options {
 
 
     val dataFolder
-        get() = File(System.getProperty("user.dir") + "/ucetnictvi")
+        get() = File(System.getProperty("user.home") + "/.ucetnictvi")
     val h2File
         get() = File(dataFolder, "ucetnidata$year")
     val accountFile

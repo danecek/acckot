@@ -55,7 +55,6 @@ class ConfigInitDialog : View() {
                         with(config) {
                             set("rok" to rok.value)
                             set("font" to accFont.value)
-
                             save()
                         }
                         if (!Options.dataFolder.exists())
