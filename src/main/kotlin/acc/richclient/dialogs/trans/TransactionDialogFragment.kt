@@ -152,7 +152,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                         AccWrapper(it)
                     }) {
                         prefHeight = 50.0
-                        //  converter = AccountConverter
+                        //  converter = AnalAccConverter
 //                        validator {
 //                            if (it == null) error() else null
 //                        }
@@ -170,7 +170,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     //   combobox(transModel.dal, it) {
                     combobox(transModel.dalWA, it.map { AccWrapper(it) }) {
                         prefHeight = 50.0
-//                        converter = AccountConverter
+//                        converter = AnalAccConverter
 //                        validator {
 //                            if (it == null) error() else null
 //                        }

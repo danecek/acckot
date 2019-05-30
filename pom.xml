@@ -61,6 +61,16 @@
             <artifactId>guava</artifactId>
             <version>18.0</version> <!-- or 23.5-android for the Android flavor -->
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.6.1</version>
+        </dependency>
         <!-- dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-base</artifactId>

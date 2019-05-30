@@ -46,6 +46,7 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
                             if (it == null) error(Messages.Prazdna_skupina.cm())
                             else null
                         }
+                        converter = AccGroupConverter
                     }
                     if (mode == CREATE)
                         hbox {

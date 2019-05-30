@@ -1,7 +1,5 @@
 *.class
 **/target/**
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
 # Package Files #
 *.jar
@@ -18,4 +16,6 @@ hs_err_pid*
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-conf/*
+
+conf/acc.richclient.dialogs.ConfigInitDialog.properties
+all.log

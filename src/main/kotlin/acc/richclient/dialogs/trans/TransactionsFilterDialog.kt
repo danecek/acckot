@@ -7,7 +7,7 @@ package acc.richclient.dialogs.trans
 
 import acc.business.Facade
 import acc.model.TransactionFilter
-import acc.richclient.dialogs.accounts.AccountConverter
+import acc.richclient.dialogs.accounts.AnalAccConverter
 import acc.richclient.dialogs.docs.DocumentConverter
 import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
@@ -46,7 +46,7 @@ class TransactionsFilterDialog : Fragment() {
                     }
                     field(Messages.Ucet.cm().withColon) {
                         combobox(transFilterModel.acc, Facade.allAccounts){
-                            converter = AccountConverter
+                            converter = AnalAccConverter
                         }
                     }
                     field(Messages.Doklad.cm().withColon) {

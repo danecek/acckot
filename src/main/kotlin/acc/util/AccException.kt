@@ -2,22 +2,31 @@ package acc.util
 
 import javafx.application.Platform
 import javafx.scene.control.Alert
+import org.apache.logging.log4j.LogManager
 import tornadofx.*
 
-class AccException(message: String, ex: Exception?=null) : Exception(message, ex)
+private val LOGGER = LogManager.getLogger()
 
-fun accError(e: String) {
+class AccException(message: String, cause: Exception? = null) : Exception(message, cause)
+
+
+fun fxAlert(e: String) {
     Platform.runLater {
         alert(Alert.AlertType.ERROR, e)
     }
 }
-fun accError(e: Throwable) {
-    accError(e.message?:e.toString())
 
-    e.printStackTrace()
+fun accError(e: String) {
+    fxAlert(e)
+    LOGGER.error(e)
 }
 
-fun catchAccException(block:()->Unit) {
+fun accError(e: Throwable) {
+    fxAlert(e.message ?: e.toString())
+    LOGGER.catching(e)
+}
+
+fun catchAccException(block: () -> Unit) {
     try {
         block()
     } catch (ex: AccException) {
