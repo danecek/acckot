@@ -99,9 +99,9 @@ class AccMenuBar : View() {
         {
             add(BalanceCreateAction)
             add(IncomeCreateAction)
-            item("cc")  {
+            item("test")  {
                 action {
-                    PaneTabs.clearIncomeBalance()
+                    throw RuntimeException("test")
                 }
 
             }

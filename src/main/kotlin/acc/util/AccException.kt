@@ -13,6 +13,7 @@ fun accError(e: String) {
 }
 fun accError(e: Throwable) {
     accError(e.message?:e.toString())
+
     e.printStackTrace()
 }
 

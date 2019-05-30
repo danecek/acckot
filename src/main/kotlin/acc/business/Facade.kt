@@ -65,7 +65,6 @@ object Facade {
                           document: Document, relatedDocument: Document?) {
         TransDAO.createTrans(null, amount, madati,
                 dal, document, relatedDocument)
-        throw AccException("ttt")
     }
 
 

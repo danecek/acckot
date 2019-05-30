@@ -7,7 +7,7 @@ import acc.util.catchAccException
 
 class TransactionCreateDialog : TransactionDialogFragment(DialogMode.CREATE) {
     override val ok = {
-        catchAccException {
+     //   catchAccException {
             PaneTabs.clearIncomeBalance()
             Facade.createTransaction(transModel.amount.value,
                     transModel.maDatiWA.value.acc!!, // workaround
@@ -18,6 +18,6 @@ class TransactionCreateDialog : TransactionDialogFragment(DialogMode.CREATE) {
                     transModel.relatedDocument.value
             )
 
-        }
+        //}
     }
 }
