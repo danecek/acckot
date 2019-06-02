@@ -26,64 +26,65 @@ class ConfigInitDialog : View() {
 
     override val root = form {
         fieldset {
-            field("adresar") {
+/*            field("adresar") {
                 val tf = textfield(dataFolder)
-                button("") {
+                button("xxxxxx") {
                     action {
-                       tf.text = chooseDirectory {
+                        tf.text = chooseDirectory {
                         }.toString()
                     }
-                }}
-                field(Messages.Rok.cm().withColon) {
-                    val tf = textfield(rok)
-                    vm.addValidator(tf, rok) {
-                        try {
-                            Options.year = Year.parse(rok.value).value
-                            null
-                        } catch (ex: Exception) {
-                            error(Messages.Neplatny_rok.cm())
-                        }
+                }
+            }*/
+            field(Messages.Rok.cm().withColon) {
+                val tf = textfield(rok)
+                vm.addValidator(tf, rok) {
+                    try {
+                        Options.year = Year.parse(rok.value).value
+                        null
+                    } catch (ex: Exception) {
+                        error(Messages.Neplatny_rok.cm())
                     }
                 }
-                field(Messages.Velikost_pisma.cm()) {
-                    vm.addValidator(textfield(accFont), accFont) {
-                        try {
-                            Options.fontSize = accFont.value.toInt()
-                            null
-                        } catch (ex: Exception) {
-                            error(Messages.Neplatna_velikost.cm())
-                        }
-                    }
-                }
-
-                buttonbar {
-                    button(Messages.Potvrd.cm()) {
-                        enableWhen(vm.valid)
-                        action {
-                            with(config) {
-                                set("rok" to rok.value)
-                                set("font" to accFont.value)
-                                set("dataFolder" to dataFolder.value)
-                                save()
-                            }
-                            if (!Options.dataFolder.exists())
-                                Options.dataFolder.mkdir()
-                            primaryStage.isMaximized = true
-                            primaryStage.centerOnScreen()
-                            replaceWith<MainView>()
-                        }
-
-                    }
-                    button(Messages.Zrus.cm()) {
-                        action {
-                            close()
-                        }
-                    }
-                }
-
             }
-        }
+            field(Messages.Velikost_pisma.cm()) {
+                vm.addValidator(textfield(accFont), accFont) {
+                    try {
+                        Options.fontSize = accFont.value.toInt()
+                        null
+                    } catch (ex: Exception) {
+                        error(Messages.Neplatna_velikost.cm())
+                    }
+                }
+            }
 
+            buttonbar {
+                button(Messages.Potvrd.cm()) {
+                    enableWhen(vm.valid)
+                    action {
+                        with(config) {
+                            set("rok" to rok.value)
+                            set("font" to accFont.value)
+                            set("dataFolder" to dataFolder.value)
+                            save()
+                        }
+                        if (!Options.dataFolder.exists())
+                            Options.dataFolder.mkdir()
+                        primaryStage.isMaximized = true
+                        primaryStage.centerOnScreen()
+                        replaceWith<MainView>()
+                    }
+
+                }
+                button(Messages.Zrus.cm()) {
+                    action {
+                        close()
+                    }
+                }
+            }
+
+        }
     }
+
+}
 
 
