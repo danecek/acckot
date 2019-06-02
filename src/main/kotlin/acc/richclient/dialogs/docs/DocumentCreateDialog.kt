@@ -2,6 +2,8 @@ package acc.richclient.dialogs.docs
 
 import acc.business.Facade
 import acc.richclient.dialogs.DialogMode
+import acc.richclient.panes.DocumentsView
+import acc.richclient.panes.PaneTabs
 
 class DocumentCreateDialog : DocumentDialogFragment(DialogMode.CREATE) {
 
@@ -11,6 +13,6 @@ class DocumentCreateDialog : DocumentDialogFragment(DialogMode.CREATE) {
                 docModel.date.value,
                 docModel.description.value ?: ""
         )
-
+        PaneTabs.selectView<DocumentsView>()
     }
 }

@@ -1,6 +1,6 @@
 package acc.richclient.dialogs
 
-import acc.richclient.PaneTabs
+import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.SheetPaneFragment
 import acc.util.Messages
 import acc.util.monthFrm

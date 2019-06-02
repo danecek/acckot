@@ -3,6 +3,7 @@ package acc.richclient
 import acc.Options
 import acc.richclient.controller.OpenDocFilterDialogAction
 import acc.richclient.controller.OpenTransFilterDialogAction
+import acc.richclient.panes.PaneTabs
 import acc.util.Messages
 import tornadofx.*
 

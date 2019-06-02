@@ -21,7 +21,9 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
 
     // Transakce ***************************************************************************
     override fun transByFilter(tf: TransactionFilter?): List<Transaction> {
-        return allTrans.filter { tf?.match(it) != false }
+        return allTrans.filter {
+            tf?.match(it) != false
+        }
                 .toMutableList()
     }
 
@@ -39,116 +41,38 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
         }
     }
 
-    fun trans(): List<Transaction> {
-        lateinit var res: List<Transaction>
-        transaction {
-            val x = TransactionTable.selectAll()
-
-                    .limit(10, offset = 5)
-
-
-            x.map { r ->
-                val docId = DocId(DocType.valueOf(r[TransactionTable.documentType]),
-                        r[TransactionTable.documentNumber])
-                val doc = docById(docId)//  documentCache[docId]
-
-                val dn = r[TransactionTable.relatedDocumentType]
-                var relDoc: Document? = null
-                if (!dn.isNullOrBlank()) {
-                    val relDocId = DocId(DocType.valueOf(r[TransactionTable.relatedDocumentType]),
-                            r[TransactionTable.relatedDocumentNumber])
-                    relDoc = docById(relDocId)//  documentCache[relDocId]
-                }
-                val maDatiSynt = Osnova.groupByNumber(r[TransactionTable.maDatiSyntAcc])
-                val maDatiAnalId = AnalId(maDatiSynt, r[TransactionTable.maDatiAnal])
-                val maDati = AccountCache.accById(maDatiAnalId)
-
-                val dalSynt = Osnova.groupByNumber(r[TransactionTable.dalSyntAcc])
-                val dalAnalId = AnalId(dalSynt, r[TransactionTable.dalAnal])
-                val dal = AccountCache.accById(dalAnalId)
-                Transaction(
-                        TransactionId(r[TransactionTable.id]),
-                        r[TransactionTable.amount],
-                        maDati,
-                        dal,
-                        doc,
-                        relDoc)
-            }.toMutableList()
-        }
-        return res
-    }
-
-    override fun limitTrans(n:Int, offset:Int): List<Transaction> {
-            lateinit var res: List<Transaction>
-            transaction {
-                res = TransactionTable.selectAll()
-                        .limit(n, offset)
-                        .map { r ->
-                            val docId = DocId(DocType.valueOf(r[TransactionTable.documentType]),
-                                    r[TransactionTable.documentNumber])
-                            val doc = docById(docId)//  documentCache[docId]
-
-                            val dn = r[TransactionTable.relatedDocumentType]
-                            var relDoc: Document? = null
-                            if (!dn.isNullOrBlank()) {
-                                val relDocId = DocId(DocType.valueOf(r[TransactionTable.relatedDocumentType]),
-                                        r[TransactionTable.relatedDocumentNumber])
-                                relDoc = docById(relDocId)//  documentCache[relDocId]
-                            }
-                            val maDatiSynt = Osnova.groupByNumber(r[TransactionTable.maDatiSyntAcc])
-                            val maDatiAnalId = AnalId(maDatiSynt, r[TransactionTable.maDatiAnal])
-                            val maDati = AccountCache.accById(maDatiAnalId)
-
-                            val dalSynt = Osnova.groupByNumber(r[TransactionTable.dalSyntAcc])
-                            val dalAnalId = AnalId(dalSynt, r[TransactionTable.dalAnal])
-                            val dal = AccountCache.accById(dalAnalId)
-                            Transaction(
-                                    TransactionId(r[TransactionTable.id]),
-                                    r[TransactionTable.amount],
-                                    maDati,
-                                    dal,
-                                    doc,
-                                    relDoc)
-                        }.toMutableList()
-            }
-            return res
-        }
-
     override val allTrans: List<Transaction>
-        get() {
-            lateinit var res: List<Transaction>
-            transaction {
-                res = TransactionTable.selectAll()
-                        .map { r ->
-                            val docId = DocId(DocType.valueOf(r[TransactionTable.documentType]),
-                                    r[TransactionTable.documentNumber])
-                            val doc = docById(docId)//  documentCache[docId]
+        get() = transaction {
+            TransactionTable.selectAll()
+                    .map { r ->
+                        val docId = DocId(DocType.valueOf(r[TransactionTable.documentType]),
+                                r[TransactionTable.documentNumber])
+                        val doc = docById(docId)//  documentCache[docId]
 
-                            val dn = r[TransactionTable.relatedDocumentType]
-                            var relDoc: Document? = null
-                            if (!dn.isNullOrBlank()) {
-                                val relDocId = DocId(DocType.valueOf(r[TransactionTable.relatedDocumentType]),
-                                        r[TransactionTable.relatedDocumentNumber])
-                                relDoc = docById(relDocId)//  documentCache[relDocId]
-                            }
-                            val maDatiSynt = Osnova.groupByNumber(r[TransactionTable.maDatiSyntAcc])
-                            val maDatiAnalId = AnalId(maDatiSynt, r[TransactionTable.maDatiAnal])
-                            val maDati = AccountCache.accById(maDatiAnalId)
+                        val dn = r[TransactionTable.relatedDocumentType]
+                        var relDoc: Document? = null
+                        if (!dn.isNullOrBlank()) {
+                            val relDocId = DocId(DocType.valueOf(r[TransactionTable.relatedDocumentType]),
+                                    r[TransactionTable.relatedDocumentNumber])
+                            relDoc = docById(relDocId)//  documentCache[relDocId]
+                        }
+                        val maDatiSynt = Osnova.groupByNumber(r[TransactionTable.maDatiSyntAcc])
+                        val maDatiAnalId = AnalId(maDatiSynt, r[TransactionTable.maDatiAnal])
+                        val maDati = AccountCache.accById(maDatiAnalId)
 
-                            val dalSynt = Osnova.groupByNumber(r[TransactionTable.dalSyntAcc])
-                            val dalAnalId = AnalId(dalSynt, r[TransactionTable.dalAnal])
-                            val dal = AccountCache.accById(dalAnalId)
-                            Transaction(
-                                    TransactionId(r[TransactionTable.id]),
-                                    r[TransactionTable.amount],
-                                    maDati,
-                                    dal,
-                                    doc,
-                                    relDoc)
-                        }.toMutableList()
-            }
-            return res
+                        val dalSynt = Osnova.groupByNumber(r[TransactionTable.dalSyntAcc])
+                        val dalAnalId = AnalId(dalSynt, r[TransactionTable.dalAnal])
+                        val dal = AccountCache.accById(dalAnalId)
+                        Transaction(
+                                TransactionId(r[TransactionTable.id]),
+                                r[TransactionTable.amount],
+                                maDati,
+                                dal,
+                                doc,
+                                relDoc)
+                    }.toMutableList()
         }
+
 
     @Throws(AccException::class)
     override fun createTrans(id: TransactionId?, amount: Long, maDati: AnalAcc,

@@ -29,7 +29,7 @@ class AnalAcc(parent: AccGroup?,
 
     override fun equals(other: Any?): Boolean {
         if (this === other)
-            return false
+            return true
         return if (other !is AnalAcc) {
             false
         } else other.id == id

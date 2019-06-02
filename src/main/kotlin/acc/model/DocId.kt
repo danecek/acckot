@@ -1,6 +1,7 @@
 package acc.model
 
 class DocId(val type: DocType, val number: Int) : Comparable<DocId> {
+
     override fun compareTo(other: DocId): Int {
         val d = type.compareTo(other.type)
         return if (d != 0) d
@@ -8,9 +9,12 @@ class DocId(val type: DocType, val number: Int) : Comparable<DocId> {
     }
 
     override fun equals(other: Any?): Boolean {
-        if (other==null) return false
-        return compareTo(other as DocId) == 0
+        if (this === other)
+            return true
+        return if (other !is DocId) false
+        else compareTo(other) == 0
     }
+
     override fun hashCode(): Int {
         return type.hashCode() + number.hashCode()
     }

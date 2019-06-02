@@ -10,23 +10,7 @@ abstract class AbstrAcc(
 ) : Comparable<AbstrAcc> {
 
     private fun croppedName() = name.take(Options.nameCrop)
-    fun numberName(): String {
-//        val sb = StringBuilder(number)
-//        sb.append(" : ")
-//        sb.append(croppedName())
-//        sb.append(" ")
-//        if (isActive)
-//            sb.append("A")
-//        if (isPassive)
-//            sb.append("P")
-//        if (isLoss)
-//            sb.append("N")
-//        if (isProfit)
-//            sb.append("V")
-//        return sb.toString()
-        return "$number : ${croppedName()}"
-
-    }
+    fun numberName()="$number : ${croppedName()}"
 
     abstract val isActive: Boolean
     abstract val isPassive: Boolean

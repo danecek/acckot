@@ -11,7 +11,6 @@ import acc.richclient.panes.TransactionsView
 import acc.util.Messages
 import acc.util.accError
 import acc.util.withColon
-import javafx.beans.property.SimpleObjectProperty
 import tornadofx.*
 
 /*SEVERE: Uncaught error
@@ -28,20 +27,16 @@ at javafx.scene.control.ListView$ListViewBitSetSelectionModel.clearAndSelect(Lis
 
 abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
 
-    data class AccWrapper(var acc: AnalAcc?) {
-        // workaround
-        override fun toString() = acc.toString()
-    }
 
     class TransactionDialogModel(t: Transaction?) : ItemViewModel<Transaction>(t) {
         val id = bind(Transaction::id)
         val amount = bind(Transaction::amount)
-        //  val maDati = bind(Transaction::maDati)   // workaround
-        // val dal = bind(Transaction::dal)
+        val maDati = bind(Transaction::maDati)   // workaround
+        val dal = bind(Transaction::dal)
         val document = bind(Transaction::doc)
         val relatedDocument = bind(Transaction::relatedDoc)
-        val maDatiWA = SimpleObjectProperty<AccWrapper>(AccWrapper(t?.maDati))// workaround
-        val dalWA = SimpleObjectProperty<AccWrapper>(AccWrapper(t?.dal))// workaround
+        //   val maDatiWA = SimpleObjectProperty<AccWrapper>(AccWrapper(t?.maDati))// workaround
+        // val dalWA = SimpleObjectProperty<AccWrapper>(AccWrapper(t?.dal))// workaround
     }
 
     private val tr = params["tr"] as Transaction?
@@ -74,8 +69,8 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     TransType.TRANSACTION_FOR_STATM -> {
                         title = Messages.Zauctuj_polozku_vypisu.cm()
                         transModel.document.value = doc
-                        //      transModel.dal.value = dal // workaround
-                        transModel.dalWA.value.acc = dal // workaround
+                        transModel.dal.value = dal // workaround
+                        //    transModel.dalWA.value.acc = dal // workaround
                     }
                 }
             DialogMode.UPDATE -> title = Messages.Zmen_transakci.cm()
@@ -89,10 +84,10 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
             DocType.INCOME -> Facade.pokladny // 211
             else -> Facade.allAccounts
         }
-        //  if (accs.size == 1)
-        // transModel.maDatiWA.value.acc = accs.first()
-        if (transModel.maDatiWA.value.acc == null)
-            transModel.maDatiWA.value.acc = accs.first() // workaround
+        if (accs.size == 1)
+            transModel.maDati.value = accs.first()
+        //    if (transModel.maDatiWA.value.acc == null)
+        //        transModel.maDatiWA.value.acc = accs.first() // workaround
         return accs
     }
 
@@ -102,10 +97,10 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
             DocType.OUTCOME -> Facade.pokladny // 211
             else -> Facade.allAccounts
         }
-        //    if (accs.size == 1) // workaround
-        //        transModel.dal.value = accs.first()
-        if (transModel.dalWA.value.acc == null)
-            transModel.dalWA.value.acc = accs.first() // workaround
+        if (accs.size == 1) // workaround
+            transModel.dal.value = accs.first()
+//        if (transModel.dalWA.value.acc == null)
+//            transModel.dalWA.value.acc = accs.first() // workaround
         return accs
     }
 
@@ -148,14 +143,12 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                 } fail {
                     accError(it)
                 } ui {
-                    combobox(transModel.maDatiWA, it.map {
-                        AccWrapper(it)
-                    }) {
+                    combobox(transModel.maDati, it) {
                         prefHeight = 50.0
                         //  converter = AnalAccConverter
-//                        validator {
-//                            if (it == null) error() else null
-//                        }
+                        validator {
+                            if (it == null) error() else null
+                        }
 
                     }.isDisable = mode == DialogMode.DELETE
 
@@ -168,12 +161,12 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     accError(it)
                 } ui {
                     //   combobox(transModel.dal, it) {
-                    combobox(transModel.dalWA, it.map { AccWrapper(it) }) {
+                    combobox(transModel.dal, it) {
                         prefHeight = 50.0
 //                        converter = AnalAccConverter
-//                        validator {
-//                            if (it == null) error() else null
-//                        }
+                        validator {
+                            if (it == null) error() else null
+                        }
                     }.isDisable = mode == DialogMode.DELETE
 
                 }
@@ -230,13 +223,11 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                             accError(it)
                         }.ui {
                             find<TransactionsView>().update()
-                            //PaneTabs.refreshDocAndTransPane()
                             find<TransactionCreateDialog>(params =
                             mapOf("doc" to transModel.document.value,
-                                    "dalAnal" to transModel.dalWA.value.acc)).openModal()// workaround
+                                    "dalAnal" to transModel.dal.value)).openModal()
                         }
                         close()
-
                     }
 
                 }

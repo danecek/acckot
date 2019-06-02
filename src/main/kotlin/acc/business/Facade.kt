@@ -55,10 +55,10 @@ object Facade {
         @Throws(AccException::class)
         get() = TransDAO.allTrans
 
-    @Throws(AccException::class)
+/*    @Throws(AccException::class)
     fun limitTrans(n: Int, offset: Int): List<Transaction> {
         return TransDAO.limitTrans(n, offset)
-    }
+    }*/
 
     @Throws(AccException::class)
     fun createTransaction(amount: Long, madati: AnalAcc, dal: AnalAcc,

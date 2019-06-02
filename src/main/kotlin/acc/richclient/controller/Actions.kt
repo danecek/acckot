@@ -4,7 +4,7 @@ import acc.business.Facade
 import acc.model.AnalAcc
 import acc.model.DocType
 import acc.model.Document
-import acc.richclient.PaneTabs
+import acc.richclient.panes.PaneTabs
 import acc.richclient.dialogs.BalanceShowDialog
 import acc.richclient.dialogs.accounts.AccountDeleteDialog
 import acc.richclient.dialogs.accounts.AccountUpdateDialog

@@ -7,7 +7,6 @@ package acc.richclient.dialogs.trans
 
 import acc.business.Facade
 import acc.model.TransactionFilter
-import acc.richclient.dialogs.accounts.AnalAccConverter
 import acc.richclient.dialogs.docs.DocumentConverter
 import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
@@ -18,8 +17,9 @@ import tornadofx.*
 class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
     val from = bind(TransactionFilter::from)
     val tto = bind(TransactionFilter::tto)
-    val acc = bind(TransactionFilter::acc)
+    val acc = bind(TransactionFilter::acc) // workaround
     val doc = bind(TransactionFilter::doc)
+    // val acclWA = SimpleObjectProperty<AccWrapper>(AccWrapper())// workaround
 }
 
 class TransactionsFilterDialog : Fragment() {
@@ -31,8 +31,7 @@ class TransactionsFilterDialog : Fragment() {
             form {
                 title = Messages.Filter_transakci.cm()
                 fieldset {
-
-                   field(Messages.Od.cm().withColon) {
+                    field(Messages.Od.cm().withColon) {
                         datepicker(transFilterModel.from) {
                             prefHeight = 50.0
                             converter = DayMonthConverter
@@ -45,8 +44,13 @@ class TransactionsFilterDialog : Fragment() {
                         }
                     }
                     field(Messages.Ucet.cm().withColon) {
-                        combobox(transFilterModel.acc, Facade.allAccounts){
-                            converter = AnalAccConverter
+                        combobox(transFilterModel.acc, Facade.allAccounts) {
+                            // workaround
+                            //     combobox(transFilterModel.acclWA, Facade.allAccounts.map {
+                            //  AccWrapper(it)
+                            // {
+                            //           converter = AnalAccConverter
+
                         }
                     }
                     field(Messages.Doklad.cm().withColon) {
@@ -54,7 +58,6 @@ class TransactionsFilterDialog : Fragment() {
                             converter = DocumentConverter
                         }
                     }
-
                 }
                 buttonbar {
                     button(Messages.Potvrd.cm()) {
@@ -62,10 +65,9 @@ class TransactionsFilterDialog : Fragment() {
                         action {
                             tornadofx.find<TransactionsView>().transFilter =
                                     TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
-                                    transFilterModel.acc.value, transFilterModel.doc.value)
+                                            transFilterModel.acc.value, transFilterModel.doc.value)
                             close()
                         }
-
                     }
                     button(Messages.Zrus.cm()) {
                         action {

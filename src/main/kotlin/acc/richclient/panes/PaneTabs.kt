@@ -1,7 +1,6 @@
-package acc.richclient
+package acc.richclient.panes
 
 import acc.model.UnpaidInvoicesFilter
-import acc.richclient.panes.*
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import tornadofx.*
@@ -9,9 +8,9 @@ import tornadofx.*
 class PaneTabs : View() {
 
     override val root = tabpane() {
-        tab<TransactionsView>()
         tab<AccountsView>()
         tab<DocumentsView>()
+        tab<TransactionsView>()
     }
 
     companion object {
@@ -29,7 +28,14 @@ class PaneTabs : View() {
             }
         }
 
-        fun clearIncomeBalance() {
+        inline fun <reified T : View> selectView() {
+            val tv = find<T>()
+            find<PaneTabs>().root.tabs.find {
+                it.content == tv.root
+            }?.select()
+        }
+
+        fun clearIncomeAndBalance() {
             find<PaneTabs>().root.tabs.removeIf {
                 it.content is BalancePane || it.content is IncomePane
             }

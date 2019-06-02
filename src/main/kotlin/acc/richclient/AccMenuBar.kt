@@ -19,22 +19,6 @@ class AccMenuBar : View() {
         items.add(mi)
     }
 
-/*    init {
-        find<PaneTabs>().root.tabs.addListener(
-                ShowAccountsAction
-        )
-    }*/
-
-/*
-    object AccountPaneClosed : SimpleBooleanProperty(PaneTabs.accountPane == null),
-            InvalidationListener {
-        override fun invalidated(observable: Observable?) {
-            value = PaneTabs.accountPane == null
-        }
-    }
-*/
-
-
     override val root = menubar {
         menu(Messages.File.cm()) {
             item(Messages.Konec.cm()) {
@@ -44,12 +28,6 @@ class AccMenuBar : View() {
             }
         }
         menu(Messages.Ucty.cm()) {
-            /*            item(Messages.Zobraz_ucty.cm()) {
-                            enableWhen(ShowAccountsAction)
-                            action {
-                                ShowAccountsAction.execute()
-                            }
-                        }*/
             item(Messages.Vytvor_ucet.cm()) {
                 action {
                     find<AccountCreateDialog>(params = mapOf(

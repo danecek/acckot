@@ -29,18 +29,14 @@ object AccountCache {
     private val klaxon = Klaxon()
 
     private fun save() {
-        //  println("$accountById")
         val fw = PrintWriter(FileWriter(Options.accountFile))
         fw.use {
             accountById.values.forEach {
-                //      println(it)
-                //     println(it.name)
                 val line = klaxon.toJsonString(AnalAccDTO(
                         groupn = it.id.group.number,
                         anal = it.anal,
                         name = it.name,
                         initAmount = it.initAmount))
-                //   println(line)
                 fw.println(line)
             }
         }
@@ -110,9 +106,7 @@ object AccountCache {
             name = _name
             initAmount = _initAmount
         }
-        // println("pr $accountById")
         save()
-        //println("po $accountById")
     }
 
     @Throws(AccException::class)

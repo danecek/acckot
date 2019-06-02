@@ -67,7 +67,6 @@ class DocumentsShowDialog : Fragment() {
                                         docFilterModel.tto.value)
                                 update()
                             }
-                       //     PaneTabs.showDocumentPane(docFilter)
                             close()
                         }
 

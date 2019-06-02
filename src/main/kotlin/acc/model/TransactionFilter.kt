@@ -4,18 +4,21 @@ import acc.util.Messages
 import acc.util.withColon
 import java.time.LocalDate
 
-class TransactionFilter(from: LocalDate?=null, tto: LocalDate?=null,
+class TransactionFilter(from: LocalDate? = null, tto: LocalDate? = null,
                         val acc: AnalAcc? = null,
-                        val doc: Document?=null) : AbstrFilter(from, tto) {
+                        val doc: Document? = null) : AbstrFilter(from, tto) {
 
     fun match(t: Transaction): Boolean {
         if (!matchDate(t.doc.date)) {
+            println("!dateMatch")
             return false
         }
         if (acc != null && t.maDati != acc && t.dal != acc) {
+            println("$acc  && ${t.maDati}  && ${t.dal}")
             return false
         }
-        if (doc != null && t.doc != doc && t.relatedDoc!=doc){
+        if (doc != null && t.doc != doc && t.relatedDoc != doc) {
+            println("$doc  && $t.doc && $t.relatedDoc")
             return false
         }
         return true
@@ -23,14 +26,14 @@ class TransactionFilter(from: LocalDate?=null, tto: LocalDate?=null,
 
     override fun toString(): String {
         val buf = super.elems()
-        if (acc!=null) {
+        if (acc != null) {
             buf.add("${Messages.S_uctem.cm().withColon}${acc.numberName()}")
         }
-        if (doc!=null) {
+        if (doc != null) {
             buf.add("${Messages.S_dokladem.cm().withColon}${doc.id}")
         }
         return if (buf.isEmpty()) Messages.Vsechny.cm()
-        else buf.joinToString (separator =  COMMA_DEL)
+        else buf.joinToString(separator = COMMA_DEL)
     }
 
 }
