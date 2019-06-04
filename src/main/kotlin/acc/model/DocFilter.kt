@@ -17,14 +17,13 @@ open class DocFilter(
 
     override fun toString(): String {
         val els = mutableListOf<Any>()
-        if (types.size == DocType.values().size)
-            els.add(Messages.Vsechny_typy.cm())
+        if (types.size < DocType.values().size)
+            els.add(Messages.Zobrazene_typy_dokladu.cm().withColon.plus(types.map { it.abbr }))
         else
-            els.add(Messages.Typy.cm().withColon.plus(types.map { it.abbr }))
+            els.add(Messages.Vsechny_doklady.cm())
         els.addAll(super.elems())
         return els.joinToString(separator = COMMA_DEL)
     }
-
 }
 
 object UnpaidInvoicesFilter : DocFilter() {
@@ -32,7 +31,9 @@ object UnpaidInvoicesFilter : DocFilter() {
         return Messages.Nezaplacene_faktury.cm()
     }
 }
-object FullFilter : DocFilter(){//types = DocType.values().toSet()) {
+
+object FullFilter : DocFilter() {
+    //types = DocType.values().toSet()) {
     override fun toString(): String {
         return Messages.Vsechny_doklady.cm()
     }

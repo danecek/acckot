@@ -10,15 +10,12 @@ class TransactionFilter(from: LocalDate? = null, tto: LocalDate? = null,
 
     fun match(t: Transaction): Boolean {
         if (!matchDate(t.doc.date)) {
-            println("!dateMatch")
             return false
         }
         if (acc != null && t.maDati != acc && t.dal != acc) {
-            println("$acc  && ${t.maDati}  && ${t.dal}")
             return false
         }
         if (doc != null && t.doc != doc && t.relatedDoc != doc) {
-            println("$doc  && $t.doc && $t.relatedDoc")
             return false
         }
         return true

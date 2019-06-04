@@ -29,7 +29,7 @@ open class AccountsView : View(Messages.Ucty.cm()) {
             else ""
 
     private val tableView: TableView<AnalAcc> = tableview(mutableListOf<AnalAcc>().observable()) {
-        column<AnalAcc, String>(Messages.Synteticke_ucty.cm()) {
+        column<AnalAcc, String>(Messages.Syntetika.cm()) {
             ReadOnlyObjectWrapper(it.value.syntAccount.number)
         }.weightedWidth(saccw)
                 .cellDecorator {

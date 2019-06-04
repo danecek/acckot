@@ -63,7 +63,7 @@ object Osnova {
                     1 -> GroupEnum.CLASS
                     2 -> GroupEnum.GROUP
                     3 -> GroupEnum.SYNT_ACCOUNT
-                    else -> error("invalid osnova")
+                    else -> error("neplatna osnova")
                 }
                 val ac = AccGroup(type, number, name)
                 accGroupsByNumber[ac.number] = ac

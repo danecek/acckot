@@ -45,9 +45,12 @@ object DayMonthConverter : StringConverter<LocalDate>() {
  * Convert [java.time.LocalDate] to [org.joda.time.DateTime]
  */
 fun toDateTime(localDate: LocalDate): DateTime {
-    return DateTime(DateTimeZone.UTC).withDate(
+
+    val dt = DateTime(DateTimeZone.UTC).withDate(
             localDate.year, localDate.monthValue, localDate.dayOfMonth
     ).withTime(1, 1, 1, 1)
+  //  println("toDateTime: $localDate->$dt")
+    return dt;
 }
 
 /**
@@ -55,5 +58,8 @@ fun toDateTime(localDate: LocalDate): DateTime {
  */
 fun toLocalDate(dateTime: DateTime): LocalDate {
     val dateTimeUtc = dateTime.withZone(DateTimeZone.UTC)
-    return LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
+
+    val ld = LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth+1)
+  //  println("toLocalDate: $dateTime->$ld")
+    return ld
 }

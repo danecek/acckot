@@ -128,6 +128,7 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
                 (DocumentTable.id eq doc.id)// and (DocumentTable.number eq id.number)
             })
             {
+                println(toDateTime(date))
                 it[this.date] = toDateTime(date)
                 it[this.description] = description
             } == 1)

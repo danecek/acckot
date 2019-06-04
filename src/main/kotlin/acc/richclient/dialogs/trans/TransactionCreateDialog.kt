@@ -5,9 +5,8 @@ import acc.richclient.dialogs.DialogMode
 import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.TransactionsView
 
-class TransactionCreateDialog : TransactionDialogFragment(DialogMode.CREATE) {
+class TransactionCreateDialog() : TransactionDialogFragment(DialogMode.CREATE) {
     override val ok = {
-        println(transModel.document.value)
         Facade.createTransaction(transModel.amount.value,
                 transModel.maDati.value,
                 transModel.dal.value,

@@ -10,6 +10,7 @@ import acc.richclient.panes.DocumentsView
 import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
+import acc.util.accError
 import acc.util.withColon
 import tornadofx.*
 import java.time.LocalDate
@@ -25,8 +26,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
     }
 
     val doc = params["doc"] as? Document
-
-    val docModel = DocumentDialogModel(params["doc"] as? Document)
+    val docModel = DocumentDialogModel(doc)
 
     init {
         when (mode) {
@@ -82,7 +82,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                     runAsync {
                         ok()
                     } fail {
-                        error(it)
+                        accError(it)
                     } ui {
                         find<DocumentsView>().update()
                         close()
@@ -100,7 +100,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                                     docModel.description.value ?: "")
 
                         } fail {
-                            error(it)
+                            accError(it)
                         } ui {
                             find<TransactionsView>().update()
                             openTransactionCreateDialog(it)

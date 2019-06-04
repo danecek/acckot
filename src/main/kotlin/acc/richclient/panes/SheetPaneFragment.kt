@@ -32,7 +32,7 @@ open class SheetPaneFragment() : Fragment() {
         readonlyColumn(Messages.Poradi.cm(), StatItem::order).weightedWidth(orderw)
 
         nestedColumn(Messages.Ucet.cm()) {
-            column<StatItem, String>(Messages.Synteticke_ucty.cm()) {
+            column<StatItem, String>(Messages.Syntetika.cm()) {
                 SimpleStringProperty(
                         if (it.value.acc is AnalAcc) ""
                         else it.value.name//group?.toString()
@@ -87,7 +87,7 @@ open class SheetPaneFragment() : Fragment() {
     val ttl = when (sheet) {
         Messages.Rozvaha -> Messages.Rozvaha_pro_mesic
         Messages.Zisky_a_ztraty -> Messages.Zisky_a_ztraty_za_mesic
-        else -> kotlin.error("")
+        else -> kotlin.error(sheet.toString())
     }.cm().withColon + monthFrm.format(month.value)
 
 

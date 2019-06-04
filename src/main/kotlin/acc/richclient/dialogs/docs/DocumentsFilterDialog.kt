@@ -32,10 +32,10 @@ class DocumentsFilterDialog : Fragment() {
     override val root =
             form {
                 prefWidth = 500.0
+                spacing = 10.0
                 title = Messages.Nastav_filter_dokladu.cm()
                 fieldset {
                     spacing = 10.0
-
                     DocType.values().forEach {
                         checkbox(it.text, a[it.ordinal])
                     }
@@ -79,7 +79,6 @@ class DocumentsFilterDialog : Fragment() {
                             }
                         }
                     }
-
                     button(Messages.Zrus.cm()) {
                         action {
                             close()

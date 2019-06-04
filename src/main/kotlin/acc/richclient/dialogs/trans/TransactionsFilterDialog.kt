@@ -20,13 +20,34 @@ class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
 
 class TransactionsFilterDialog : Fragment() {
 
-
     private val transFilterModel = TransactionFilterModel()
 
     override val root =
             form {
-                title = Messages.Nastav_filter_transakci.cm()
+                prefWidth = 500.0
+                title = Messages.Filter_transakci.cm()
                 fieldset {
+                    spacing = 10.0
+                    field(Messages.S_uctem.cm().withColon) {
+                        tornadofx.runAsync {
+                            Facade.allAccounts
+                        } fail {
+                            accError(it)
+                        } ui {
+                            combobox(transFilterModel.acc, it)
+                        }
+                    }
+/*                    field(Messages.Doklad.cm().withColon) {
+                        tornadofx.runAsync {
+                            Facade.allDocuments
+                        } fail {
+                            accError(it)
+                        } ui {
+                            combobox(transFilterModel.doc, it) {
+                                converter = DocumentConverter
+                            }
+                        }
+                    }*/
                     field(Messages.Od.cm().withColon) {
                         datepicker(transFilterModel.from) {
                             prefHeight = 50.0
@@ -39,27 +60,8 @@ class TransactionsFilterDialog : Fragment() {
                             converter = DayMonthConverter
                         }
                     }
-                    field(Messages.Ucet.cm().withColon) {
-                        tornadofx.runAsync {
-                            Facade.allAccounts
-                        } fail {
-                            accError(it)
-                        } ui {
-                            combobox(transFilterModel.acc, it)
-                        }
-                    }
-                    field(Messages.Doklad.cm().withColon) {
-                        tornadofx.runAsync {
-                            Facade.allDocuments
-                        } fail {
-                            accError(it)
-                        } ui {
-                            combobox(transFilterModel.doc, it) {
-                                converter = DocumentConverter
-                            }
-                        }
-                    }
                     buttonbar {
+                        padding = insets(20)
                         button(Messages.Potvrd.cm()) {
                             enableWhen(transFilterModel.valid)
                             action {

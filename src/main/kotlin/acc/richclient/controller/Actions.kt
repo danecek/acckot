@@ -3,7 +3,6 @@ package acc.richclient.controller
 import acc.model.AnalAcc
 import acc.model.DocType
 import acc.model.Document
-import acc.richclient.panes.PaneTabs
 import acc.richclient.dialogs.BalanceShowDialog
 import acc.richclient.dialogs.accounts.AccountDeleteDialog
 import acc.richclient.dialogs.accounts.AccountUpdateDialog
@@ -12,8 +11,10 @@ import acc.richclient.dialogs.docs.DocumentsFilterDialog
 import acc.richclient.dialogs.trans.TransactionCreateDialog
 import acc.richclient.dialogs.trans.TransactionsFilterDialog
 import acc.richclient.panes.DocumentsView
+import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.TransactionsView
 import acc.util.Messages
+import acc.util.accError
 import javafx.beans.InvalidationListener
 import javafx.beans.Observable
 import javafx.beans.property.SimpleBooleanProperty
@@ -29,7 +30,7 @@ fun ContextMenu.add(a: AbstrAction) {
     items.add(mi)
 }
 
-fun openTransactionCreateDialog(doc: Document? = null) {
+fun openTransactionCreateDialog(doc: Document) {
     find<TransactionCreateDialog>(
             params = mapOf("doc" to doc)).openModal()
 }
@@ -92,10 +93,14 @@ object ClearTransFilterAction : AbstrAction(Messages.Zobraz_vsechny_transakce.cm
     }
 }
 
-object TransactionCreateAction : AbstrAction(Messages.Vytvor_transakci.cm()) {
+object TransactionCreateAction : AbstrAction(Messages.Vytvor_transakci_pro_vybrany_doklad.cm()) {
 
     override fun execute() {
-        openTransactionCreateDialog()
+        val selDoc = find<DocumentsView>().tableView.selectedItem
+        if (selDoc == null)
+            accError(Messages.Neni_vyberan_zadny_doklad.cm())
+        else
+            openTransactionCreateDialog(doc = selDoc)
     }
 }
 

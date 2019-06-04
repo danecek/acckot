@@ -7,6 +7,7 @@ import acc.model.TransactionFilter
 import acc.richclient.dialogs.trans.TransactionDeleteDialog
 import acc.richclient.dialogs.trans.TransactionUpdateDialog
 import acc.util.Messages
+import acc.util.accError
 import acc.util.dayMonthFrm
 import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
@@ -16,24 +17,14 @@ class TransactionsView : View(Messages.Transakce.cm()) {
 
     override val closeable = SimpleBooleanProperty(false)
 
-    val idw = 5
-    private val amw = 10
-    val datew = 10
-    val numberw = 10
-    val namew = 10
-
     val tw = tableview(mutableListOf<Transaction>().observable()) {
         prefHeight = Options.prefTableHeight
-        readonlyColumn(Messages.Poradi.cm(), Transaction::id).weightedWidth(idw)
-        column<Transaction, String>(Messages.Datum.cm()) { t ->
-            SimpleStringProperty(dayMonthFrm.format(t.value.doc.date))
-        }.weightedWidth(datew)
-
+        readonlyColumn(Messages.Poradi.cm(), Transaction::id).weightedWidth(idW)
         readonlyColumn(Messages.Castka.cm(), Transaction::amount)
-                .weightedWidth(amw)
+                .weightedWidth(amountW)
         column<Transaction, String>(Messages.Ma_dati.cm()) { t ->
             SimpleStringProperty(t.value.maDati.number)
-        }.weightedWidth(numberw)
+        }.weightedWidth(numberW)
                 .cellDecorator {
                     tooltip {
                         text = items[index].maDati.name
@@ -42,7 +33,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
 
         column<Transaction, String>(Messages.Dal.cm()) { t ->
             SimpleStringProperty(t.value.dal.number)
-        }.weightedWidth(numberw)
+        }.weightedWidth(numberW)
                 .cellDecorator {
                     tooltip {
                         text = items[index].dal.name
@@ -51,16 +42,19 @@ class TransactionsView : View(Messages.Transakce.cm()) {
 
         column<Transaction, String>(Messages.Doklad.cm()) { t ->
             SimpleStringProperty(t.value.doc.name)
-        }.weightedWidth(namew)
+        }.weightedWidth(nameW)
                 .cellDecorator {
                     tooltip {
                         text = items[index].doc.description
                     }
                 }
+        column<Transaction, String>(Messages.Datum.cm()) { t ->
+            SimpleStringProperty(dayMonthFrm.format(t.value.doc.date))
+        }.weightedWidth(dateW)
 
         column<Transaction, String>(Messages.Zaplacena_faktura.cm()) { t ->
             SimpleStringProperty(t.value.relatedDoc?.name ?: "")
-        }.weightedWidth(namew)
+        }.weightedWidth(nameW)
                 .cellDecorator {
                     tooltip {
                         text = items[index].relatedDoc?.description ?: ""
@@ -72,7 +66,6 @@ class TransactionsView : View(Messages.Transakce.cm()) {
             item(Messages.Zmen_transakci.cm()).action {
                 tornadofx.find<TransactionUpdateDialog>(
                         params = mapOf("tr" to selectedItem)).openModal()
-                //   PaneTabs.refreshTransactionPanes()
             }
             item(Messages.Zrus_transakci.cm()).action {
                 tornadofx.find<TransactionDeleteDialog>(
@@ -104,7 +97,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
         tornadofx.runAsync {
             Facade.transactionsByFilter(transFilter)
         } fail {
-            error(it)
+            accError(it)
         } ui {
             tw.items.setAll(it)
         }

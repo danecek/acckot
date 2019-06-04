@@ -13,7 +13,10 @@ import acc.util.accError
 import acc.util.withColon
 import javafx.scene.control.ComboBox
 import tornadofx.*
-import java.time.LocalDate
+
+//enum class TransType {
+//    COMMON_TRANSACTION, TRANSACTION_FOR_DOC, TRANSACTION_FOR_STATM,
+//}
 
 abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
 
@@ -27,45 +30,36 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
     }
 
     private val tr = params["tr"] as Transaction?
+    val doc = if (tr == null)
+        params["doc"]!! as Document  // trasakce se vytvari pro dokument
+    else tr.doc
     val transModel = TransactionDialogModel(tr)
-    val doc = params["doc"] as? Document
     val dal = params["dalAnal"] as? AnalAcc
 
-    enum class TransType {
-        COMMON_TRANSACTION, TRANSACTION_FOR_DOC, TRANSACTION_FOR_STATM,
-    }
-
-    val transType =
-            when {
-                doc == null -> TransType.COMMON_TRANSACTION
-                doc.type == DocType.BANK_STATEMENT -> TransType.TRANSACTION_FOR_STATM
-                else -> TransType.TRANSACTION_FOR_DOC
-            }
 
     init {
         when (mode) {
             DialogMode.CREATE ->
-                when (transType) {
-                    TransType.COMMON_TRANSACTION -> {
-                        title = Messages.Vytvor_transakci.cm()
-                    }
-                    TransType.TRANSACTION_FOR_DOC -> {
-                        title = Messages.Zauctuj_doklad.cm()
-                        transModel.document.value = doc
-                    }
-                    TransType.TRANSACTION_FOR_STATM -> {
-                        title = Messages.Zauctuj_polozku_vypisu.cm()
-                        transModel.document.value = doc
-                        transModel.dal.value = dal
-                    }
+                if (doc.type == DocType.BANK_STATEMENT) {
+                    title = Messages.Zauctuj_polozku_vypisu.cm()
+                    transModel.document.value = doc
+                    transModel.dal.value = dal
+                } else {
+                    title = Messages.Zauctuj_doklad.cm().withColon.plus(doc.name)
+                    transModel.document.value = doc
                 }
-            DialogMode.UPDATE -> title = Messages.Zmen_transakci.cm()
-            DialogMode.DELETE -> title = Messages.Zrus_transakci.cm()
+            DialogMode.UPDATE -> {
+                title = Messages.Zmen_transakci.cm()
+            }
+
+            DialogMode.DELETE -> {
+                title = Messages.Zrus_transakci.cm()
+            }
         }
     }
 
     private fun maDati(): List<AnalAcc> {
-        val accs = when (doc?.type) {
+        val accs = when (doc.type) {
             DocType.INCOME -> Facade.pokladny // 211
             else -> Facade.allAccounts
         }
@@ -75,7 +69,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
     }
 
     private fun dal(): List<AnalAcc> {
-        val accs = when (doc?.type) {
+        val accs = when (doc.type) {
             DocType.INVOICE -> Facade.dodavatele //321
             DocType.OUTCOME -> Facade.pokladny // 211
             else -> Facade.allAccounts
@@ -85,29 +79,14 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
         return accs
     }
 
-    lateinit var unpaidCB : ComboBox<Document>
-    lateinit var unpaidField : Field
+    lateinit var unpaidCB: ComboBox<Document>
+    //lateinit var unpaidField: Field
 
     override val root = form {
+        //prefWidth = 600.0
         fieldset {
+            prefWidth = 600.0
             prefHeight = 350.0
-            field(Messages.Doklad.cm().withColon) {
-                isDisable = mode == DialogMode.DELETE
-                val ad = Facade.allDocuments
-                combobox(transModel.document, ad) {
-                    prefHeight = 50.0
-                    validator {
-                        if (it == null) error() else null
-                    }
-                }.valueProperty().addListener { observable, oldValue, newValue ->
-                    if (newValue.type != DocType.BANK_STATEMENT) {
-                        unpaidCB.value = null
-                        unpaidField.isDisable = true
-                    } else
-                        unpaidField.isDisable = false
-                }
-
-            }
             field(Messages.Castka.cm().withColon) {
                 textfield(transModel.amount, AmountConverter) {
                     prefHeight = 50.0
@@ -125,14 +104,18 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                 } fail {
                     accError(it)
                 } ui {
-                    combobox(transModel.maDati, it) {
-                        prefHeight = 50.0
-                        //  converter = AnalAccConverter
-                        validator {
-                            if (it == null) error() else null
-                        }
+                    if (it.isEmpty()) {
+                        close()
+                        accError(Messages.Neexistuje_vhodny_analyticky_ucet.cm())
+                    } else
+                        combobox(transModel.maDati, it) {
+                            prefHeight = 50.0
+                            //  converter = AnalAccConverter
+                            validator {
+                                if (it == null) error() else null
+                            }
 
-                    }
+                        }
 
                 }
             }
@@ -143,39 +126,60 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                 } fail {
                     accError(it)
                 } ui {
-                    combobox(transModel.dal, it) {
-                        prefHeight = 50.0
-                        validator {
-                            if (it == null) error() else null
+                    if (it.isEmpty()) {
+                        close()
+                        accError(Messages.Neexistuje_vhodny_analyticky_ucet.cm())
+                    } else
+                        combobox(transModel.dal, it) {
+                            prefHeight = 50.0
+                            validator {
+                                if (it == null) error() else null
+                            }
                         }
-                    }
 
                 }
             }
+            field(Messages.Doklad.cm().withColon) {
+                label(doc.toString())
+/*                isDisable = mode == DialogMode.DELETE || transType == TransType.TRANSACTION_FOR_DOC
+                val ad = Facade.allDocuments
+                combobox(transModel.document, ad) {
+                    prefHeight = 50.0
+                    validator {
+                        if (it == null) error() else null
+                    }
+                }.valueProperty().addListener { _, _, newValue ->
+                    if (newValue.type != DocType.BANK_STATEMENT) {
+                        unpaidCB.value = null
+                        unpaidField.isDisable = true
+                    } else
+                        unpaidField.isDisable = false
+                }*/
+            }
+            //   unpaidField =
+            if (doc.type == DocType.BANK_STATEMENT)
+                field(Messages.Zaplacena_faktura.cm().withColon) {
+                    isDisable = mode == DialogMode.DELETE
+                    hbox {
+                        prefWidth = 100.0
+                        spacing = 5.0
+                        unpaidCB = combobox(transModel.relatedDocument) {
+                            prefHeight = 50.0
+                        }
+                        button(Messages.Smaz.cm()) {
+                            action { unpaidCB.value = null }
+                        }
+                        runAsync {
+                            Facade.unpaidInvoices
+                        } fail {
+                            accError(it)
+                        } ui {
+                            unpaidCB.items.setAll(it)
+                        }
 
-            unpaidField= field(Messages.Odpovidajici_nezaplacena_faktura.cm().withColon) {
-                isDisable = mode == DialogMode.DELETE ||
-                        mode ==  DialogMode.UPDATE && doc!!.type != DocType.BANK_STATEMENT
-                hbox {
-                    prefWidth = 100.0
-                    spacing = 5.0
-                    unpaidCB = combobox(transModel.relatedDocument) {
-                        prefHeight = 50.0
-                    }
-                    button(Messages.Smaz.cm()) {
-                        action { unpaidCB.value = null }
-                    }
-                    runAsync {
-                        Facade.unpaidInvoices
-                    } fail {
-                        accError(it)
-                    } ui {
-                        unpaidCB.items.setAll(it)
                     }
 
                 }
-
-            }
         }
 
         buttonbar {
@@ -194,8 +198,8 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                 }
 
             }
-            if (transType == TransType.TRANSACTION_FOR_STATM) {
-                button(Messages.Potvrd_a_dalsi.cm()) {
+            if (doc.type == DocType.BANK_STATEMENT) {
+                button(Messages.Potvrd_a_dalsi_polozka.cm()) {
                     prefHeight = 50.0
                     enableWhen(transModel.valid)
                     action {
