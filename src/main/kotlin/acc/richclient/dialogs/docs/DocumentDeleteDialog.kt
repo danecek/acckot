@@ -6,6 +6,6 @@ import acc.richclient.dialogs.DialogMode
 class DocumentDeleteDialog : DocumentDialogFragment(DialogMode.DELETE) {
 
     override val ok: () -> Unit = {
-        Facade.deleteDocument(docModel.id.value)
+        Facade.deleteDocument(doc!!)
     }
 }

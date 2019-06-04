@@ -12,8 +12,6 @@ class AnalAcc(parent: AccGroup?,
     val syntAccount: AccGroup
         get() = parent!!
 
-    val id = AnalId(syntAccount, anal)
-
     override val isLoss: Boolean
         get() = syntAccount.isLoss
 
@@ -26,14 +24,12 @@ class AnalAcc(parent: AccGroup?,
     override val isActive: Boolean
         get() = syntAccount.isActive
 
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other)
-            return true
-        return if (other !is AnalAcc) {
-            false
-        } else other.id == id
-    }
+    override fun equals(other: Any?) =
+            if (this === other)
+                true
+            else if (other !is AnalAcc) {
+                false
+            } else compareTo(other) == 0
 
     override fun hashCode(): Int {
         return number.hashCode()

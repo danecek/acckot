@@ -1,7 +1,6 @@
 package acc.integration
 
 import acc.model.DocFilter
-import acc.model.DocId
 import acc.model.DocType
 import acc.model.Document
 import acc.util.AccException
@@ -9,20 +8,18 @@ import java.time.LocalDate
 
 interface DocumentDAOInterface {
     val allDocs: List<Document>
+    @Throws(AccException::class)
     fun createDoc(type: DocType, number: Int, date: LocalDate,
-                  description: String)
+                  description: String): Int
 
     @Throws(AccException::class)
     fun docsByFilter(docFilter: DocFilter?): List<Document>
 
-    @Throws(AccException::class)
-    fun docById(id: DocId): Document?
-
-    fun updateDoc(id: DocId, date: LocalDate,
+    fun updateDoc(doc: Document, date: LocalDate,
                   description: String)
 
     @Throws(AccException::class)
-    fun deleteDoc(id: DocId)
+    fun deleteDoc(doc: Document)
 
-    fun findFreeDocId(docType: DocType): Int
+    fun findFreeDocNumber(docType: DocType): Int
 }

@@ -7,6 +7,6 @@ import acc.richclient.dialogs.DialogMode
 class AccountDeleteDialog : AccountDialogFragment(DialogMode.DELETE) {
 
     override val ok: () -> Unit = {
-        Facade.deleteAccount(AnalId(accModel.group.value, accModel.anal.value))
+        Facade.deleteAccount(acc!!)//accModel.group.value.number + accModel.anal.value)
     }
 }

@@ -37,7 +37,7 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
     override val root = form {
 
         fieldset {
-            field(Messages.Synteticky_ucet.cm().withColon) {
+            field(Messages.Synteticke_ucty.cm().withColon) {
                 vbox {
                     spacing = 20.0
                     val cb = combobox<AccGroup>(accModel.group, Osnova.mainSyntAccounts) {
@@ -103,8 +103,7 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
                     } fail {
                         accError(it)
                     } ui {
-                        find<AccountsView>().refresh()
-                        // PaneTabs.refreshAccountPane()
+                        find<AccountsView>().update()
                     }
                     close()
                 }

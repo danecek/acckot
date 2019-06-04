@@ -1,6 +1,5 @@
 package acc.richclient.controller
 
-import acc.business.Facade
 import acc.model.AnalAcc
 import acc.model.DocType
 import acc.model.Document
@@ -9,7 +8,7 @@ import acc.richclient.dialogs.BalanceShowDialog
 import acc.richclient.dialogs.accounts.AccountDeleteDialog
 import acc.richclient.dialogs.accounts.AccountUpdateDialog
 import acc.richclient.dialogs.docs.DocumentCreateDialog
-import acc.richclient.dialogs.docs.DocumentsShowDialog
+import acc.richclient.dialogs.docs.DocumentsFilterDialog
 import acc.richclient.dialogs.trans.TransactionCreateDialog
 import acc.richclient.dialogs.trans.TransactionsFilterDialog
 import acc.richclient.panes.DocumentsView
@@ -36,8 +35,7 @@ fun openTransactionCreateDialog(doc: Document? = null) {
 }
 
 fun openDocCreateDialog(docType: DocType) {
-    val id = Facade.genDocumentId(docType)
-    find<DocumentCreateDialog>(params = mapOf("docType" to docType, "number" to id)).openModal()
+    find<DocumentCreateDialog>(params = mapOf("docType" to docType)).openModal()
 }
 
 fun openAccountUpdateDialog(acc: AnalAcc) {
@@ -73,23 +71,24 @@ object BalanceCreateAction : SheetAction(Messages.Rozvaha)
 
 object IncomeCreateAction : SheetAction(Messages.Zisky_a_ztraty)
 
-object ShowUnpaidInvocesAction : AbstrAction(Messages.Nezaplacene_faktury.cm()) {
+object ShowUnpaidInvocesAction : AbstrAction(Messages.Zobraz_nezaplacene_faktury.cm()) {
     override fun execute() {
         PaneTabs.showUnpaidInvoicesPane()
     }
 }
 
-object OpenTransFilterDialogAction : AbstrAction(Messages.Filter_transakci.cm()) {
+object OpenTransFilterDialogAction : AbstrAction(Messages.Nastav_filter_transakci.cm()) {
 
     override fun execute() {
         find<TransactionsFilterDialog>().openModal()
     }
 }
 
-object ClearTransFilterAction : AbstrAction(Messages.Vsechny_transakce.cm()) {
+object ClearTransFilterAction : AbstrAction(Messages.Zobraz_vsechny_transakce.cm()) {
 
     override fun execute() {
         find<TransactionsView>().transFilter = null
+        PaneTabs.selectView<TransactionsView>()
     }
 }
 
@@ -107,17 +106,18 @@ object PrintBalanceAction : AbstrAction(Messages.Tisk_rozvahy.cm()) {
     }
 }
 
-object ClearDocFilterAction : AbstrAction(Messages.Vsechny_doklady.cm()) {
+object ClearDocFilterAction : AbstrAction(Messages.Zobraz_vsechny_doklady.cm()) {
 
     override fun execute() {
         find<DocumentsView>().docFilter = null
+        PaneTabs.selectView<DocumentsView>()
     }
 }
 
-object OpenDocFilterDialogAction : AbstrAction(Messages.Filter_dokladu.cm()) {
+object OpenDocFilterDialogAction : AbstrAction(Messages.Nastav_filter_dokladu.cm()) {
 
     override fun execute() {
-        find<DocumentsShowDialog>().openModal()
+        find<DocumentsFilterDialog>().openModal()
     }
 }
 

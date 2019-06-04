@@ -2,7 +2,6 @@ package acc.richclient.dialogs.docs
 
 import acc.Options
 import acc.business.Facade
-import acc.model.DocId
 import acc.model.DocType
 import acc.model.Document
 import acc.richclient.controller.openTransactionCreateDialog
@@ -15,15 +14,17 @@ import acc.util.withColon
 import tornadofx.*
 import java.time.LocalDate
 
-class DocumentDialogModel(doc: Document?) : ItemViewModel<Document>(doc) {
-    val id = bind(Document::id)
-    val type = bind(Document::type)
-    val date = bind(Document::date)
-    val number = bind(Document::number)
-    val description = bind(Document::description)
-}
 
 abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment() {
+
+    class DocumentDialogModel(doc: Document?) : ItemViewModel<Document>(doc) {
+        val type = bind(Document::type)
+        val number = bind(Document::number)
+        val date = bind(Document::date)
+        val description = bind(Document::description)
+    }
+
+    val doc = params["doc"] as? Document
 
     val docModel = DocumentDialogModel(params["doc"] as? Document)
 
@@ -32,8 +33,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
             DialogMode.CREATE -> {
                 title = Messages.Vytvor_doklad.cm()
                 docModel.type.value = params["docType"] as DocType
-                docModel.number.value = Facade.genDocumentId(docModel.type.value)
-                docModel.id.value = DocId(docModel.type.value, docModel.number.value)
+                docModel.number.value = Facade.genDocumentNumber(docModel.type.value)
                 docModel.date.value = initDate()
             }
             DialogMode.UPDATE -> title = Messages.Zmen_doklad.cm()
@@ -54,7 +54,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                 label(docModel.type.value.text)
             }
             field(acc.util.Messages.Jmeno.cm().withColon) {
-                label(docModel.id.value.toString())
+                label(docModel.type.value.abbr+docModel.number.value)
             }
             field(acc.util.Messages.Datum.cm().withColon) {
                 datepicker(docModel.date) {
@@ -88,29 +88,25 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                         close()
                     }
                 }
-
             }
             if (mode == DialogMode.CREATE)
                 button(acc.util.Messages.Potvrd_a_zauctuj.cm()) {
                     enableWhen(docModel.valid)
                     action {
                         runAsync {
-                            ok()
-                            val docId = DocId(docModel.type.value, docModel.number.value)
-                            Facade.documentById(docId)
+                           Facade.createDocument(docModel.type.value,
+                                    docModel.number.value,
+                                    docModel.date.value,
+                                    docModel.description.value ?: "")
+
                         } fail {
                             error(it)
                         } ui {
-                            if (it!=null) {
-                                find<TransactionsView>().update()
-                                openTransactionCreateDialog(it)
-                            }
-                            close()
+                            find<TransactionsView>().update()
+                            openTransactionCreateDialog(it)
                         }
-
-
+                        close()
                     }
-
                 }
             button(acc.util.Messages.Zrus.cm()) {
                 action {
@@ -118,8 +114,8 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                 }
             }
         }
-
     }
+
 
     abstract val ok: () -> Unit
 }

@@ -5,9 +5,6 @@ import acc.business.Facade
 import acc.model.DocFilter
 import acc.model.Document
 import acc.model.TransactionFilter
-import acc.richclient.controller.ClearDocFilterAction
-import acc.richclient.controller.OpenDocFilterDialogAction
-import acc.richclient.controller.add
 import acc.richclient.dialogs.docs.DocumentDeleteDialog
 import acc.richclient.dialogs.docs.DocumentUpdateDialog
 import acc.richclient.dialogs.trans.TransactionCreateDialog
@@ -75,11 +72,7 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
         }
 
     init {
-        root.contextmenu {
-            add(ClearDocFilterAction)
-            add(OpenDocFilterDialogAction)
-        }
-        docFilter = null
+       docFilter = null // vyvolani setru
     }
 
     fun update() {

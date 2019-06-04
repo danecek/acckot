@@ -4,9 +4,6 @@ import acc.Options
 import acc.business.Facade
 import acc.model.Transaction
 import acc.model.TransactionFilter
-import acc.richclient.controller.ClearTransFilterAction
-import acc.richclient.controller.OpenTransFilterDialogAction
-import acc.richclient.controller.add
 import acc.richclient.dialogs.trans.TransactionDeleteDialog
 import acc.richclient.dialogs.trans.TransactionUpdateDialog
 import acc.util.Messages
@@ -27,7 +24,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
 
     val tw = tableview(mutableListOf<Transaction>().observable()) {
         prefHeight = Options.prefTableHeight
-        readonlyColumn(Messages.Id.cm(), Transaction::id).weightedWidth(idw)
+        readonlyColumn(Messages.Poradi.cm(), Transaction::id).weightedWidth(idw)
         column<Transaction, String>(Messages.Datum.cm()) { t ->
             SimpleStringProperty(dayMonthFrm.format(t.value.doc.date))
         }.weightedWidth(datew)
@@ -53,7 +50,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
                 }
 
         column<Transaction, String>(Messages.Doklad.cm()) { t ->
-            SimpleStringProperty(t.value.doc.id.toString())
+            SimpleStringProperty(t.value.doc.name)
         }.weightedWidth(namew)
                 .cellDecorator {
                     tooltip {
@@ -62,7 +59,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
                 }
 
         column<Transaction, String>(Messages.Zaplacena_faktura.cm()) { t ->
-            SimpleStringProperty(t.value.relatedDoc?.id?.toString() ?: "")
+            SimpleStringProperty(t.value.relatedDoc?.name ?: "")
         }.weightedWidth(namew)
                 .cellDecorator {
                     tooltip {
@@ -95,16 +92,12 @@ class TransactionsView : View(Messages.Transakce.cm()) {
     var transFilter: TransactionFilter? = null
         set(value) {
             field = value
-            root.text = value?.toString()?:Messages.Vsechny_transakce.cm()
+            root.text = value?.toString() ?: Messages.Vsechny_transakce.cm()
             update()
         }
 
     init {
-        root.contextmenu {
-            add(ClearTransFilterAction)
-            add(OpenTransFilterDialogAction)
-        }
-        transFilter=null
+        transFilter = null  // vyvolani setru
     }
 
     fun update() {

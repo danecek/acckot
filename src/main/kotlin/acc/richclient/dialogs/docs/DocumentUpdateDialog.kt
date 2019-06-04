@@ -6,7 +6,7 @@ import acc.richclient.panes.TransactionsView
 
 class DocumentUpdateDialog : DocumentDialogFragment(DialogMode.UPDATE) {
     override val ok = {
-        Facade.updateDocument(docModel.id.value,
+        Facade.updateDocument(doc!!,
                 docModel.date.value,
                 docModel.description.value
         )

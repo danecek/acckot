@@ -3,13 +3,12 @@ package acc.integration
 import acc.Options
 import acc.model.AccGroup
 import acc.model.AnalAcc
-import acc.model.AnalId
 import acc.model.Osnova
 import acc.util.AccException
 import acc.util.Messages
+import acc.util.fxAlert
 import com.beust.klaxon.Klaxon
 import com.beust.klaxon.KlaxonException
-import javafx.scene.control.Alert
 import java.io.FileWriter
 import java.io.PrintWriter
 import java.nio.file.Files
@@ -25,15 +24,15 @@ data class AnalAccDTO(
 
 object AccountCache {
 
-    private val accountById = TreeMap<AnalId, AnalAcc>()
+    private val accountByNumber = TreeMap<String, AnalAcc>()
     private val klaxon = Klaxon()
 
     private fun save() {
         val fw = PrintWriter(FileWriter(Options.accountFile))
         fw.use {
-            accountById.values.forEach {
+            accountByNumber.values.forEach {
                 val line = klaxon.toJsonString(AnalAccDTO(
-                        groupn = it.id.group.number,
+                        groupn = it.parent!!.number,
                         anal = it.anal,
                         name = it.name,
                         initAmount = it.initAmount))
@@ -53,11 +52,10 @@ object AccountCache {
                         .forEach {
                             val g = Osnova.groupByNumber(it?.groupn!!)
                             val acc = AnalAcc(g, it.anal, it.name, it.initAmount)
-                            accountById[acc.id] = acc
+                            accountByNumber[acc.number] = acc
                         }
         } catch (ex: KlaxonException) {
-            Alert(Alert.AlertType.ERROR,
-                    Messages.Soubor_uctyxxxx_json_je_poskozen.cm()).show()
+            fxAlert(Messages.Soubor_uctyxxxx_json_je_poskozen.cm())
         }
     }
 
@@ -67,42 +65,44 @@ object AccountCache {
 
     val allAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountById.values.toMutableList()
+        get() = accountByNumber.values.toMutableList()
 
     val balanceAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountById.values.stream()
+        get() = accountByNumber.values.stream()
                 .filter { it.isBalanced }.toList()
 
     val incomeAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountById.values.stream()
+        get() = accountByNumber.values.stream()
                 .filter { it.isIncome }.toList()
 
     val dodavatele: List<AnalAcc>
-        get() = accountById.values.stream()
+        get() = accountByNumber.values.stream()
                 .filter { it.syntAccount == Osnova.dodavatele }
                 .toList()
 
     val pokladny: List<AnalAcc>
-        get() = accountById.values.stream()
+        get() = accountByNumber.values.stream()
                 .filter { it.syntAccount == Osnova.pokladna }
                 .toList()
 
     @Throws(AccException::class)
     fun createAcc(group: AccGroup, anal: String, name: String, initAmount: Long) {
         val a = AnalAcc(group, anal, name, initAmount)
-        if (accountById.containsKey(a.id))
+        if (accountByNumber.containsKey(a.number))
             throw AccException(Messages.Ucet_jiz_existuje.cm())
-        accountById[a.id] = a
+        accountByNumber[a.number] = a
         save()
     }
 
     @Throws(AccException::class)
-    fun accById(id: AnalId) = accountById[id]!!
+    fun accByNumber(accNumber: String):AnalAcc {
+        return accountByNumber[accNumber]!!
+    }
 
-    fun updateAcc(id: AnalId, _name: String, _initAmount: Long) {
-        with(accById(id)) {
+    fun updateAcc(acc: AnalAcc, _name: String, _initAmount: Long) {
+        with(accByNumber(acc.number)) {
             name = _name
             initAmount = _initAmount
         }
@@ -110,8 +110,8 @@ object AccountCache {
     }
 
     @Throws(AccException::class)
-    fun deleteAcc(id: AnalId) {
-        accountById.remove(id)
+    fun deleteAcc(acc: AnalAcc) {
+        accountByNumber.remove(acc.number)
         save()
     }
 }

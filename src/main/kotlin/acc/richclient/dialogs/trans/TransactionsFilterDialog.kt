@@ -1,25 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package acc.richclient.dialogs.trans
 
 import acc.business.Facade
 import acc.model.TransactionFilter
 import acc.richclient.dialogs.docs.DocumentConverter
+import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
+import acc.util.accError
 import acc.util.withColon
 import tornadofx.*
 
 class TransactionFilterModel : ItemViewModel<TransactionFilter>() {
     val from = bind(TransactionFilter::from)
     val tto = bind(TransactionFilter::tto)
-    val acc = bind(TransactionFilter::acc) // workaround
+    val acc = bind(TransactionFilter::acc)
     val doc = bind(TransactionFilter::doc)
-    // val acclWA = SimpleObjectProperty<AccWrapper>(AccWrapper())// workaround
 }
 
 class TransactionsFilterDialog : Fragment() {
@@ -29,7 +25,7 @@ class TransactionsFilterDialog : Fragment() {
 
     override val root =
             form {
-                title = Messages.Filter_transakci.cm()
+                title = Messages.Nastav_filter_transakci.cm()
                 fieldset {
                     field(Messages.Od.cm().withColon) {
                         datepicker(transFilterModel.from) {
@@ -44,34 +40,40 @@ class TransactionsFilterDialog : Fragment() {
                         }
                     }
                     field(Messages.Ucet.cm().withColon) {
-                        combobox(transFilterModel.acc, Facade.allAccounts) {
-                            // workaround
-                            //     combobox(transFilterModel.acclWA, Facade.allAccounts.map {
-                            //  AccWrapper(it)
-                            // {
-                            //           converter = AnalAccConverter
-
+                        tornadofx.runAsync {
+                            Facade.allAccounts
+                        } fail {
+                            accError(it)
+                        } ui {
+                            combobox(transFilterModel.acc, it)
                         }
                     }
                     field(Messages.Doklad.cm().withColon) {
-                        combobox(transFilterModel.doc, Facade.allDocuments) {
-                            converter = DocumentConverter
+                        tornadofx.runAsync {
+                            Facade.allDocuments
+                        } fail {
+                            accError(it)
+                        } ui {
+                            combobox(transFilterModel.doc, it) {
+                                converter = DocumentConverter
+                            }
                         }
                     }
-                }
-                buttonbar {
-                    button(Messages.Potvrd.cm()) {
-                        enableWhen(transFilterModel.valid)
-                        action {
-                            tornadofx.find<TransactionsView>().transFilter =
-                                    TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
-                                            transFilterModel.acc.value, transFilterModel.doc.value)
-                            close()
+                    buttonbar {
+                        button(Messages.Potvrd.cm()) {
+                            enableWhen(transFilterModel.valid)
+                            action {
+                                tornadofx.find<TransactionsView>().transFilter =
+                                        TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
+                                                transFilterModel.acc.value, transFilterModel.doc.value)
+                                PaneTabs.selectView<TransactionsView>()
+                                close()
+                            }
                         }
-                    }
-                    button(Messages.Zrus.cm()) {
-                        action {
-                            close()
+                        button(Messages.Zrus.cm()) {
+                            action {
+                                close()
+                            }
                         }
                     }
                 }

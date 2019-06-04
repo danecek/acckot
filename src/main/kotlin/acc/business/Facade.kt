@@ -35,13 +35,13 @@ object Facade {
     }
 
     @Throws(AccException::class)
-    fun updateAccount(id: AnalId, name: String, initAmount: Long) {
-        AccountCache.updateAcc(id, name, initAmount)
+    fun updateAccount(acc: AnalAcc, name: String, initAmount: Long) {
+        AccountCache.updateAcc(acc, name, initAmount)
     }
 
     @Throws(AccException::class)
-    fun deleteAccount(id: AnalId) {
-        AccountCache.deleteAcc(id)
+    fun deleteAccount(acc: AnalAcc) {
+        AccountCache.deleteAcc(acc)
     }
 
     @Throws(AccException::class)
@@ -50,15 +50,10 @@ object Facade {
     }
 
     // Transakce ***************************************************************
-    //@Throws(AccException::class)
     val allTransactions: List<Transaction>
         @Throws(AccException::class)
         get() = TransDAO.allTrans
 
-/*    @Throws(AccException::class)
-    fun limitTrans(n: Int, offset: Int): List<Transaction> {
-        return TransDAO.limitTrans(n, offset)
-    }*/
 
     @Throws(AccException::class)
     fun createTransaction(amount: Long, madati: AnalAcc, dal: AnalAcc,
@@ -106,11 +101,6 @@ object Facade {
         }
 
     @Throws(AccException::class)
-    fun documentById(docId: DocId): Document? {
-        return DocumentDAO.docById(docId)
-    }
-
-    @Throws(AccException::class)
     fun documentsByFilter(docFilter: DocFilter?): List<Document> {
         return if (docFilter == UnpaidInvoicesFilter)
             unpaidInvoices
@@ -119,24 +109,29 @@ object Facade {
     }
 
     @Throws(AccException::class)
-    fun createDocument(type: DocType, number: Int, date: LocalDate, description: String) {
-        DocumentDAO.createDoc(type, number, date, description)
+    fun createDocument(_type: DocType, _number: Int, _date: LocalDate, _description: String): Document {
+        return Document(
+                id = DocumentDAO.createDoc(_type, _number, _date, _description),
+                type = _type,
+                number =_number,
+                date = _date,
+                description = _description);
     }
 
     @Throws(AccException::class)
-    fun updateDocument(id: DocId,
+    fun updateDocument(doc: Document,
                        date: LocalDate, description: String) {
-        DocumentDAO.updateDoc(id, date, description)
+        DocumentDAO.updateDoc(doc, date, description)
     }
 
     @Throws(AccException::class)
-    fun deleteDocument(id: DocId) {
-        DocumentDAO.deleteDoc(id)
+    fun deleteDocument(doc: Document) {
+        DocumentDAO.deleteDoc(doc)
     }
 
     @Throws(AccException::class)
-    fun genDocumentId(docType: DocType): Int {
-        return DocumentDAO.findFreeDocId(docType)
+    fun genDocumentNumber(docType: DocType): Int {
+        return DocumentDAO.findFreeDocNumber(docType)
     }
 
 }

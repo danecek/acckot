@@ -30,9 +30,9 @@ class TransactionFilter(from: LocalDate? = null, tto: LocalDate? = null,
             buf.add("${Messages.S_uctem.cm().withColon}${acc.numberName()}")
         }
         if (doc != null) {
-            buf.add("${Messages.S_dokladem.cm().withColon}${doc.id}")
+            buf.add("${Messages.S_dokladem.cm().withColon}${doc.name}")
         }
-        return if (buf.isEmpty()) Messages.Vsechny.cm()
+        return if (buf.isEmpty()) Messages.Vsechny_transakce.cm()
         else buf.joinToString(separator = COMMA_DEL)
     }
 

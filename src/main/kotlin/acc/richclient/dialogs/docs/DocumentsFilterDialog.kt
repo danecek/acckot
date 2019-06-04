@@ -3,14 +3,16 @@ package acc.richclient.dialogs.docs
 import acc.model.DocFilter
 import acc.model.DocType
 import acc.richclient.panes.DocumentsView
+import acc.richclient.panes.PaneTabs
 import acc.util.DayMonthConverter
 import acc.util.Messages
+import acc.util.accError
 import acc.util.withColon
 import javafx.beans.property.SimpleBooleanProperty
 import tornadofx.*
 
 
-class DocumentsShowDialog : Fragment() {
+class DocumentsFilterDialog : Fragment() {
 
     class DocFilterModel : ItemViewModel<DocFilter>() {
         val from = bind(DocFilter::from)
@@ -29,8 +31,11 @@ class DocumentsShowDialog : Fragment() {
 
     override val root =
             form {
-                title = Messages.Filter_dokladu.cm()
+                prefWidth = 500.0
+                title = Messages.Nastav_filter_dokladu.cm()
                 fieldset {
+                    spacing = 10.0
+
                     DocType.values().forEach {
                         checkbox(it.text, a[it.ordinal])
                     }
@@ -55,22 +60,26 @@ class DocumentsShowDialog : Fragment() {
                     button(Messages.Potvrd.cm()) {
                         enableWhen(docFilterModel.valid)
                         action {
-                            val ms = mutableSetOf<String>()
+                            val ms = mutableSetOf<DocType>()
                             DocType.values().forEach {
                                 if (a[it.ordinal].value)
-                                    ms.add(it.abbr)
+                                    ms.add(it)
                             }
-
-                            with (find<DocumentsView>()){
-                                docFilter = DocFilter(ms,
-                                        docFilterModel.from.value,
-                                        docFilterModel.tto.value)
-                                update()
+                            if (ms.isEmpty())
+                                accError(Messages.Alespon_jeden_typ_musi_byt_vybran.cm())
+                            else {
+                                with(find<DocumentsView>()) {
+                                    docFilter = DocFilter(ms,
+                                            docFilterModel.from.value,
+                                            docFilterModel.tto.value)
+                                    update()
+                                }
+                                PaneTabs.selectView<DocumentsView>()
+                                close()
                             }
-                            close()
                         }
-
                     }
+
                     button(Messages.Zrus.cm()) {
                         action {
                             close()

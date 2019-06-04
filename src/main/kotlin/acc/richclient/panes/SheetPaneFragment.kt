@@ -32,7 +32,7 @@ open class SheetPaneFragment() : Fragment() {
         readonlyColumn(Messages.Poradi.cm(), StatItem::order).weightedWidth(orderw)
 
         nestedColumn(Messages.Ucet.cm()) {
-            column<StatItem, String>(Messages.Synteticky_ucet.cm()) {
+            column<StatItem, String>(Messages.Synteticke_ucty.cm()) {
                 SimpleStringProperty(
                         if (it.value.acc is AnalAcc) ""
                         else it.value.name//group?.toString()

@@ -29,12 +29,12 @@ open class AccountsView : View(Messages.Ucty.cm()) {
             else ""
 
     private val tableView: TableView<AnalAcc> = tableview(mutableListOf<AnalAcc>().observable()) {
-        column<AnalAcc, String>(Messages.Synteticky_ucet.cm()) {
+        column<AnalAcc, String>(Messages.Synteticke_ucty.cm()) {
             ReadOnlyObjectWrapper(it.value.syntAccount.number)
         }.weightedWidth(saccw)
                 .cellDecorator {
                     tooltip {
-                       text = items[index].syntAccount.name
+                        text = items[index].syntAccount.name
                     }
                 }
         readonlyColumn(Messages.Analytika.cm(), AnalAcc::anal).weightedWidth(analw)
@@ -53,26 +53,14 @@ open class AccountsView : View(Messages.Ucty.cm()) {
             item(Messages.Zmen_ucet.cm()).action {
                 openAccountUpdateDialog(selectedItem!!)
             }
-            with(item(Messages.Zrus_ucet.cm())) {
+            item(Messages.Zrus_ucet.cm()).run {
+                onShowing = EventHandler {
+                    isDisable = Facade.accountIsUsed(selectedItem)
+                }
                 action {
-                    onShowing = EventHandler {
-                        isDisable = Facade.accountIsUsed(selectedItem)
-                    }
                     openAccountDeleteDialog(selectedItem!!)
                 }
-                setOnShown {
-                    runAsync {
-                        Facade.accountIsUsed(selectedItem)
-                    } ui {
-                        this@contextmenu.items[1].isDisable = it
-                    }
-                }
             }
-
-/*            zu.enableWhen {
-                println(Facade.transactionsByFilter(TransactionFilter(acc = selectedItem)))
-                SimpleBooleanProperty(!Facade.accountIsUsed(selectedItem))
-            }*/
         }
         smartResize()
     }
@@ -80,10 +68,10 @@ open class AccountsView : View(Messages.Ucty.cm()) {
     override val root = tableView
 
     init {
-        refresh()
+        update()
     }
 
-    fun refresh() {
+    fun update() {
         tornadofx.runAsync {
             Facade.allAccounts
         } ui {

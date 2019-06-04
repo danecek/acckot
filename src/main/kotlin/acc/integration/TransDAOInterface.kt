@@ -12,9 +12,6 @@ interface TransDAOInterface {
 
     val allTrans: List<Transaction>
 
-/*    @Throws(AccException::class)
-    fun limitTrans(n:Int, offset:Int): List<Transaction>*/
-
     @Throws(AccException::class)
     fun transByFilter(tf: TransactionFilter?): List<Transaction>
 
