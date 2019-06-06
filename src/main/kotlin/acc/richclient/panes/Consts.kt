@@ -1,8 +1,8 @@
 package acc.richclient.panes
 
-const val idW = 5
-const val amountW = 10
-const val dateW = 10
-const val numberW = 10
-const val nameW = 10
-const val dscW = 50
+const val idWidth = 5
+const val amountWidth = 10
+const val dateWidth = 10
+const val numberWidth = 10
+const val nameWidth = 10
+const val dscWidth = 50

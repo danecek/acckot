@@ -3,6 +3,7 @@ package acc.business.balance
 import acc.Options
 import acc.business.Facade
 import acc.model.AbstrAcc
+import acc.richclient.dialogs.ConfigInitDialog
 import acc.util.AccException
 import acc.util.Messages
 import java.time.LocalDate
@@ -74,7 +75,7 @@ class Statement {
     private fun addTransactions(month: Month) {
         Facade.allTransactions
                 .forEach { trans ->
-                    val monthBegin = LocalDate.of(Options.year, month, 1)
+                    val monthBegin = LocalDate.of(ConfigInitDialog.year, month, 1)
                     val nextMontBegin = monthBegin.plusMonths(1)
                     val transDate = trans.doc.date
                     val inMonth =

@@ -14,7 +14,7 @@ import acc.richclient.panes.DocumentsView
 import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.TransactionsView
 import acc.util.Messages
-import acc.util.accError
+import acc.util.fxAlert
 import javafx.beans.InvalidationListener
 import javafx.beans.Observable
 import javafx.beans.property.SimpleBooleanProperty
@@ -98,7 +98,7 @@ object TransactionCreateAction : AbstrAction(Messages.Vytvor_transakci_pro_vybra
     override fun execute() {
         val selDoc = find<DocumentsView>().tableView.selectedItem
         if (selDoc == null)
-            accError(Messages.Neni_vyberan_zadny_doklad.cm())
+            Messages.Neni_vyberan_zadny_doklad.fxAlert()
         else
             openTransactionCreateDialog(doc = selDoc)
     }

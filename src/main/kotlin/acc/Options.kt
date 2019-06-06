@@ -1,31 +1,26 @@
 package acc
 
+import tornadofx.*
 import java.io.File
 import java.util.*
 
-object Options {
+object Options : Component() {
     val locale = Locale("cs")
 
-    var year = 2019
-    var fontSize = 20
+   // var year = 2019
+    val fontSize=20
+   //     get() = app.config.string(key = "year").toInt()
     var rootPrefWidth = 1600
     var rootPrefHeight = 1000
 
-/*    const val fieldsetPrefWidth = 800.0
-    const val fieldsetSpacing = 5.0
-    const val primaryStageWidth = 2000.0
-    const val primaryStageHeight = 1500.0*/
-
-
     val dataFolder
         get() = File(System.getProperty("user.home") + "/.ucetnictvi")
-    val h2File
-        get() = File(dataFolder, "ucetnidata$year")
+//    val h2File
+//        get() = File(dataFolder, "ucetnidata$year")
     val accountFile
-        get() = File(dataFolder, "ucty$year.json")
+        get() = File(dataFolder, "ucty2000.json")
     const val nameCrop: Int = 30
     val prefTableHeight: Double = Double.MAX_VALUE
-
 
 }
 

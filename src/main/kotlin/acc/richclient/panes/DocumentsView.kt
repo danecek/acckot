@@ -9,7 +9,7 @@ import acc.richclient.dialogs.docs.DocumentDeleteDialog
 import acc.richclient.dialogs.docs.DocumentUpdateDialog
 import acc.richclient.dialogs.trans.TransactionCreateDialog
 import acc.util.Messages
-import acc.util.accError
+import acc.util.accFail
 import acc.util.dayMonthFrm
 import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
@@ -24,15 +24,14 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
     val tableView = tableview(mutableListOf<Document>().observable()) {
         prefHeight = Options.prefTableHeight
         selectionModel.selectionMode = SelectionMode.SINGLE
-        readonlyColumn(Messages.Poradi.cm(), Document::id).weightedWidth(idW)
-        column<Document, String>(Messages.Typ.cm()) {
-            SimpleStringProperty(it.value.type.abbr)
-        }
-        readonlyColumn(Messages.Cislo.cm(), Document::number).weightedWidth(numberW)
+        readonlyColumn(Messages.Poradi.cm(), Document::id).weightedWidth(idWidth)
+        column<Document, String>(Messages.Jmeno.cm()) {
+            SimpleStringProperty(it.value.type.abbr.plus(it.value.number))
+        }.weightedWidth(nameWidth)
         column<Document, String>(Messages.Datum.cm()) {
             SimpleStringProperty(dayMonthFrm.format(it.value.date))
-        }.weightedWidth(dateW)
-        readonlyColumn(Messages.Popis.cm(), Document::description).weightedWidth(dscW)
+        }.weightedWidth(dateWidth)
+        readonlyColumn(Messages.Popis.cm(), Document::description).weightedWidth(dscWidth)
         contextmenu {
             item(Messages.Zauctuj_doklad.cm()) {
                 action {
@@ -85,7 +84,7 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
         tornadofx.runAsync {
             Facade.documentsByFilter(docFilter)
         } fail {
-            accError(it)
+            accFail(it)
         } ui {
             tableView.items.setAll(it)
         }

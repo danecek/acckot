@@ -4,10 +4,7 @@ import acc.model.DocFilter
 import acc.model.DocType
 import acc.richclient.panes.DocumentsView
 import acc.richclient.panes.PaneTabs
-import acc.util.DayMonthConverter
-import acc.util.Messages
-import acc.util.accError
-import acc.util.withColon
+import acc.util.*
 import javafx.beans.property.SimpleBooleanProperty
 import tornadofx.*
 
@@ -66,7 +63,7 @@ class DocumentsFilterDialog : Fragment() {
                                     ms.add(it)
                             }
                             if (ms.isEmpty())
-                                accError(Messages.Alespon_jeden_typ_musi_byt_vybran.cm())
+                                Messages.Alespon_jeden_typ_musi_byt_vybran.fxAlert()
                             else {
                                 with(find<DocumentsView>()) {
                                     docFilter = DocFilter(ms,

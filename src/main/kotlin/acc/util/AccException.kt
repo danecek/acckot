@@ -9,6 +9,9 @@ private val LOGGER = LogManager.getLogger()
 
 class AccException(message: String, cause: Exception? = null) : Exception(message, cause)
 
+fun Messages.fxAlert() {
+    fxAlert(cm())
+}
 
 fun fxAlert(e: String) {
     Platform.runLater {
@@ -16,12 +19,7 @@ fun fxAlert(e: String) {
     }
 }
 
-fun accError(e: String) {
-    fxAlert(e)
-    LOGGER.error(e)
-}
-
-fun accError(e: Throwable) {
+fun accFail(e: Throwable) {
     fxAlert(e.message ?: e.toString())
     LOGGER.catching(e)
 }
@@ -30,6 +28,6 @@ fun catchAccException(block: () -> Unit) {
     try {
         block()
     } catch (ex: AccException) {
-        accError(ex)
+        accFail(ex)
     }
 }

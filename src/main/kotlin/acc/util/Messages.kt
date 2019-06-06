@@ -21,6 +21,8 @@ enum class Messages {
     Rozvaha,            // Statement sheet
     Rozvaha_pro_mesic,
 
+
+    Adresar_s_daty,
     Analytika,
     Alespon_jeden_typ_musi_byt_vybran,
     Analytika_musi_byt_tri_cislice,
@@ -49,7 +51,7 @@ enum class Messages {
     Nastaveni,
     Nazev,
     Neni_vyberan_zadny_doklad,
-    Neexistuje_vhodny_analyticky_ucet,
+    Neexistuje_pozadovany_analyticky_ucet,
     Neplatna_velikost,
     Neplatna_castka,
     Neplatny_rok,
@@ -118,6 +120,7 @@ enum class Messages {
     Zrus_doklad,
     Zrus_transakci,
     Zrus_ucet,
+    Zvol_adresar
     ;
 
     fun cm(vararg args: Any): String {

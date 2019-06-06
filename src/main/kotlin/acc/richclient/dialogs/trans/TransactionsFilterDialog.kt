@@ -2,12 +2,11 @@ package acc.richclient.dialogs.trans
 
 import acc.business.Facade
 import acc.model.TransactionFilter
-import acc.richclient.dialogs.docs.DocumentConverter
 import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
-import acc.util.accError
+import acc.util.accFail
 import acc.util.withColon
 import tornadofx.*
 
@@ -32,7 +31,7 @@ class TransactionsFilterDialog : Fragment() {
                         tornadofx.runAsync {
                             Facade.allAccounts
                         } fail {
-                            accError(it)
+                            accFail(it)
                         } ui {
                             combobox(transFilterModel.acc, it)
                         }
@@ -41,7 +40,7 @@ class TransactionsFilterDialog : Fragment() {
                         tornadofx.runAsync {
                             Facade.allDocuments
                         } fail {
-                            accError(it)
+                            accFail(it)
                         } ui {
                             combobox(transFilterModel.doc, it) {
                                 converter = DocumentConverter

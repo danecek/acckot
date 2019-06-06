@@ -1,11 +1,13 @@
 package acc.util
 
 import acc.Options
+import acc.richclient.dialogs.ConfigInitDialog
 import javafx.util.StringConverter
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 val dayMonthFrm: DateTimeFormatter = DateTimeFormatter//.ofLocalizedDate(FormatStyle.MEDIUM)
         .ofPattern("d.M.")
@@ -19,8 +21,8 @@ fun LocalDate.dateFormat(): String = dayMonthFrm.format(this)
 
 fun initDate(): LocalDate {
     val now = LocalDate.now()
-    return if (now.year == Options.year) now
-    else LocalDate.of(Options.year, 1, 1)
+    return if (now.year == ConfigInitDialog.year) now
+    else LocalDate.of(ConfigInitDialog.year, 1, 1)
 }
 
 object DayMonthConverter : StringConverter<LocalDate>() {
@@ -46,10 +48,9 @@ object DayMonthConverter : StringConverter<LocalDate>() {
  */
 fun toDateTime(localDate: LocalDate): DateTime {
 
+
     val dt = DateTime(DateTimeZone.UTC).withDate(
-            localDate.year, localDate.monthValue, localDate.dayOfMonth
-    ).withTime(1, 1, 1, 1)
-  //  println("toDateTime: $localDate->$dt")
+            localDate.year, localDate.monthValue, localDate.dayOfMonth)
     return dt;
 }
 
@@ -57,9 +58,7 @@ fun toDateTime(localDate: LocalDate): DateTime {
  * Convert [org.joda.time.DateTime] to [java.time.LocalDate]
  */
 fun toLocalDate(dateTime: DateTime): LocalDate {
-    val dateTimeUtc = dateTime.withZone(DateTimeZone.UTC)
-
-    val ld = LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth+1)
-  //  println("toLocalDate: $dateTime->$ld")
+    val dateTimeUtc = dateTime.withZone(DateTimeZone.forTimeZone(TimeZone.getDefault()))
+    val ld = LocalDate.of(dateTimeUtc.year, dateTimeUtc.monthOfYear, dateTimeUtc.dayOfMonth)
     return ld
 }

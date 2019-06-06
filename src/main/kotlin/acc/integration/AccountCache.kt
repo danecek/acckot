@@ -1,16 +1,14 @@
 package acc.integration
 
-import acc.Options
 import acc.model.AccGroup
 import acc.model.AnalAcc
 import acc.model.Osnova
+import acc.richclient.dialogs.ConfigInitDialog
 import acc.util.AccException
 import acc.util.Messages
-import acc.util.fxAlert
+import acc.util.accFail
 import com.beust.klaxon.Klaxon
 import com.beust.klaxon.KlaxonException
-import java.io.FileWriter
-import java.io.PrintWriter
 import java.nio.file.Files
 import java.util.*
 import kotlin.streams.toList
@@ -24,38 +22,35 @@ data class AnalAccDTO(
 
 object AccountCache {
 
-    private val accountByNumber = TreeMap<String, AnalAcc>()
+    private val accountsByNumber = TreeMap<String, AnalAcc>()
     private val klaxon = Klaxon()
 
     private fun save() {
-        val fw = PrintWriter(FileWriter(Options.accountFile))
-        fw.use {
-            accountByNumber.values.forEach {
-                val line = klaxon.toJsonString(AnalAccDTO(
-                        groupn = it.parent!!.number,
-                        anal = it.anal,
-                        name = it.name,
-                        initAmount = it.initAmount))
-                fw.println(line)
-            }
-        }
-
+        Files.write(ConfigInitDialog.accountFile,
+                accountsByNumber.values.map {
+                    klaxon.toJsonString(AnalAccDTO(
+                            groupn = it.parent!!.number,
+                            anal = it.anal,
+                            name = it.name,
+                            initAmount = it.initAmount))
+                })
     }
+
 
     private fun load() {
         try {
-            if (Options.accountFile.exists())
-                Files.lines(Options.accountFile.toPath())
+            if (Files.exists(ConfigInitDialog.accountFile))
+                Files.lines(ConfigInitDialog.accountFile)
                         .map {
                             klaxon.parse<AnalAccDTO>(it)
                         }
                         .forEach {
                             val g = Osnova.groupByNumber(it?.groupn!!)
                             val acc = AnalAcc(g, it.anal, it.name, it.initAmount)
-                            accountByNumber[acc.number] = acc
+                            accountsByNumber[acc.number] = acc
                         }
         } catch (ex: KlaxonException) {
-            fxAlert(Messages.Soubor_uctyxxxx_json_je_poskozen.cm())
+            accFail(ex)
         }
     }
 
@@ -65,41 +60,52 @@ object AccountCache {
 
     val allAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountByNumber.values.toMutableList()
+        get() = accountsByNumber.values.toMutableList()
 
     val balanceAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountByNumber.values.stream()
+        get() = accountsByNumber.values.stream()
                 .filter { it.isBalanced }.toList()
 
     val incomeAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountByNumber.values.stream()
+        get() = accountsByNumber.values.stream()
                 .filter { it.isIncome }.toList()
 
     val dodavatele: List<AnalAcc>
-        get() = accountByNumber.values.stream()
+        get() = accountsByNumber.values.stream()
                 .filter { it.syntAccount == Osnova.dodavatele }
                 .toList()
 
     val pokladny: List<AnalAcc>
-        get() = accountByNumber.values.stream()
+        get() = accountsByNumber.values.stream()
                 .filter { it.syntAccount == Osnova.pokladna }
                 .toList()
 
     @Throws(AccException::class)
     fun createAcc(group: AccGroup, anal: String, name: String, initAmount: Long) {
         val a = AnalAcc(group, anal, name, initAmount)
-        if (accountByNumber.containsKey(a.number))
+        if (accountsByNumber.containsKey(a.number))
             throw AccException(Messages.Ucet_jiz_existuje.cm())
-        accountByNumber[a.number] = a
+        accountsByNumber[a.number] = a
         save()
     }
 
     @Throws(AccException::class)
-    fun accByNumber(accNumber: String):AnalAcc {
-        return accountByNumber[accNumber]!!
+    fun accByNumber(accNumber: String): AnalAcc {
+        return accountsByNumber[accNumber]!!
     }
+
+    @Throws(AccException::class)
+    fun accByGroupNumber(group: AccGroup): String {
+        val maxSynt = accountsByNumber.filter {
+            it.value.parent == group
+        }.map {
+            it.value.anal
+        }.max()?.toInt()?:0
+        return "%03d".format(maxSynt+1)
+    }
+
 
     fun updateAcc(acc: AnalAcc, _name: String, _initAmount: Long) {
         with(accByNumber(acc.number)) {
@@ -111,7 +117,7 @@ object AccountCache {
 
     @Throws(AccException::class)
     fun deleteAcc(acc: AnalAcc) {
-        accountByNumber.remove(acc.number)
+        accountsByNumber.remove(acc.number)
         save()
     }
 }

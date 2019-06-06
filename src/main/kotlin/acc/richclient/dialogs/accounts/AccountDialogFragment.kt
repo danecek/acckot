@@ -3,13 +3,15 @@ package acc.richclient.dialogs.accounts
 import acc.model.AccGroup
 import acc.model.AnalAcc
 import acc.model.Osnova
+import acc.integration.AccountCache
 import acc.richclient.dialogs.AmountConverter
 import acc.richclient.dialogs.DialogMode
 import acc.richclient.dialogs.DialogMode.*
 import acc.richclient.panes.AccountsView
 import acc.util.Messages
-import acc.util.accError
+import acc.util.accFail
 import acc.util.withColon
+import javafx.scene.control.TextField
 import javafx.scene.control.ToggleGroup
 import tornadofx.*
 import java.util.regex.Pattern
@@ -34,6 +36,8 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
         }
     }
 
+    lateinit var tf : TextField
+
     override val root = form {
 
         fieldset {
@@ -45,6 +49,9 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
                         validator {
                             if (it == null) error(Messages.Prazdna_skupina.cm())
                             else null
+                        }
+                        valueProperty().addListener { _, _, newValue ->
+                            tf.text = AccountCache.accByGroupNumber(newValue)
                         }
                         converter = AccGroupConverter
                     }
@@ -69,13 +76,14 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
                 }
             }
             field(Messages.Analytika.cm().withColon) {
-                textfield(accModel.anal) {
+                tf = textfield(accModel.anal) {
                     isDisable = mode != CREATE
                     validator {
                         if (it == null || !Pattern.matches("\\d\\d\\d", it))
                             error(Messages.Analytika_musi_byt_tri_cislice.cm())
                         else null
                     }
+
                 }
             }
             field(Messages.Nazev.cm().withColon) {
@@ -101,7 +109,7 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
                     runAsync {
                         ok()
                     } fail {
-                        accError(it)
+                        accFail(it)
                     } ui {
                         find<AccountsView>().update()
                     }

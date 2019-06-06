@@ -1,8 +1,8 @@
 package acc.integration
 
-import acc.Options
 import acc.model.*
 import acc.model.Transaction
+import acc.richclient.dialogs.ConfigInitDialog
 import acc.util.AccException
 import acc.util.toDateTime
 import acc.util.toLocalDate
@@ -12,7 +12,8 @@ import java.time.LocalDate
 
 object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
     init {
-        Database.connect(url = "jdbc:h2:/" + Options.h2File,
+        val url = "jdbc:h2:/" + ConfigInitDialog.h2File
+        Database.connect(url = url,
                 driver = "org.h2.Driver")
         transaction {
             SchemaUtils.create(TransactionTable, DocumentTable)
@@ -45,7 +46,6 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
                 }
             }
         }
-
 
     @Throws(AccException::class)
     override fun createTrans(id: TransactionId?, amount: Long, maDati: AnalAcc,
@@ -110,7 +110,7 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
 
     @Throws(AccException::class)
     override fun createDoc(type: DocType, number: Int, date: LocalDate,
-                           description: String) : Int {
+                           description: String): Int {
         return transaction {
             DocumentTable.insertAndGetId {
                 it[this.typeName] = type.name

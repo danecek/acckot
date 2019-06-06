@@ -1,16 +1,16 @@
 package acc.richclient.dialogs.docs
 
-import acc.Options
 import acc.business.Facade
 import acc.model.DocType
 import acc.model.Document
 import acc.richclient.controller.openTransactionCreateDialog
+import acc.richclient.dialogs.ConfigInitDialog
 import acc.richclient.dialogs.DialogMode
 import acc.richclient.panes.DocumentsView
 import acc.richclient.panes.TransactionsView
 import acc.util.DayMonthConverter
 import acc.util.Messages
-import acc.util.accError
+import acc.util.accFail
 import acc.util.withColon
 import tornadofx.*
 import java.time.LocalDate
@@ -43,8 +43,8 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
 
     private fun initDate(): LocalDate {
         val now = LocalDate.now()
-        return if (now.year == Options.year) now
-        else LocalDate.of(Options.year, 1, 1)
+        return if (now.year == ConfigInitDialog.year) now
+        else LocalDate.of(ConfigInitDialog.year, 1, 1)
     }
 
 
@@ -63,7 +63,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                     isDisable = mode == DialogMode.DELETE
                     converter = DayMonthConverter
                     validator {
-                        if (it!!.year != Options.year)
+                        if (it!!.year != ConfigInitDialog.year)
                             error(acc.util.Messages.Chybny_rok.cm())
                         else null
                     }
@@ -82,7 +82,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                     runAsync {
                         ok()
                     } fail {
-                        accError(it)
+                        accFail(it)
                     } ui {
                         find<DocumentsView>().update()
                         close()
@@ -100,7 +100,7 @@ abstract class DocumentDialogFragment(private val mode: DialogMode) : Fragment()
                                     docModel.description.value ?: "")
 
                         } fail {
-                            accError(it)
+                            accFail(it)
                         } ui {
                             find<TransactionsView>().update()
                             openTransactionCreateDialog(it)

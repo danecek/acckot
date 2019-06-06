@@ -9,14 +9,11 @@ import acc.richclient.dialogs.AmountConverter
 import acc.richclient.dialogs.DialogMode
 import acc.richclient.panes.TransactionsView
 import acc.util.Messages
-import acc.util.accError
+import acc.util.accFail
+import acc.util.fxAlert
 import acc.util.withColon
 import javafx.scene.control.ComboBox
 import tornadofx.*
-
-//enum class TransType {
-//    COMMON_TRANSACTION, TRANSACTION_FOR_DOC, TRANSACTION_FOR_STATM,
-//}
 
 abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
 
@@ -39,15 +36,17 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
 
     init {
         when (mode) {
-            DialogMode.CREATE ->
+            DialogMode.CREATE -> {
                 if (doc.type == DocType.BANK_STATEMENT) {
-                    title = Messages.Zauctuj_polozku_vypisu.cm()
+                    title = Messages.Zauctuj_polozku_vypisu.cm().withColon
                     transModel.document.value = doc
                     transModel.dal.value = dal
                 } else {
-                    title = Messages.Zauctuj_doklad.cm().withColon.plus(doc.name)
+                    title = Messages.Zauctuj_doklad.cm().withColon
                     transModel.document.value = doc
                 }
+                title.plus(doc.name)
+            }
             DialogMode.UPDATE -> {
                 title = Messages.Zmen_transakci.cm()
             }
@@ -80,7 +79,6 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
     }
 
     lateinit var unpaidCB: ComboBox<Document>
-    //lateinit var unpaidField: Field
 
     override val root = form {
         //prefWidth = 600.0
@@ -102,11 +100,11 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                 runAsync {
                     maDati()
                 } fail {
-                    accError(it)
+                    accFail(it)
                 } ui {
                     if (it.isEmpty()) {
                         close()
-                        accError(Messages.Neexistuje_vhodny_analyticky_ucet.cm())
+                        Messages.Neexistuje_pozadovany_analyticky_ucet.fxAlert()
                     } else
                         combobox(transModel.maDati, it) {
                             prefHeight = 50.0
@@ -124,11 +122,11 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                 runAsync {
                     dal()
                 } fail {
-                    accError(it)
+                    accFail(it)
                 } ui {
                     if (it.isEmpty()) {
                         close()
-                        accError(Messages.Neexistuje_vhodny_analyticky_ucet.cm())
+                        Messages.Neexistuje_pozadovany_analyticky_ucet.fxAlert()
                     } else
                         combobox(transModel.dal, it) {
                             prefHeight = 50.0
@@ -141,22 +139,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
             }
             field(Messages.Doklad.cm().withColon) {
                 label(doc.toString())
-/*                isDisable = mode == DialogMode.DELETE || transType == TransType.TRANSACTION_FOR_DOC
-                val ad = Facade.allDocuments
-                combobox(transModel.document, ad) {
-                    prefHeight = 50.0
-                    validator {
-                        if (it == null) error() else null
-                    }
-                }.valueProperty().addListener { _, _, newValue ->
-                    if (newValue.type != DocType.BANK_STATEMENT) {
-                        unpaidCB.value = null
-                        unpaidField.isDisable = true
-                    } else
-                        unpaidField.isDisable = false
-                }*/
             }
-            //   unpaidField =
             if (doc.type == DocType.BANK_STATEMENT)
                 field(Messages.Zaplacena_faktura.cm().withColon) {
                     isDisable = mode == DialogMode.DELETE
@@ -172,7 +155,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                         runAsync {
                             Facade.unpaidInvoices
                         } fail {
-                            accError(it)
+                            accFail(it)
                         } ui {
                             unpaidCB.items.setAll(it)
                         }
@@ -190,7 +173,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                     runAsync {
                         ok()
                     }.fail {
-                        accError(it)
+                        accFail(it)
                     }.ui {
                         find<TransactionsView>().update()
                     }
@@ -206,7 +189,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                         runAsync {
                             ok()
                         }.fail {
-                            accError(it)
+                            accFail(it)
                         }.ui {
                             find<TransactionsView>().update()
                             find<TransactionCreateDialog>(params =

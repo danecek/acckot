@@ -1,5 +1,6 @@
 package acc
 
+import acc.richclient.dialogs.ConfigInitDialog
 import tornadofx.*
 
 
@@ -16,13 +17,12 @@ class Styles : Stylesheet() {
     }
 
     init {
-
- root {
-     fontSize = Options.fontSize.px
+        root {
+            fontSize = ConfigInitDialog.fontSize.px
 //     prefWidth = Options.rootPrefWidth.px
-    // prefHeight = Options.rootPrefHeight.px
+            // prefHeight = Options.rootPrefHeight.px
 
- }
+        }
         /*
 form {
 fontSize = accFontSize.px
