@@ -7,6 +7,7 @@ import acc.model.Document
 import acc.model.Transaction
 import acc.richclient.dialogs.AmountConverter
 import acc.richclient.dialogs.DialogMode
+import acc.richclient.panes.PaneTabs
 import acc.richclient.panes.TransactionsView
 import acc.util.Messages
 import acc.util.accFail
@@ -176,6 +177,7 @@ abstract class TransactionDialogFragment(mode: DialogMode) : Fragment() {
                         accFail(it)
                     }.ui {
                         find<TransactionsView>().update()
+                        PaneTabs.clearIncomeAndBalance()
                     }
                     close()
                 }

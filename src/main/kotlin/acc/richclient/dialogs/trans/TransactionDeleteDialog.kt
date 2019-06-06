@@ -8,6 +8,6 @@ class TransactionDeleteDialog : TransactionDialogFragment(DialogMode.DELETE) {
 
     override val ok = {
         Facade.deleteTransaction(transModel.id.value)
-        PaneTabs.clearIncomeAndBalance()
+       // PaneTabs.clearIncomeAndBalance()
     }
 }

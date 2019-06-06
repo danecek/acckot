@@ -89,7 +89,7 @@ object ClearTransFilterAction : AbstrAction(Messages.Zobraz_vsechny_transakce.cm
 
     override fun execute() {
         find<TransactionsView>().transFilter = null
-        PaneTabs.selectView<TransactionsView>()
+        PaneTabs.selectView(TransactionsView::class)
     }
 }
 
@@ -115,7 +115,7 @@ object ClearDocFilterAction : AbstrAction(Messages.Zobraz_vsechny_doklady.cm()) 
 
     override fun execute() {
         find<DocumentsView>().docFilter = null
-        PaneTabs.selectView<DocumentsView>()
+        PaneTabs.selectView(DocumentsView::class)
     }
 }
 

@@ -73,7 +73,7 @@ open class AccountsView : View(Messages.Ucty.cm()) {
 
     fun update() {
         tableView.items.setAll(Facade.allAccounts)
-        PaneTabs.selectView<AccountsView>()
+     //   PaneTabs.selectView(AccountsView::class)
     }
 
 }

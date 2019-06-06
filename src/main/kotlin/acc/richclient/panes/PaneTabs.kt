@@ -4,6 +4,7 @@ import acc.model.UnpaidInvoicesFilter
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import tornadofx.*
+import kotlin.reflect.KClass
 
 class PaneTabs : View() {
 
@@ -28,10 +29,9 @@ class PaneTabs : View() {
             }
         }
 
-        inline fun <reified T : View> selectView() {
-            val tv = find<T>()
+        fun selectView(clazz: KClass<*>) {
             find<PaneTabs>().root.tabs.find {
-                it.content == tv.root
+                it.content::class ==clazz
             }?.select()
         }
 
@@ -43,5 +43,3 @@ class PaneTabs : View() {
     }
 
 }
-
-

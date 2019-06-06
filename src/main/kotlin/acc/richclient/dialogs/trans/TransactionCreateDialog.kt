@@ -13,7 +13,7 @@ class TransactionCreateDialog() : TransactionDialogFragment(DialogMode.CREATE) {
                 transModel.document.value,
                 transModel.relatedDocument.value
         )
-        PaneTabs.clearIncomeAndBalance()
+       // PaneTabs.clearIncomeAndBalance()
        // PaneTabs.selectView<TransactionsView>()
     }
 }

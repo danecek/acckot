@@ -13,6 +13,6 @@ class TransactionUpdateDialog : TransactionDialogFragment(DialogMode.UPDATE) {
                 transModel.document.value,
                 transModel.relatedDocument.value
         )
-        PaneTabs.clearIncomeAndBalance()
+     //   PaneTabs.clearIncomeAndBalance()
     }
 }

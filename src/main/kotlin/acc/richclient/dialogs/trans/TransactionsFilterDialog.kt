@@ -67,7 +67,7 @@ class TransactionsFilterDialog : Fragment() {
                                 tornadofx.find<TransactionsView>().transFilter =
                                         TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
                                                 transFilterModel.acc.value, transFilterModel.doc.value)
-                                PaneTabs.selectView<TransactionsView>()
+                                PaneTabs.selectView(TransactionsView::class)
                                 close()
                             }
                         }

@@ -71,7 +71,7 @@ class DocumentsFilterDialog : Fragment() {
                                             docFilterModel.tto.value)
                                     update()
                                 }
-                                PaneTabs.selectView<DocumentsView>()
+                                PaneTabs.selectView(DocumentsView::class)
                                 close()
                             }
                         }
