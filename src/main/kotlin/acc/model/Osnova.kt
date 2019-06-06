@@ -9,7 +9,10 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.util.*
-import kotlin.streams.toList
+import java.util.stream.Collector
+import java.util.stream.Collectors
+
+//import kotlin.streams.toList
 
 object Osnova {
 
@@ -47,8 +50,7 @@ object Osnova {
         get() = accGroupsByNumber[Pocatecni_ucet_rozvazny]!!
 
     val groups: List<AccGroup>
-        get() = accGroupsByNumber.values
-                .stream().toList()
+        get() = accGroupsByNumber.values.toList()
     lateinit var pocUcetRozv: AnalAcc
 
     init {
@@ -83,13 +85,14 @@ object Osnova {
     }
 
     val syntAccounts: List<AccGroup> by lazy {
-        accGroupsByNumber.values.stream()
+        accGroupsByNumber.values//.stream()
                 .filter { a -> a.groupType == GroupEnum.SYNT_ACCOUNT }.toList()
     }
 
     val mainSyntAccounts: List<AccGroup> by lazy {
         val msa = AccGroup::class.java.getResourceAsStream("/acc/model/osnovavyber.csv")
-        val lines = BufferedReader(InputStreamReader(msa, StandardCharsets.UTF_8)).lines().toList()
+        val lines = BufferedReader(InputStreamReader(msa, StandardCharsets.UTF_8))
+                .lines().collect(Collectors.toList())
         syntAccounts.filter {
             it.name in lines
         }

@@ -28,7 +28,7 @@ open class AccountsView : View(Messages.Ucty.cm()) {
             if (acc.isBalanced && acc.initAmount < 0) (-acc.initAmount).toString()
             else ""
 
-    private val tableView: TableView<AnalAcc> = tableview(mutableListOf<AnalAcc>().observable()) {
+    private val tableView: TableView<AnalAcc> = tableview(mutableListOf<AnalAcc>().asObservable()) {
         column<AnalAcc, String>(Messages.Syntetika.cm()) {
             ReadOnlyObjectWrapper(it.value.syntAccount.number)
         }.weightedWidth(saccw)
@@ -72,13 +72,8 @@ open class AccountsView : View(Messages.Ucty.cm()) {
     }
 
     fun update() {
-        tornadofx.runAsync {
-            Facade.allAccounts
-        } ui {
-            tableView.items.setAll(it)
-        }
-
+        tableView.items.setAll(Facade.allAccounts)
+        PaneTabs.selectView<AccountsView>()
     }
-
 
 }

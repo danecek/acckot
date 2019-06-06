@@ -13,6 +13,6 @@ class DocumentCreateDialog : DocumentDialogFragment(DialogMode.CREATE) {
                 docModel.date.value,
                 docModel.description.value ?: ""
         )
-        PaneTabs.selectView<DocumentsView>()
+    //    PaneTabs.selectView<DocumentsView>()
     }
 }

@@ -11,7 +11,7 @@ import com.beust.klaxon.Klaxon
 import com.beust.klaxon.KlaxonException
 import java.nio.file.Files
 import java.util.*
-import kotlin.streams.toList
+//import kotlin.streams.toList
 
 data class AnalAccDTO(
         val groupn: String,
@@ -64,21 +64,21 @@ object AccountCache {
 
     val balanceAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountsByNumber.values.stream()
+        get() = accountsByNumber.values//.stream()
                 .filter { it.isBalanced }.toList()
 
     val incomeAccs: List<AnalAcc>
         @Throws(AccException::class)
-        get() = accountsByNumber.values.stream()
+        get() = accountsByNumber.values//.stream()
                 .filter { it.isIncome }.toList()
 
     val dodavatele: List<AnalAcc>
-        get() = accountsByNumber.values.stream()
+        get() = accountsByNumber.values//.stream()
                 .filter { it.syntAccount == Osnova.dodavatele }
                 .toList()
 
     val pokladny: List<AnalAcc>
-        get() = accountsByNumber.values.stream()
+        get() = accountsByNumber.values//.stream()
                 .filter { it.syntAccount == Osnova.pokladna }
                 .toList()
 

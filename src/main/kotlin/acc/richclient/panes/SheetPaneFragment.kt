@@ -26,7 +26,7 @@ open class SheetPaneFragment() : Fragment() {
 
     val tableView = tableview<StatItem>(Statement()
             .createItemList(sheet, month.value, includeSyntAccount)
-            .observable()) {
+            .asObservable()) {
         prefHeight = Options.prefTableHeight
 
         readonlyColumn(Messages.Poradi.cm(), StatItem::order).weightedWidth(orderw)

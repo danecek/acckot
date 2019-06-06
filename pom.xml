@@ -8,8 +8,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <kotlin.version>1.3.20</kotlin.version>
-        <tornadofx.version>1.7.17</tornadofx.version>
+        <kotlin.version>1.3.31</kotlin.version>
+        <tornadofx.version>1.7.19</tornadofx.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <main.class>acc.AccApp</main.class>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
-            <version>1.3.20</version>
+            <version>1.3.31</version>
         </dependency>
         <dependency>
             <groupId>com.beust</groupId>
@@ -49,27 +49,27 @@
         <dependency>
             <groupId>org.jetbrains.exposed</groupId>
             <artifactId>exposed</artifactId>
-            <version>0.10.4</version>
+            <version>0.14.1</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.197</version>
+            <version>1.4.199</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>18.0</version> <!-- or 23.5-android for the Android flavor -->
+            <version>27.1-jre</version> <!-- or 23.5-android for the Android flavor -->
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.6.1</version>
+            <version>2.11.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.6.1</version>
+            <version>2.11.2</version>
         </dependency>
         <!-- dependency>
             <groupId>org.openjfx</groupId>

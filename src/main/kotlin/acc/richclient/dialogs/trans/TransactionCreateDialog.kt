@@ -14,6 +14,6 @@ class TransactionCreateDialog() : TransactionDialogFragment(DialogMode.CREATE) {
                 transModel.relatedDocument.value
         )
         PaneTabs.clearIncomeAndBalance()
-        PaneTabs.selectView<TransactionsView>()
+       // PaneTabs.selectView<TransactionsView>()
     }
 }

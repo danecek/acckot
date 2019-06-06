@@ -21,7 +21,7 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
 
     override val closeable = SimpleBooleanProperty(false)
 
-    val tableView = tableview(mutableListOf<Document>().observable()) {
+    val tableView = tableview(mutableListOf<Document>().asObservable()) {
         prefHeight = Options.prefTableHeight
         selectionModel.selectionMode = SelectionMode.SINGLE
         readonlyColumn(Messages.Poradi.cm(), Document::id).weightedWidth(idWidth)
@@ -87,6 +87,7 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
             accFail(it)
         } ui {
             tableView.items.setAll(it)
+            PaneTabs.selectView<DocumentsView>()
         }
     }
 }

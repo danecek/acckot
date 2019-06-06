@@ -62,13 +62,13 @@ abstract class AccountDialogFragment(private val mode: DialogMode) : Fragment() 
                             radiobutton(Messages.Hlavni.cm(), tg) {
                                 isSelected = true
                                 action {
-                                    cb.items = Osnova.mainSyntAccounts.observable()
+                                    cb.items = Osnova.mainSyntAccounts.asObservable()
                                 }
 
                             }
                             radiobutton(Messages.Vsechny.cm(), tg) {
                                 action {
-                                    cb.items = Osnova.syntAccounts.observable()
+                                    cb.items = Osnova.syntAccounts.asObservable()
                                 }
 
                             }

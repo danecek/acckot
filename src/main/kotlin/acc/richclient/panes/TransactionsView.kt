@@ -17,7 +17,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
 
     override val closeable = SimpleBooleanProperty(false)
 
-    val tw = tableview(mutableListOf<Transaction>().observable()) {
+    val tw = tableview(mutableListOf<Transaction>().asObservable()) {
         prefHeight = Options.prefTableHeight
         readonlyColumn(Messages.Poradi.cm(), Transaction::id).weightedWidth(idWidth)
         column<Transaction, String>(Messages.Doklad.cm()) { t ->
@@ -103,6 +103,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
             accFail(it)
         } ui {
             tw.items.setAll(it)
+            PaneTabs.selectView<TransactionsView>()
         }
     }
 

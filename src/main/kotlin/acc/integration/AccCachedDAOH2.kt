@@ -118,7 +118,6 @@ object AccCachedDAOH2 : DocumentDAOInterface, TransDAOInterface {
                 it[this.date] = toDateTime(date)
                 it[this.description] = description
             }.value
-
         }
     }
 

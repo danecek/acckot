@@ -14,6 +14,5 @@ class AccountCreateDialog : AccountDialogFragment(DialogMode.CREATE) {
                 accModel.name.value ?: "",
                 accModel.initAmount.value
         )
-        PaneTabs.selectView<AccountsView>()
     }
 }
