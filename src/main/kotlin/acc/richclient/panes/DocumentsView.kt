@@ -43,7 +43,6 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
                 action {
                     tornadofx.find<TransactionsView>().transFilter =
                             TransactionFilter(doc = selectedItem)
-                    PaneTabs.selectView(TransactionsView::class)
                 }
             }
             item(Messages.Zmen_doklad.cm()) {
@@ -87,7 +86,7 @@ open class DocumentsView : View(Messages.Doklady.cm()) {
             accFail(it)
         } ui {
             tableView.items.setAll(it)
-            PaneTabs.selectView(DocumentsView::class)
+            PaneTabs.self.docsTab.select()
         }
     }
 }

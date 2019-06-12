@@ -1,20 +1,26 @@
 package acc.richclient.panes
 
-import acc.model.UnpaidInvoicesFilter
+import javafx.application.Platform
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import tornadofx.*
-import kotlin.reflect.KClass
 
 class PaneTabs : View() {
 
+    lateinit var accsTab: Tab
+    lateinit var docsTab: Tab
+    lateinit var transTab: Tab
+
     override val root = tabpane() {
-        tab<AccountsView>()
-        tab<DocumentsView>()
-        tab<TransactionsView>()
+        accsTab = tab<AccountsView>()
+        docsTab = tab<DocumentsView>()
+        transTab = tab<TransactionsView>()
     }
 
     companion object {
+
+        val self
+                get() = find<PaneTabs>()
 
         fun addTab(text: String, node: Node) {
             val t = Tab(text, node)
@@ -22,22 +28,17 @@ class PaneTabs : View() {
             t.select()
         }
 
-        fun showUnpaidInvoicesPane() {
-            with(find<DocumentsView>()) {
-                docFilter = UnpaidInvoicesFilter
-                update()
+        fun syncSelf(block: PaneTabs.() -> Unit) {
+            Platform.runLater {
+                block(find<PaneTabs>())
             }
         }
 
-        fun selectView(clazz: KClass<*>) {
-            find<PaneTabs>().root.tabs.find {
-                it.content::class ==clazz
-            }?.select()
-        }
-
         fun clearIncomeAndBalance() {
-            find<PaneTabs>().root.tabs.removeIf {
-                it.content is BalancePane || it.content is IncomePane
+            syncSelf {
+                root.tabs.removeIf {
+                    it.content is BalancePane || it.content is IncomePane
+                }
             }
         }
     }

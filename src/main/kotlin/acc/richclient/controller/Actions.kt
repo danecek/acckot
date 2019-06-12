@@ -3,6 +3,7 @@ package acc.richclient.controller
 import acc.model.AnalAcc
 import acc.model.DocType
 import acc.model.Document
+import acc.model.UnpaidInvoicesFilter
 import acc.richclient.dialogs.BalanceShowDialog
 import acc.richclient.dialogs.accounts.AccountDeleteDialog
 import acc.richclient.dialogs.accounts.AccountUpdateDialog
@@ -74,7 +75,7 @@ object IncomeCreateAction : SheetAction(Messages.Zisky_a_ztraty)
 
 object ShowUnpaidInvocesAction : AbstrAction(Messages.Zobraz_nezaplacene_faktury.cm()) {
     override fun execute() {
-        PaneTabs.showUnpaidInvoicesPane()
+        find<DocumentsView>().docFilter = UnpaidInvoicesFilter// setter
     }
 }
 
@@ -89,7 +90,10 @@ object ClearTransFilterAction : AbstrAction(Messages.Zobraz_vsechny_transakce.cm
 
     override fun execute() {
         find<TransactionsView>().transFilter = null
-        PaneTabs.selectView(TransactionsView::class)
+        PaneTabs.self.transTab.select()
+//        PaneTabs.syncSelf {
+//            transTab.select()
+//        }
     }
 }
 
@@ -115,7 +119,11 @@ object ClearDocFilterAction : AbstrAction(Messages.Zobraz_vsechny_doklady.cm()) 
 
     override fun execute() {
         find<DocumentsView>().docFilter = null
-        PaneTabs.selectView(DocumentsView::class)
+
+        PaneTabs.syncSelf {
+            docsTab.select()
+        }
+
     }
 }
 

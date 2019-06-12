@@ -1,19 +1,22 @@
 package acc
 
 import acc.richclient.dialogs.ConfigInitDialog
+import javafx.scene.paint.Color
+import javafx.scene.text.FontPosture
+import javafx.scene.text.FontWeight
 import tornadofx.*
 
 
 class Styles : Stylesheet() {
     companion object {
         val root by cssclass()
-/*        val welcomeScreen by cssclass()
+        val welcomeScreen by cssclass()
         val content by cssclass()
         val heading by cssclass()
         val tabPane by cssclass()
         val control by cssclass()
         val textField by cssclass()
-        val comboBox by cssclass()*/
+        val comboBox by cssclass()
     }
 
     init {
@@ -23,6 +26,41 @@ class Styles : Stylesheet() {
             // prefHeight = Options.rootPrefHeight.px
 
         }
+        textField {
+            backgroundColor = multi(Color.AQUA, Color.RED)
+        }
+        label {
+            fontStyle = FontPosture.ITALIC
+            fontWeight = FontWeight.BOLD
+        }
+
+        viewport {
+            barFill = Color.BLUE
+        }
+        tabPane{
+
+        }
+
+        dialogPane {
+
+
+            backgroundColor = multi(Color.YELLOW)
+            baseColor = Color.BLUE
+            fill = Color.BLUE
+            barFill = Color.BLUE
+        }
+
+        button {
+            fill = Color.RED
+        }
+
+        buttonBar {
+            backgroundColor = multi(Color.YELLOW)
+            baseColor = Color.BLUE
+            fill = Color.RED
+            barFill = Color.GREEN
+        }
+
         /*
 form {
 fontSize = accFontSize.px

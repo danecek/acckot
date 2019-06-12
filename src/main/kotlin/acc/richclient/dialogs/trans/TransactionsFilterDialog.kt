@@ -64,10 +64,10 @@ class TransactionsFilterDialog : Fragment() {
                         button(Messages.Potvrd.cm()) {
                             enableWhen(transFilterModel.valid)
                             action {
-                                tornadofx.find<TransactionsView>().transFilter =
+                                find<TransactionsView>().transFilter =
                                         TransactionFilter(transFilterModel.from.value, transFilterModel.tto.value,
                                                 transFilterModel.acc.value, transFilterModel.doc.value)
-                                PaneTabs.selectView(TransactionsView::class)
+                                //PaneTabs.selectView(TransactionsView::class)
                                 close()
                             }
                         }

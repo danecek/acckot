@@ -9,7 +9,7 @@ import acc.util.Messages
 import tornadofx.*
 
 
-class MainView : View(Messages.Ucetnictvi.cm().plus(" ").plus(ConfigInitDialog.year)) {
+class MainView : View("${ConfigInitDialog.dataFolder}/${ConfigInitDialog.year}") {
 
     override val root = borderpane {
         top<AccMenuBar>()

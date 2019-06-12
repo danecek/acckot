@@ -103,7 +103,7 @@ class TransactionsView : View(Messages.Transakce.cm()) {
             accFail(it)
         } ui {
             tw.items.setAll(it)
-            PaneTabs.selectView(TransactionsView::class)
+            PaneTabs.self.transTab.select()
         }
     }
 

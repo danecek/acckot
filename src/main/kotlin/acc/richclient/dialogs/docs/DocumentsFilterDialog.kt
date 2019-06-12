@@ -3,8 +3,10 @@ package acc.richclient.dialogs.docs
 import acc.model.DocFilter
 import acc.model.DocType
 import acc.richclient.panes.DocumentsView
-import acc.richclient.panes.PaneTabs
-import acc.util.*
+import acc.util.DayMonthConverter
+import acc.util.Messages
+import acc.util.fxAlert
+import acc.util.withColon
 import javafx.beans.property.SimpleBooleanProperty
 import tornadofx.*
 
@@ -65,17 +67,15 @@ class DocumentsFilterDialog : Fragment() {
                             if (ms.isEmpty())
                                 Messages.Alespon_jeden_typ_musi_byt_vybran.fxAlert()
                             else {
-                                with(find<DocumentsView>()) {
-                                    docFilter = DocFilter(ms,
-                                            docFilterModel.from.value,
-                                            docFilterModel.tto.value)
-                                    update()
-                                }
-                                PaneTabs.selectView(DocumentsView::class)
+                                find<DocumentsView>().docFilter = DocFilter(ms,
+                                        docFilterModel.from.value,
+                                        docFilterModel.tto.value)
+
                                 close()
                             }
                         }
                     }
+
                     button(Messages.Zrus.cm()) {
                         action {
                             close()

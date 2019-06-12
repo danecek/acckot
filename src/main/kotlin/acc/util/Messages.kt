@@ -53,6 +53,7 @@ enum class Messages {
     Neni_vyberan_zadny_doklad,
     Neexistuje_pozadovany_analyticky_ucet,
     Neplatna_velikost,
+    Neni_ucetni_adresar,
     Neplatna_castka,
     Neplatny_rok,
     Nezaplacene_faktury,
@@ -108,6 +109,7 @@ enum class Messages {
     Zmen_transakci,
     Zmen_ucet,
 
+
     Zobraz_nezaplacene_faktury,
     Zobraz_vsechny_doklady,
     Zobraz_vsechny_transakce,
@@ -120,7 +122,7 @@ enum class Messages {
     Zrus_doklad,
     Zrus_transakci,
     Zrus_ucet,
-    Zvol_adresar
+    Zvol_ucetni_adresar
     ;
 
     fun cm(vararg args: Any): String {

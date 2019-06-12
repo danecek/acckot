@@ -5,6 +5,7 @@ import acc.util.Messages
 import acc.util.withColon
 import javafx.beans.property.SimpleStringProperty
 import tornadofx.*
+import java.io.File
 import java.nio.file.Paths
 import java.time.LocalDate
 import java.time.Year
@@ -44,7 +45,6 @@ class ConfigInitDialog : View(Messages.Nastaveni.cm()) {
                     app.config.string("dataFolder", dataFolder))
     private val vm = ViewModel()
 
-
     override val root = form {
         // prefWidth = 1000.0
         fieldset {
@@ -52,16 +52,26 @@ class ConfigInitDialog : View(Messages.Nastaveni.cm()) {
             field(Messages.Adresar_s_daty.cm().withColon) {
                 hbox {
                     spacing = 10.0
-                    val tf = textfield(dataFolderProp) {
-                        prefColumnCount = dataFolderProp.value.length
+                    vm.addValidator(textfield(dataFolderProp) {
+                        prefColumnCount = 30
+                    }, dataFolderProp){
+                        if (File(dataFolderProp.value).listFiles()?.all {
+                                    it.nameWithoutExtension.startsWith("ucty") ||
+                                            it.nameWithoutExtension.startsWith("ucetnidata")
+                                }?:true)
+                            null
+                        else error(Messages.Neni_ucetni_adresar.cm())
                     }
-                    button(Messages.Zvol_adresar.cm()) {
+                    button(Messages.Zvol_ucetni_adresar.cm()) {
                         action {
-                            tf.text = chooseDirectory {
-                            }.toString()
+                            chooseDirectory()?.run {
+                                    dataFolderProp.value = toString()
+                            }
                         }
                     }
+
                 }
+
             }
             field(Messages.Rok.cm().withColon) {
                 vm.addValidator(textfield(yearProp), yearProp) {

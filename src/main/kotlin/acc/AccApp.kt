@@ -19,6 +19,14 @@ class AccApp : App(ConfigInitDialog::class, Styles::class) {
         }
         reloadStylesheetsOnFocus()
     }
+
+    override fun stop() {
+       try {
+           super.stop()
+       } catch (ex:Exception){
+           println(ex)
+       }
+    }
 }
 
 fun main(args: Array<String>) {
